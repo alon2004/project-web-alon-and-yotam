@@ -4,6 +4,7 @@
 <head>
     <title>Alon Fisher - Javascript Ex.3</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script type="module" src="./js/index.js"></script>
 
 </head>
 
@@ -29,7 +30,20 @@
         <hr>
     </header>
     <main>
+    <h1>Reports map</h1>
+    <section id="wrapper">
+        <div id="map"></div>
+    </section>
     </main>
+    <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+        ({key: "AIzaSyAm1qFZMz5u1D0q2EeVKTXa5362_SqKa88", v: "weekly"});</script>
 </body>
+<footer>
+    <section id="mobile_footer">
+        <img src="./imges/worldIcon.png" alt="map">
+        <img src="./imges/addIcon.png" alt="add report">
+        <img src="./imges/scanIcon.png" alt="scan chip">
+    </section>
+</footer>
 
 </html>
