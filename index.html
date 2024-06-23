@@ -1,21 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>PawLink - New Lost Report</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="js/scripts.js"></script>
-    <title>New Lost Report</title>
 </head>
 <body>
     <header>
-       <!-- navbar class with toggle to fit all sizes of phone --> 
-        <nav>
-
+        <nav class="d-flex justify-content-between align-items-center py-3 w-100">
+            <button class="btn btn-light" id="menu-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">☰</button>
+            <div class="logo d-flex align-items-center">
+                <img src="images/PawLinkNavLogo.svg" alt="PawLink Logo" class="logo-img img-fluid">
+                <span>Connecting to rescue more</span>
+            </div>
+            <img src="images/PawLinkUserPhoto.svg" alt="User Photo" class="user-img rounded-circle img-fluid">
         </nav>
     </header>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasMenuLabel">Menu</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="list-unstyled">
+                <li><a href="#" class="nav-link">Map</a></li>
+                <li><a href="#" class="nav-link">Add report</a></li>
+                <li><a href="#" class="nav-link">Scan chip</a></li>
+                <li><a href="#" class="nav-link">My report</a></li>
+                <li><a href="#" class="nav-link">Massages</a></li>
+
+            </ul>
+        </div>
+    </div>
     <main>
         <section id = "lostPetFormContainer">
 
