@@ -1,0 +1,32 @@
+{  
+ "LostPets": [ 
+ { 
+ "userName": "Sara Hadasa", 
+ "city": "Pardes Hana", 
+ "UpdateDay": "20",
+ "UpdateMonth": "04",
+ "UpdateYear": "2024",
+ "category": "Lost Pet",
+ "userImage":"../imges/Owners/saraHadasa.jpg"
+ },
+ { 
+ "userName": "Oded Papo", 
+ "city": "Pardes Hana", 
+ "UpdateDay": "18",
+ "UpdateMonth": "03",
+ "UpdateYear": "2024",
+ "category": "Lost Pet",
+ "userImage":"../imges/Owners/OdedPapo.jpg"
+ },
+ { 
+ "userName": "Shahar Fisher", 
+ "city": "Hadera", 
+ "UpdateDay": "20",
+ "UpdateMonth": "02",
+ "UpdateYear": "2024",
+ "category": "Lost Pet",
+ "userImage":"../imges/Owners/shaharFisher.jpg"
+ }
+ ] 
+
+}

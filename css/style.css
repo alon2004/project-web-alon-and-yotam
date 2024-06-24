@@ -10,11 +10,20 @@ body {
     font-family: Helvetica, sans-serif;
 }
 
+
+header{
+    position:sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
     height: 80px;
     width: 100%;
+    z-index: 1;
 }
 
 nav label.logo {
@@ -102,6 +111,7 @@ nav section#userImge {
     width: 80px;
     height: 80px;
     border-radius: 50%;
+    flex-shrink: 0;
     background-image: url("../imges/user1.jpg");
     background-size: contain;
     background-repeat: no-repeat;
@@ -130,7 +140,7 @@ body#wrapper {
 
 
  #map {
-    height: calc(100vh - 80px);
+    height: calc(100vh - 150px);
     margin-right: 20px;
     margin-left: 20px;
     border-radius: 5%;
@@ -138,42 +148,129 @@ body#wrapper {
   }
 
   footer {
-    display: flex;
+    display: none;
+    position: sticky;
+    z-index: 1000;
+    bottom: 0;
     justify-content: center;
     background: #E9ECEF;
     padding: 10px 20px;
     margin-top: 20px;
 }
-footer img{
+footer a img{
     width: 30px;
     height: 30px;
 }
-footer img:not(:first-child) {
-    margin-left: 300px;
+footer a:not(:first-child) {
+    margin-left: 150px;
 }
 
-footer img:not(:first-child,:last-child) {
+footer a#middle img {
+    width: 40px;
+    height: 40px;
+}
+footer a.notActive img{
+    opacity: 0.3;
+}
+
+body section#ListReports{
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+body section#ListReports section.report{
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-left: 10px;
+    padding: 10px 20px;
+    border: 1px solid #E9ECEF;
+    border-radius: 5px;
+    width: calc(100% - 10px);
+    height: 150px;
+    background: white;
+}
+
+body section#ListReports section.report div.userName{
+    background-image: url('../imges/userIcon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 20px;
+    padding-left: 25px;
+    margin-top: 25px;
+    margin-left: 25px;
+}
+body section#ListReports section.report div.userName div.category{
+    background-image: url('../imges/yellowFlag.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-left: 25px;
+    margin-top: 25px;
+}
+body section#ListReports section.report div.location{
+    margin-top: 25px;
+    width: 200px;
+}
+body section#ListReports section.report{
+    justify-content: space-between;
+}
+
+body section#ListReports section.report a.arrow img{
     width: 50px;
     height: 50px;
+    margin-top: 25px;
+    margin-right: 25px;
+}
+body section#ListReports section.report div.lastUpdate{
+    margin-top: 25px;
+    margin-right: 25px;
+
 }
 
-@media (max-width: 952px) {
+body section#ListReports section.report a img{
+    object-fit:cover;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-top: 25px;
+    margin-right: 25px;
+}
+
+body section#ListReports section.report section.user{
+    display: inline-flex;
+    flex-wrap: wrap;
+
+}
+body section#ListReports section.report section.user a{
+    width: 50px;
+
+}
+
+
+
+
+@media (max-width: 1028px) {
     nav label.logo {
-        font-size: 30px;
-        padding-left: 20px;
+        font-size: 15px;
     }
-
     nav ul li a {
-        font-size: 16px;
-
+        font-size: 10px;
+        padding: 7px 5px;
     }
-
+    a#logo_container {
+        width: 300px;
+    }
+    
+    
+    
 }
 
-@media (max-width: 858px) {
+@media (max-width: 768px) {
     nav label.logo {
         font-size: 20px;
-        padding: 5px;
+    }
+    a#logo_container {
+        width: 500px;
     }
 
     nav label.checkbtn {
@@ -213,10 +310,11 @@ footer img:not(:first-child,:last-child) {
     nav ul li a {
         display: inline-flex;
         text-align: start;
-        width: 300px;
+        width: 500px;
         height: auto;
-        font-size: 20px;
+        font-size: 15px;
         margin-top: 8px;
+        padding: 7px 100px;
     }
 
     nav ul li a img{
@@ -240,7 +338,79 @@ footer img:not(:first-child,:last-child) {
         height: 70px;
         flex-shrink: 0;
     }
-    footer img:not(:first-child) {
-        margin-left: 150px;
+    footer{
+        display: flex;
     }
+
+    body section#ListReports section.report div.userName{
+        font-size: 15px;
+        width: 150px;
+        height: 20px;
+    }
+    body section#ListReports section.report div.lastUpdate{
+        font-size: 15px;
+    }
+    body section#ListReports section.report div.location{
+        font-size: 15px;
+        width: 110px;
+    }
+
+
+}
+
+@media (max-width: 620px) {
+    nav label.logo {
+        font-size: 13px;
+    }
+    nav ul li a {
+        font-size: 15px;
+    }
+    nav section#userImge {
+        width: 50px;
+        height: 50px;
+        margin-right: 5px;
+        margin-top: 20px;
+    }
+
+    footer a:not(:first-child) {
+        margin-left: 70px;
+    }
+
+    body section#ListReports section.report div.userName{
+        font-size: 12px;
+        width: 120px;
+        height: 20px;
+    }
+    body section#ListReports section.report div.lastUpdate{
+        font-size: 12px;
+    }
+    body section#ListReports section.report div.location{
+        font-size: 12px;
+        width: 110px;
+        display: none;
+    }
+    body section#ListReports section.report a.arrow img{
+        width: 15px;
+        height: 25px;
+        object-fit:cover
+    }
+
+    body section#ListReports section.report section.user a img{
+        width: 60px;
+        height: 60px;
+    }
+    
+}
+
+@media (max-width: 420px){
+    body section#ListReports section.report div.location{
+        display: none;
+    }
+    body section#ListReports section.report section.user{
+        margin-left: 0px;
+    }
+    body section#ListReports section.report div.lastUpdate{
+        display: none;
+    }
+
 }
