@@ -1,32 +1,40 @@
-{  
- "LostPets": [ 
- { 
- "userName": "Sara Hadasa", 
- "city": "Pardes Hana", 
- "UpdateDay": "20",
- "UpdateMonth": "04",
- "UpdateYear": "2024",
- "category": "Lost Pet",
- "userImage":"../imges/Owners/saraHadasa.jpg"
- },
- { 
- "userName": "Oded Papo", 
- "city": "Pardes Hana", 
- "UpdateDay": "18",
- "UpdateMonth": "03",
- "UpdateYear": "2024",
- "category": "Lost Pet",
- "userImage":"../imges/Owners/OdedPapo.jpg"
- },
- { 
- "userName": "Shahar Fisher", 
- "city": "Hadera", 
- "UpdateDay": "20",
- "UpdateMonth": "02",
- "UpdateYear": "2024",
- "category": "Lost Pet",
- "userImage":"../imges/Owners/shaharFisher.jpg"
- }
- ] 
-
+{
+    "Pets": [
+        {
+            "userName": "Sara Hadasa",
+            "city": "Pardes Hana",
+            "UpdateDay": "20",
+            "UpdateMonth": "04",
+            "UpdateYear": "2024",
+            "category": "Lost Pet",
+            "userImage": "../imges/Owners/saraHadasa.jpg",
+            "lat": 32.475577192454615,
+            "lng": 34.97784888658044,
+            "id": ""
+        },
+        {
+            "userName": "Oded Papo",
+            "city": "Pardes Hana",
+            "UpdateDay": "18",
+            "UpdateMonth": "03",
+            "UpdateYear": "2024",
+            "category": "Lost Pet",
+            "userImage": "../imges/Owners/OdedPapo.jpg",
+            "lat": 32.47671755491387,
+            "lng": 34.97566014884425,
+            "id": ""
+        },
+        {
+            "userName": "Shahar Fisher",
+            "city": "Hadera",
+            "UpdateDay": "20",
+            "UpdateMonth": "02",
+            "UpdateYear": "2024",
+            "category": "Distress Pet",
+            "userImage": "../imges/Owners/shaharFisher.jpg",
+            "lat": 32.47540517593087,
+            "lng": 34.97615374211487,
+            "id": ""
+        }
+    ]
 }

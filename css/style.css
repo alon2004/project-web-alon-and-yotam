@@ -246,6 +246,21 @@ body section#ListReports section.report section.user a{
 
 }
 
+.roundImg{
+    object-fit:cover;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.gm-style-iw-d{
+    width: 100px;
+    height: 100px;
+    justify-content: center;
+    text-align: center;
+
+}
+
 
 
 
