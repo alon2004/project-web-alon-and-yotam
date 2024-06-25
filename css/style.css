@@ -1,11 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-   }
-   header, main, footer, nav, section {
-    display: block;
-   }
-   /* Ensure the user image is on the right side */
+/* Ensure the user image is on the right side */
 header {
     border-bottom: 1px solid #dee2e6;
 }
@@ -202,9 +195,41 @@ form label.d-block {
 }
 /*---------------------------------------------------------------------------- */
 
+
 /*MEDIA QUERRY TO MAKE THE DEKTOP NAVBAR RESPONSIVE */
 @media (min-width: 992px) { /* Apply only for desktop dimensions */
     .d-flex.justify-content-between.align-items-center.py-3.w-100 > :last-child {
         margin-left: 2.5rem; /* Adjust the value as needed */
     }
 }
+
+
+/* CSS for the side bar navbar. */
+@media (max-width: 991px) { /* Apply only for mobile */
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo-img {
+        margin-right: 0;
+    }
+    .offcanvas-body ul li {
+        padding: 0.75rem 1rem; /* Adjust padding for better touch targets */
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .offcanvas-body ul li:first-child {
+        margin-top: 1rem; /* Adjust margin for better spacing */
+    }
+
+    .offcanvas-body ul li a {
+        color: #000;
+        text-decoration: none;
+        font-size: 1.25rem; /* Adjust font size for readability */
+        display: flex;
+        align-items: center;
+    }
+}
+/* ----------------------------------------------------------- */
