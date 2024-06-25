@@ -7,6 +7,7 @@
     <title>PawLink - New Lost Report</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/index.js"></script>
 </head>
 <body>
     <header>
@@ -146,7 +147,9 @@
                 </div>
                 <div class="mb-2">
                     <label class="form-label">Place a flag (for radius)</label>
-                    <div id="map" class="w-100"></div>
+                    <div id="map" class="w-100">
+                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVYTvN9OpYmd5cTevsZlT5jNflopxYmc4&callback=initMap" async defer></script>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="more-info" class="form-label">More Information</label>
