@@ -36,12 +36,42 @@
         </div>
     </div>
     <main>
-        <section id = "lostPetFormContainer">
+        <section class="container mt-4">
+            <h1 class="text-start">New Lost Report</h1>
+            <form id="lost-report-form">
+                <div class="mb-3">
+                    <label for="pet-name" class="form-label">Pet Name *</label>
+                    <input type="text" class="form-control" id="pet-name" value="Tessa" required>
+                </div>
+                <div class="mb-3">
+                    <label for="pet-chip-num" class="form-label">Pet Chip Number *</label>
+                    <input type="text" class="form-control" id="pet-chip-num" value="987-XXX-XXX" required>
+                </div>
+                <fieldset class="mb-3">
+                    <legend class="form-label">Pet Behavior *</legend>
+                    <div class="d-flex justify-content-between align-items-center flex-wrap">
+                        <div class="text-center mb-2">
+                            <img src="images/barkingIcon.svg" alt="Barking behavior icon" class="icon img-fluid">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input mt-2" id="barking" checked>
+                            </div>
+                        </div>
+                        <div class="text-center mb-2">
+                            <img src="images/barkingIcon.svg" alt="Biting behavior icon" class="icon img-fluid">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input mt-2" id="biting">
+                            </div>
+                        </div>
+                        <div class="text-center mb-2">
+                            <img src="images/afraidIcon.svg" alt="Afraid behavior icon" class="icon img-fluid">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input mt-2" id="afraid">
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-light mb-2" id="more-button">More</button>
+                    </div>
+                </fieldset>
 
-            <div id = "lostPetMapContainer">
-
-            </div>
-        </section>
     </main>
 </body>
 <div id ="acceptButton"></div>
