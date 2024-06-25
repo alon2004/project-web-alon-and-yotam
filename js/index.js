@@ -13,7 +13,20 @@ window.onload = () => {
   fetch("../data/data.json")
     .then(response => response.json())
     .then(data => InitMarkerOnMap(data))
+
+  fetch("../data/data.json")
+    .then(response => response.json())
+    .then(data => CurrentUser(data))
+
+  addEventListener("click", (e) => {
+    if (e.target.classList.contains("delete")) {
+      deleteReport();
+    }
+  });
+
 }
+
+// מפה
 
 let map;
 async function initMap() {
@@ -36,42 +49,72 @@ async function initMap() {
 
 function InitMarkerOnMap(data) {
   for (const report of data.Pets) {
-    const position = { lat: report.lat, lng: report.lng };
-    const iconMap =
-    {
-      path: "M-1.547 12l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM0 0q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z",
-      fillColor: checkCategory(report.category),
-      fillOpacity: 0.8,
-      strokeWeight: 0,
-      rotation: 0,
-      scale: 2
+    const geocoder = new google.maps.Geocoder();
+    const address = report.address;
+    let marker = new google.maps.Marker();
+    geocoder.geocode({ address: address }, (results, status) => {
+      if (status === "OK") {
+        const iconMap =
+        {
+          path: "M-1.547 12l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM0 0q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z",
+          fillColor: checkCategory(report.category),
+          fillOpacity: 0.8,
+          strokeWeight: 0,
+          rotation: 0,
+          scale: 2
 
-    };
-    const marker = new google.maps.Marker({
-      position: position,
-      map: map,
-      title: report.userName,
-      icon: iconMap,
-      Animation: google.maps.Animation.DROP
-    });
-    const infoWindow = new google.maps.InfoWindow({
-      content: `<a href=${report.id}><img src="${report.userImage}" alt="UserImage" class="roundImg"></a> <h3>${report.category}</h3>`
-    });
-    marker.addListener("click", () => {
-      infoWindow.open(map, marker);
-    });
-  }
+        };
+        marker = new google.maps.Marker({
+          position: results[0].geometry.location,
+          map: map,
+          title: report.userName,
+          icon: iconMap,
+          Animation: google.maps.Animation.DROP,
+        });
+        let infoWindow = new google.maps.InfoWindow;
+        if (`${data.currentUser.userId}` === `${report.userId}`) {
+          infoWindow = new google.maps.InfoWindow({
+            content: `<a href=${report.id}><img src="${report.userImage}" alt="UserImage" class="roundImg"></a> <h3>${report.category}</h3> <button class="delete">Delete</button>`
+          });
+        }
+        else {
+          infoWindow = new google.maps.InfoWindow({
+            content: `<a href=${report.id}><img src="${report.userImage}" alt="UserImage" class="roundImg"></a> <h3>${report.category}</h3>`
+          });
+        }
+        marker.addListener("click", () => {
+          infoWindow.open(map, marker);
+        });
 
-  function checkCategory(category) {
-    if (category === "Lost Pet") {
-      return "orange";
-    }
-    if (category === "Distress Pet") {
-      return "red";
-    }
+      }
+      else {
+        alert("Geocode was not successful for the following reason: " + status);
+      }
+    });
   }
 }
 
+
+  //סוף מפה
+
+function checkCategory(category) {
+  if (category === "Lost Pet") {
+    return "orange";
+  }
+  if (category === "Distress Pet") {
+    return "red";
+  }
+}
+
+function CurrentUser(data) {
+  let user = document.getElementById("userImge");
+  let a = document.createElement("a");
+  a.href = "#";
+  let img = document.createElement("img");
+  img = `<img src="${data.currentUser.userImage}" alt="userImage id="${data.currentUser.id}">`;
+  a.innerHTML += img;
+  user.appendChild(a);
+}
 
 
 function initList(data) {
@@ -92,7 +135,7 @@ function initList(data) {
     let UserName = `<h3>${report.userName}</h3>`;
     divUserName.innerHTML += UserName;
     let divCategory = document.createElement("div");
-    divCategory.classList.add("category");
+    divCategory.classList.add(witchCategory(report.category));
     let reportCategory = `<p>${report.category}</p>`;
     divCategory.innerHTML += reportCategory;
     divUserName.appendChild(divCategory);
@@ -111,11 +154,26 @@ function initList(data) {
     let reportLastUpdate = LastUpdat(report.UpdateDay, report.UpdateMonth, report.UpdateYear);
     let lastUpdate = `<h3>${reportLastUpdate}</h3>`;
     divLastUpdate.innerHTML += lastUpdate;
+    if (data.currentUser.userId === report.userId) {
+      let buttonDelete = document.createElement("button");
+      buttonDelete.classList.add("delete");
+      buttonDelete.innerHTML = "Delete";
+      divUserName.appendChild(buttonDelete);
+    }
     section.appendChild(sectionUser);
     section.appendChild(divLastUpdate);
     section.appendChild(divLocation);
     section.appendChild(aArrowIcon);
     ul.appendChild(section);
+  }
+}
+
+function witchCategory(category) {
+  if (category === "Lost Pet") {
+    return "Ycategory";
+  }
+  if (category === "Distress Pet") {
+    return "Rcategory";
   }
 }
 
@@ -135,6 +193,10 @@ function LastUpdat(day, month, year) {
     lastUpdate = "Today";
   }
   return lastUpdate;
+}
+
+function deleteReport() {
+  console.log("deleted report");
 }
 
 

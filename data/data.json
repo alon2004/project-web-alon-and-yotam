@@ -8,9 +8,8 @@
             "UpdateYear": "2024",
             "category": "Lost Pet",
             "userImage": "../imges/Owners/saraHadasa.jpg",
-            "lat": 32.475577192454615,
-            "lng": 34.97784888658044,
-            "id": ""
+            "address": "Derech Hanadiv 67-69 Pardes Hanna",
+            "userId": ""
         },
         {
             "userName": "Oded Papo",
@@ -20,9 +19,8 @@
             "UpdateYear": "2024",
             "category": "Lost Pet",
             "userImage": "../imges/Owners/OdedPapo.jpg",
-            "lat": 32.47671755491387,
-            "lng": 34.97566014884425,
-            "id": ""
+            "address": "Derech HaBanim 34, Pardes Hanna Karkur",
+            "userId": ""
         },
         {
             "userName": "Shahar Fisher",
@@ -32,9 +30,26 @@
             "UpdateYear": "2024",
             "category": "Distress Pet",
             "userImage": "../imges/Owners/shaharFisher.jpg",
-            "lat": 32.47540517593087,
-            "lng": 34.97615374211487,
-            "id": ""
+            "address": "snir 5, Hadera",
+            "userId": "1"
+        },
+        {
+            "userName": "Ori Fisher",
+            "city": "Pardes Hana",
+            "UpdateDay": "20",
+            "UpdateMonth": "01",
+            "UpdateYear": "2024",
+            "category": "Distress Pet",
+            "userImage": "../imges/Owners/ori.png",
+            "address": "Derech Hanadiv 78-82, Pardes Hanna Karkur",
+            "userId": ""
         }
-    ]
+    ],
+    "currentUser": {
+        "userName": "Shahar Fisher",
+        "city": "Pardes Hana",
+        "userImage": "../imges/Owners/shaharFisher.jpg",
+        "address": "Derech Hanadiv 78-82, Pardes Hanna Karkur",
+        "userId": "1"
+    }
 }

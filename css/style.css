@@ -106,18 +106,13 @@ nav label.checkbtn {
     display: none;
 }
 
-nav section#userImge {
-    display: block;
+header nav section#userImge a img{
     width: 80px;
     height: 80px;
+    object-fit:cover;
     border-radius: 50%;
-    flex-shrink: 0;
-    background-image: url("../imges/user1.jpg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    float: inline-end;
-    margin-right: 35px;
-    margin-top: 15px;
+    margin-right: 20px;
+    margin-top: 10px;
 }
 
 hr {
@@ -200,13 +195,30 @@ body section#ListReports section.report div.userName{
     margin-top: 25px;
     margin-left: 25px;
 }
-body section#ListReports section.report div.userName div.category{
+.delete{
+    width: 50px;
+    height: 20px;
+    margin-top: 5px;
+    background-color: rgb(223, 83, 83);
+    border-radius: 5px;
+}
+
+body section#ListReports section.report div.userName div.Ycategory{
     background-image: url('../imges/yellowFlag.png');
     background-size: contain;
     background-repeat: no-repeat;
     padding-left: 25px;
     margin-top: 25px;
 }
+
+body section#ListReports section.report div.userName div.Rcategory{
+    background-image: url('../imges/redFlag.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-left: 25px;
+    margin-top: 25px;
+}
+
 body section#ListReports section.report div.location{
     margin-top: 25px;
     width: 200px;
@@ -253,9 +265,11 @@ body section#ListReports section.report section.user a{
     border-radius: 50%;
 }
 
+
+/* קשור למפה לחלונות מידע אחרי שלוחצים על האייקון */
 .gm-style-iw-d{
-    width: 100px;
-    height: 100px;
+    width: 125px;
+    height: 125px;
     justify-content: center;
     text-align: center;
 
