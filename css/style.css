@@ -112,3 +112,99 @@ main {
     opacity: 0;
     cursor: pointer;
 }
+
+.custom-file-label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide overflowing content */
+    text-overflow: ellipsis; /* Add ellipsis to overflowing text */
+    max-width: 100%;
+}
+
+.custom-file-label img {
+    width: 2rem; 
+    height: 2rem; 
+    margin-right: 0.5rem;
+}
+
+.behavior-label {
+    font-family: 'Inter', sans-serif; /* Inter */
+    font-weight: bold; /* Bold */
+    font-size: 12px; /* 12px */
+    margin-top: 0.25rem; /* Margin above the labels */
+}
+
+form label.d-block {
+    font-family: 'Inter', sans-serif; /* Inter */
+    font-weight: bold; /* Bold */
+    font-size: 12px; /* 12px */
+}
+
+.confirmation-container {
+    width: 144px; /* Width of the box */
+    height: 32px; /* Height of the box */
+    background-color: #E8EBED; /* Background color of the box */
+    border-radius: 10px; /* Rounded corners */
+    display: flex; /* Flex display */
+    justify-content: center; /* Horizontal center alignment */
+    align-items: center; /* Vertical center alignment */
+    margin: 0.5rem; /* Margin around the element */
+    margin-bottom: 1.2rem;
+    position: relative; /* Relative positioning */
+}
+
+.confirmation-icon {
+    width: 80%; /* Width of the icon */
+    height: 80%; /* Height of the icon */
+}
+
+.nav-icon {
+    width: 2rem;
+    height: 2rem;
+    margin: 0 0.5rem;
+}
+
+.nav {
+    margin: -0.5rem;
+}
+
+/* HOVER AND SELECTED EFFECTS TO THE DESKTOP NAVBAR */
+.nav-link {
+    color: #000; /* Default color */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+}
+
+.nav-link-wrapper {
+    display: flex;
+    align-items: center;
+    transition: color 1.9 ease, background-color 1.9s ease; /* Smooth transition */
+    border-radius: 5px; /* Optional: add some rounding to the background */
+    padding: 0.4rem 0; /* Padding only on the Y-axis (top and bottom) */
+
+}
+
+.nav-link-wrapper:hover, .nav-link-wrapper:focus, .nav-link-wrapper:active {
+    color: #fff; /* Hover/Active/Focus text color */
+    background-color: #007bff; /* Hover/Active/Focus background color */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.nav-link-wrapper:focus-within {
+    color: #fff; /* Focus within text color */
+    background-color: #007bff; /* Focus within background color */
+    text-decoration: none; /* Remove underline from links */
+    border-radius: 5px; /* Optional: add some rounding to the background */
+}
+/*---------------------------------------------------------------------------- */
+
+/*MEDIA QUERRY TO MAKE THE DEKTOP NAVBAR RESPONSIVE */
+@media (min-width: 992px) { /* Apply only for desktop dimensions */
+    .d-flex.justify-content-between.align-items-center.py-3.w-100 > :last-child {
+        margin-left: 2.5rem; /* Adjust the value as needed */
+    }
+}
