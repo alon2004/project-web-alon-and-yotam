@@ -5,4 +5,110 @@
    header, main, footer, nav, section {
     display: block;
    }
-   
+   /* Ensure the user image is on the right side */
+header {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.logo {
+    font-size: 1.1rem; 
+    font-weight: bold;
+}
+
+.logo-img {
+    width: 5rem; 
+    height: 5rem; 
+    margin-right: 0.625rem; 
+}
+
+.user-img {
+    width: 2.7rem; /* Increase the size of the user photo */
+    height:2.7em; /* Increase the size of the user photo */
+
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+#lost-report-form {
+    margin-top: 0.3rem; 
+    background-color: #E8EBED;
+    padding: 1.25rem; 
+    border-radius: 10px;
+}
+
+#map {
+    width: 100%;
+    height: 10rem; 
+    background-color: #f0f0f0;
+}
+
+footer .btn {
+    width: 3.75rem; 
+    height: 3.75rem; 
+}
+
+.icon {
+    display: block;
+    margin: 0 auto;
+    width: 1.5rem; 
+    height: 1.5rem; 
+}
+
+footer.custom-footer-bg {
+    background-color: #DFE2E5;
+}
+
+footer .btn:hover {
+    background-color: #d3d4d5; 
+}
+
+.container {
+    overflow: hidden; /* Ensures elements stay within the container */
+    padding: 1rem; /* Adds inner gap to avoid slicing */
+}
+
+main {
+    margin-bottom: 2vh;
+    margin-top: 0.125vh;  
+}
+
+/* New CSS for responsive text */
+.text-start {
+    font-size: clamp(1.25rem, 1rem + 1vw, 1.375rem); /* Responsive font size */
+    font-weight: bold; /* Makes the font bold */
+    font-family: 'Inter', sans-serif; /* Set the font family to Inter */
+    font-style: normal;
+    line-height: normal;
+}
+
+.form-label {
+    color: #000; /* Set text color to black */
+    font-family: 'Inter', sans-serif; 
+    font-size: clamp(0.75rem, 1vw + 0.5rem, 1.25rem); /* Responsive font size */
+    font-style: normal; /* Ensures the font style is normal */
+    font-weight: 700; /* Makes the font bold */
+    line-height: normal; /* Sets a normal line height */
+}
+
+.custom-file {
+    position: relative;
+}
+
+.custom-file-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
