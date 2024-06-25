@@ -10,12 +10,47 @@
 </head>
 <body>
     <header>
-        <nav class="d-flex justify-content-between align-items-center py-3 w-100">
-            <button class="btn btn-light" id="menu-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">☰</button>
+        <nav class="d-flex justify-content-between align-items-center py-3 w-100 px-3">
+            <button class="btn btn-light d-lg-none" id="menu-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">☰</button> <!-- Added d-lg-none class -->
             <div class="logo d-flex align-items-center">
+               <a href="index.html">
                 <img src="images/PawLinkNavLogo.svg" alt="PawLink Logo" class="logo-img img-fluid">
-                <span>Connecting to rescue more</span>
+              </a>
+                <span class="logo-text">Connecting to rescue more</span>
             </div>
+            <ul class="nav d-none d-lg-flex gap-2 ms-auto">
+                <li class="nav-item d-flex align-items-center">
+                    <div class="nav-link-wrapper d-flex align-items-center">
+                        <img src="images/globeIcon.svg" alt="Icon 1" class="nav-icon img-fluid me-1">
+                        <a href="#" class="nav-link">MAP</a>
+                    </div>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <div class="nav-link-wrapper d-flex align-items-center">
+                        <img src="images/addIcon.png" alt="Icon 2" class="nav-icon img-fluid me-1">
+                        <a href="#" class="nav-link">ADD REPORT</a>
+                    </div>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <div class="nav-link-wrapper d-flex align-items-center">
+                        <img src="images/scanIcon.png" alt="Icon 3" class="nav-icon img-fluid me-1">
+                        <a href="#" class="nav-link">SCAN CHIP</a>
+                    </div>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <div class="nav-link-wrapper d-flex align-items-center">
+                        <img src="images/reportIcon.png" alt="Icon 4" class="nav-icon img-fluid me-1">
+                        <a href="#" class="nav-link">MY REPORTS</a>
+                    </div>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <div class="nav-link-wrapper d-flex align-items-center">
+                        <img src="images/messagesIcon.png" alt="Icon 5" class="nav-icon img-fluid me-1">
+                        <a href="#" class="nav-link">MESSAGES</a>
+                    </div>
+                </li>
+            </ul>
+            
             <img src="images/PawLinkUserPhoto.svg" alt="User Photo" class="user-img rounded-circle img-fluid">
         </nav>
     </header>
@@ -31,47 +66,80 @@
                 <li><a href="#" class="nav-link">Scan chip</a></li>
                 <li><a href="#" class="nav-link">My report</a></li>
                 <li><a href="#" class="nav-link">Massages</a></li>
-
             </ul>
         </div>
     </div>
-    <main>
-        <section class="container mt-4">
+    <main class="container">
+        <section class="mt-1">
             <h1 class="text-start">New Lost Report</h1>
-            <form id="lost-report-form">
-                <div class="mb-3">
+            <form id="lost-report-form" class="mb-1">
+                <div class="mb-0.7">
                     <label for="pet-name" class="form-label">Pet Name *</label>
                     <input type="text" class="form-control" id="pet-name" value="Tessa" required>
                 </div>
-                <div class="mb-3">
+                <div class="mb-1">
                     <label for="pet-chip-num" class="form-label">Pet Chip Number *</label>
                     <input type="text" class="form-control" id="pet-chip-num" value="987-XXX-XXX" required>
                 </div>
-                <fieldset class="mb-3">
+                <fieldset>
                     <legend class="form-label">Pet Behavior *</legend>
                     <div class="d-flex justify-content-between align-items-center flex-wrap">
                         <div class="text-center mb-2">
                             <img src="images/barkingIcon.svg" alt="Barking behavior icon" class="icon img-fluid">
+                            <label for="barking" class="d-block">Barking</label>
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input mt-2" id="barking" checked>
                             </div>
                         </div>
-                        <div class="text-center mb-2">
-                            <img src="images/barkingIcon.svg" alt="Biting behavior icon" class="icon img-fluid">
+                        <div class="text-center mb-1">
+                            <img src="images/bitingIcon.svg" alt="Biting behavior icon" class="icon img-fluid">
+                            <label for="biting" class="d-block">Biting</label>
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input mt-2" id="biting">
                             </div>
                         </div>
                         <div class="text-center mb-2">
                             <img src="images/afraidIcon.svg" alt="Afraid behavior icon" class="icon img-fluid">
+                            <label for="afraid" class="d-block">Afraid</label>
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input mt-2" id="afraid">
                             </div>
                         </div>
-                        <button type="button" class="btn btn-light mb-2" id="more-button">More</button>
+                        <button type="button" class="btn btn-light" id="more-button">More</button>
                     </div>
                 </fieldset>
-
+                <div class="mb-1">
+                    <label for="photos" class="form-label">Add Photos (at least 1) *</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="photos" multiple required>
+                        <label class="custom-file-label" for="photos">
+                            <img src="images/addPhotoIcon.svg" alt="Choose file icon"><small class="form-text text-muted">Tessa1.JPG, Tessa2.JPG, Tessa3.JPG</small>
+                        </label>
+                    </div>
+                </div>
+                <div class="mb-1">
+                    <label for="city" class="form-label">City *</label>
+                    <input type="text" class="form-control" id="city" value="Tel Aviv" required>
+                </div>
+                <div class="mb-1">
+                    <label for="address" class="form-label">Last Seen Address *</label>
+                    <input type="text" class="form-control" id="address" value="Brandes 17" required>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Place a flag (for radius)</label>
+                    <div id="map" class="w-100"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="more-info" class="form-label">More Information</label>
+                    <textarea class="form-control" id="more-info" rows="3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed </textarea>
+                </div>
+            </form>
+        </section>
+        <div class="d-flex justify-content-center mb-4">
+            <div class="confirmation-container d-flex justify-content-center align-items-center">
+                <img src="images/confirmCheckBox.svg" alt="Confirmation Check" class="confirmation-icon">
+            </div>
+        </div>
     </main>
 </body>
 <div id ="acceptButton"></div>
