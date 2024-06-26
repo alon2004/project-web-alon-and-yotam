@@ -19,22 +19,20 @@ initMap();
 
 
 window.onload = () => {
-    // Fetch data from the API and display it
-    const fetchPetsData = async () => { // Added function to fetch data from API
+    const fetchPetsData = async () => {
         try {
-            const response = await fetch('http://localhost:7000/api/pets'); // Updated API endpoint to port 7000
+            const response = await fetch('http://localhost:7000/api/pets');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const data = await response.json();
-            displayPetsData(data); // Call function to display data
+            displayPetsData(data);
         } catch (error) {
             console.error('Error fetching pets data:', error);
         }
     };
 
-    // Function to display data in the HTML
-    const displayPetsData = (data) => { // Added function to display data
+    const displayPetsData = (data) => {
         const petsContainer = document.getElementById('pets-container');
         petsContainer.innerHTML = '';
         data.forEach(pet => {
@@ -51,19 +49,18 @@ window.onload = () => {
         });
     };
 
-    fetchPetsData(); // Call fetch function on load
+    fetchPetsData();
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
-        
+
         const form = event.target;
         const formData = new FormData(form);
         const formObj = Object.fromEntries(formData.entries());
-        
+
         const validations = validateForm(formObj);
-        
+
         if (validations.isValid) {
-            console.log(`GET http://localhost:7000/api/pets`); // Updated log to show API call with port 7000
             console.log(`Form submitted with data:`, formObj);
         } else {
             console.log(`Validation failed:`, validations.errors);
@@ -73,29 +70,29 @@ window.onload = () => {
     const validateForm = (data) => {
         let errors = [];
         let isValid = true;
-        
+
         if (!data['pet-name']) {
             isValid = false;
             errors.push("Pet name is required.");
         }
-        
+
         if (!data['pet-chip-num']) {
             isValid = false;
             errors.push("Pet chip number is required.");
         }
-        
+
         if (!data['city']) {
             isValid = false;
             errors.push("City is required.");
         }
-        
+
         if (!data['address']) {
             isValid = false;
             errors.push("Address is required.");
         }
-        
+
         return { isValid, errors };
     };
-    
+
     document.getElementById('lost-report-form').onsubmit = handleFormSubmit;
 };
