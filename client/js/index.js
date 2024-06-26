@@ -3,17 +3,19 @@ window.onload = () => {
 
   initMap();
 
-  fetch("../data/data.json")
+  fetch("http://127.0.0.1:8080/api/pets")
     .then(response => response.json())
     .then(data => initList(data))
 
-  fetch("../data/data.json")
+  fetch("http://127.0.0.1:8080/api/pets")
     .then(response => response.json())
     .then(data => InitMarkerOnMap(data))
 
-  fetch("../data/data.json")
+  fetch("http://127.0.0.1:8080/api/pets")
     .then(response => response.json())
     .then(data => CurrentUser(data))
+
+
 
   addEventListener("click", (e) => {
     if (e.target.classList.contains("delete")) {
@@ -42,10 +44,11 @@ async function initMap() {
     map: map,
     title: "My Location",
   });
+
 }
 
 function InitMarkerOnMap(data) {
-  for (const report of data.Pets) {
+  for (const report of data) {
     const geocoder = new google.maps.Geocoder();
     const address = report.address;
     let marker = new google.maps.Marker();
@@ -64,21 +67,21 @@ function InitMarkerOnMap(data) {
         marker = new google.maps.Marker({
           position: results[0].geometry.location,
           map: map,
-          title: report.userName,
+          title: report.User_Name,
           icon: iconMap,
           Animation: google.maps.Animation.DROP,
         });
         let infoWindow = new google.maps.InfoWindow;
-        if (`${data.currentUser.userId}` === `${report.userId}`) {
+        // if (`${data.userId}` === `${report.userId}`) {
+        //   infoWindow = new google.maps.InfoWindow({
+        //     content: `<a href=${report.id}><img src="http://localhost:8080/imges/${report.userImage}" alt="UserImage" class="roundImg"></a> <h3>${report.category}</h3> <button class="delete">Delete</button>`
+        //   });
+        // }
+        // else {
           infoWindow = new google.maps.InfoWindow({
-            content: `<a href=${report.id}><img src="${report.userImage}" alt="UserImage" class="roundImg"></a> <h3>${report.category}</h3> <button class="delete">Delete</button>`
+            content: `<a href=${report.id}><img src="http://localhost:8080/imges/Owners/${report.userImage}" alt="UserImage" class="roundImg"></a> <h3>${report.category}</h3>`
           });
-        }
-        else {
-          infoWindow = new google.maps.InfoWindow({
-            content: `<a href=${report.id}><img src="${report.userImage}" alt="UserImage" class="roundImg"></a> <h3>${report.category}</h3>`
-          });
-        }
+        // }
         marker.addListener("click", () => {
           infoWindow.open(map, marker);
         });
@@ -103,60 +106,73 @@ function checkCategory(category) {
   }
 }
 
-function CurrentUser(data) {
-  let user = document.getElementById("userImge");
-  let a = document.createElement("a");
-  a.href = "#";
-  let img = document.createElement("img");
-  img = `<img src="${data.currentUser.userImage}" alt="userImage id="${data.currentUser.id}">`;
-  a.innerHTML += img;
-  user.appendChild(a);
-}
+// function CurrentUser(data) {
+//   let user = document.getElementById("userImge");
+//   let a = document.createElement("a");
+//   a.href = "#";
+//   let img = document.createElement("img");
+//   img = `<img src="http://localhost:8080/imges/Owners/${data.userImage}" alt="userImage id="${data.userId}">`;
+//   a.innerHTML += img;
+//   user.appendChild(a);
+// }
 
 
 function initList(data) {
   let ul = document.getElementById("ListReports");
-  for (const report of data.Pets) {
+  ul.innerHTML = ''; // Clear existing content
+  for (const report of data) {
     let section = document.createElement("section");
     section.classList.add("report");
+    
+    // User Section
     let sectionUser = document.createElement("section");
     sectionUser.classList.add("user");
+    
+    // User Image Link
     let aUserImage = document.createElement("a");
     aUserImage.classList.add("userImage");
     aUserImage.href = "#";
-    let userImage = `<img src="${report.userImage}" alt="userImage">`;
-    aUserImage.innerHTML += userImage;
+    
+    // User Image
+    let userImage = `<img src="http://localhost:8080/imges/Owners/${report.userImage}" alt="UserImage">`;
+    aUserImage.innerHTML = userImage;
     sectionUser.appendChild(aUserImage);
+    
+    // User Name
     let divUserName = document.createElement("div");
     divUserName.classList.add("userName");
-    let UserName = `<h3>${report.userName}</h3>`;
-    divUserName.innerHTML += UserName;
+    let UserName = `<h3>${report.User_Name}</h3>`;
+    divUserName.innerHTML = UserName;
+    
+    // Category
     let divCategory = document.createElement("div");
     divCategory.classList.add(witchCategory(report.category));
     let reportCategory = `<p>${report.category}</p>`;
-    divCategory.innerHTML += reportCategory;
+    divCategory.innerHTML = reportCategory;
     divUserName.appendChild(divCategory);
+    
     sectionUser.appendChild(divUserName);
+    
+    // Location
     let divLocation = document.createElement("div");
     divLocation.classList.add("location");
     let reportLocation = `<h3>${report.city}</h3>`;
-    divLocation.innerHTML += reportLocation;
+    divLocation.innerHTML = reportLocation;
+    
+    // Arrow Icon
     let aArrowIcon = document.createElement("a");
     aArrowIcon.classList.add("arrow");
-    aArrowIcon.href = "#"
-    let aArrow = `<img src="../imges/arrowicon.png" alt="arrow">`;
-    aArrowIcon.innerHTML += aArrow;
+    aArrowIcon.href = "#";
+    let aArrow = `<img src="http://localhost:8080/imges/arrowicon.png" alt="arrow">`
+    aArrowIcon.innerHTML = aArrow;
+    
+    // Last Update
     let divLastUpdate = document.createElement("div");
     divLastUpdate.classList.add("lastUpdate");
-    let reportLastUpdate = LastUpdat(report.UpdateDay, report.UpdateMonth, report.UpdateYear);
+    let reportLastUpdate = LastUpdat(report.Date);
     let lastUpdate = `<h3>${reportLastUpdate}</h3>`;
-    divLastUpdate.innerHTML += lastUpdate;
-    if (data.currentUser.userId === report.userId) {
-      let buttonDelete = document.createElement("button");
-      buttonDelete.classList.add("delete");
-      buttonDelete.innerHTML = "Delete";
-      divUserName.appendChild(buttonDelete);
-    }
+    divLastUpdate.innerHTML = lastUpdate;
+
     section.appendChild(sectionUser);
     section.appendChild(divLastUpdate);
     section.appendChild(divLocation);
@@ -164,6 +180,7 @@ function initList(data) {
     ul.appendChild(section);
   }
 }
+
 
 function witchCategory(category) {
   if (category === "Lost Pet") {
@@ -174,22 +191,35 @@ function witchCategory(category) {
   }
 }
 
-function LastUpdat(day, month, year) {
-  let date = new Date();
-  let dayNow = date.getDate();
-  let monthNow = date.getMonth() + 1;
-  let yearNow = date.getFullYear();
-  let lastUpdate = "";
-  if (yearNow - year > 0) {
-    lastUpdate = `${yearNow - year} years ago`;
-  } else if (monthNow - month > 0) {
-    lastUpdate = `${monthNow - month} months ago`;
-  } else if (dayNow - day > 0) {
-    lastUpdate = `${dayNow - day} days ago`;
-  } else {
-    lastUpdate = "Today";
+function LastUpdat(date) {
+  let dateNow = new Date();
+  let dateReport = new Date(date);
+  let diff = dateNow - dateReport;
+  let minutes = Math.floor(diff / 60000);
+  let hours = Math.floor(minutes / 60);
+  let days = Math.floor(hours / 24);
+  let weeks = Math.floor(days / 7);
+  let months = Math.floor(weeks / 4);
+  let years = Math.floor(months / 12);
+  if (years > 0) {
+    return `${years} years ago`;
   }
-  return lastUpdate;
+  if (months > 0) {
+    return `${months} months ago`;
+  }
+  if (weeks > 0) {
+    return `${weeks} weeks ago`;
+  }
+  if (days > 0) {
+    return `${days} days ago`;
+  }
+  if (hours > 0) {
+    return `${hours} hours ago`;
+  }
+  if (minutes > 0) {
+    return `${minutes} minutes ago`;
+  }
+  return "Just now";
 }
 
 function deleteReport() {

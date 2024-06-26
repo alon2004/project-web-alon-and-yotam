@@ -38,7 +38,7 @@ nav span#logoImge {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-image: url("../imges/logoPawLink.png");
+    background-image: url("http://localhost:8080/imges/logoPawLink.png");
 }
 
 a#logo_container {
@@ -153,7 +153,6 @@ footer {
     justify-content: center;
     background: #E9ECEF;
     padding: 10px 20px;
-    margin-top: 20px;
 }
 
 footer a img {
@@ -192,7 +191,7 @@ body section#ListReports section.report {
 }
 
 body section#ListReports section.report div.userName {
-    background-image: url('../imges/userIcon.png');
+    background-image: url('http://localhost:8080/imges/userIcon.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 200px;
@@ -213,7 +212,7 @@ body section#ListReports section.report div.userName {
 }
 
 body section#ListReports section.report div.userName div.Ycategory {
-    background-image: url('../imges/yellowFlag.png');
+    background-image: url('http://localhost:8080/imges/yellowFlag.png');
     background-size: contain;
     background-repeat: no-repeat;
     padding-left: 25px;
@@ -221,7 +220,7 @@ body section#ListReports section.report div.userName div.Ycategory {
 }
 
 body section#ListReports section.report div.userName div.Rcategory {
-    background-image: url('../imges/redFlag.png');
+    background-image: url('http://localhost:8080/imges/redFlag.png');
     background-size: contain;
     background-repeat: no-repeat;
     padding-left: 25px;
@@ -335,7 +334,7 @@ main section#wrapper section#Under_MAP div#info_map {
 }
 
 main section#wrapper section#Under_MAP div#info_map p#Disstres {
-    background-image: url("../imges/mapIconRed.png");
+    background-image: url("http://localhost:8080/imges/mapIconRed.png");
     background-size: contain;
     background-repeat: no-repeat;
     height: 30px;
@@ -345,7 +344,7 @@ main section#wrapper section#Under_MAP div#info_map p#Disstres {
 }
 
 main section#wrapper section#Under_MAP div#info_map p#Lost {
-    background-image: url("../imges/mapIconYellow.png");
+    background-image: url("http://localhost:8080/imges/mapIconYellow.png");
     background-size: contain;
     background-repeat: no-repeat;
     height: 30px;
