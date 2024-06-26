@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const app = express();
-const port = process.env.PORT || 5000; // שינוי הפורט ל-4000
+const port = process.env.PORT || 7000; // שינוי הפורט ל-4000
 
 // Middleware for parsing JSON and URL-encoded data
 app.use(express.json());
@@ -24,12 +24,11 @@ app.use((req, res, next) => {
 
 // Basic route for "/"
 app.get('/', (req, res) => {
-    res.send('Welcome to the server!');
+    res.sendFile(path.join(__dirname, '..', 'client', 'index.html')); // עדכון
 });
 
 app.use('/api/pets', petsRouter);
 
 app.listen(port, '0.0.0.0', () => {
-    console.log(`Server is running on http://0.0.0.0:${port}`);
+    console.log(`Server is running on http://192.168.1.119:${port}`);
 });
-
