@@ -9,7 +9,8 @@
             "category": "Lost Pet",
             "userImage": "../imges/Owners/saraHadasa.jpg",
             "address": "Derech Hanadiv 67-69 Pardes Hanna",
-            "userId": ""
+            "userId": "1",
+            "report_id": "1"
         },
         {
             "userName": "Oded Papo",
@@ -20,7 +21,8 @@
             "category": "Lost Pet",
             "userImage": "../imges/Owners/OdedPapo.jpg",
             "address": "Derech HaBanim 34, Pardes Hanna Karkur",
-            "userId": ""
+            "userId": "2",
+            "report_id": "1"
         },
         {
             "userName": "Shahar Fisher",
@@ -31,7 +33,8 @@
             "category": "Distress Pet",
             "userImage": "../imges/Owners/shaharFisher.jpg",
             "address": "snir 5, Hadera",
-            "userId": "1"
+            "userId": "1",
+            "report_id": "1"
         },
         {
             "userName": "Ori Fisher",
@@ -42,7 +45,8 @@
             "category": "Distress Pet",
             "userImage": "../imges/Owners/ori.png",
             "address": "Derech Hanadiv 78-82, Pardes Hanna Karkur",
-            "userId": ""
+            "userId": "",
+            "report_id": "1"
         }
     ],
     "currentUser": {
