@@ -7,7 +7,7 @@
     <title>PawLink - New Lost Report</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/index.js" defer></script> <!-- Added defer attribute -->
+    <script src="js/formsPage.js" defer></script> <!-- Added defer attribute -->
 </head>
 <body>
     <header>
@@ -90,6 +90,9 @@
         </div>
     </div>
     <main class="container">
+        <div id="pets-container" class="d-flex flex-column justify-content-center mb-4">
+            <!-- Data from API will be inserted here --> <!-- Added container for API data -->
+        </div>    
         <section class="mt-1">
             <h1 class="text-start">New Lost Report</h1>
             <form id="lost-report-form" class="mb-1">
@@ -147,9 +150,9 @@
                 </div>
                 <div class="mb-2">
                     <label class="form-label">Place a flag (for radius)</label>
-                    <div id="map" class="w-100">
+          <!--           <div id="map" class="w-100">
                         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVYTvN9OpYmd5cTevsZlT5jNflopxYmc4&callback=initMap" async defer></script>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="mb-3">
                     <label for="more-info" class="form-label">More Information</label>
