@@ -1,3 +1,4 @@
+/* connects to the mySql db via the nv file - which holds all the pass and user names to the DB */
 exports.dbConnection = {
     async createConnection() {
         const mysql = require('mysql2/promise');

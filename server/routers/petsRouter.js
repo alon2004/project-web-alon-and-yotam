@@ -10,3 +10,6 @@ petsRouter.put('/:id', petsController.updateReport);
 petsRouter.delete('/:id', petsController.deleteReport);
 
 module.exports = {petsRouter};
+
+
+/* declares func names - which brings data from mySql db , implemented in the controller*/
