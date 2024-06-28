@@ -4,6 +4,7 @@ const {petsController} = require('../controllers/petsControllers');
 const petsRouter = Router();
 
 petsRouter.get('/', petsController.getAllReports);
+petsRouter.get('/innerjoin', petsController.getInnerJoin);
 petsRouter.get('/:id', petsController.getReportById);
 petsRouter.post('/', petsController.createReport);
 petsRouter.put('/:id', petsController.updateReport);

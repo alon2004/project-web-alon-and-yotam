@@ -4,35 +4,41 @@ const table_name_pets = "tbl_106_";
 const petsController = {
     async getAllReports(req, res) {
         const connection = await dbConnection.createConnection();
-        const [reports] = await connection.execute(`SELECT * FROM ${table_name_pets}pets`);
+        const [pets] = await connection.execute(`SELECT * FROM ${table_name_pets}Pets`);
         connection.end();
-        res.json(reports);
+        res.json(pets);
     },
     async getReportById(req, res) {
         const connection = await dbConnection.createConnection();
-        const [report] = await connection.execute(`SELECT * FROM ${table_name_pets}pets WHERE id = ?"`, [req.params.id]);
+        const [pet] = await connection.execute(`SELECT * FROM ${table_name_pets}Pets WHERE UserId = ?`, [req.params.id]);
         connection.end();
-        res.json(report);
+        res.json(pet);
     },
     async createReport(req, res) {
         const connection = await dbConnection.createConnection();
-        const { category, description, address, userId } = req.body;
-        await connection.execute(`INSERT INTO ${table_name_pets}pets (category, description, address, userId) VALUES (?, ?, ?, ?)"`, [category, description, address, userId]);
+        const {name, type, age, owner} = req.body;
+        await connection.execute(`INSERT INTO ${table_name_pets}Pets (name, type, age, owner) VALUES (?, ?, ?, ?)`, [name, type, age, owner]);
         connection.end();
-        res.json({ message: "Report created successfully" });
+        res.json({message: "Pet created successfully"});
     },
     async updateReport(req, res) {
         const connection = await dbConnection.createConnection();
-        const { category, description, address, userId } = req.body;
-        await connection.execute(`UPDATE ${table_name_pets}pets SET category = ?, description = ?, address = ?, userId = ? WHERE id = ?"`, [category, description, address, userId, req.params.id]);
+        const {name, type, age, owner} = req.body;
+        await connection.execute(`UPDATE ${table_name_pets}Pets SET name = ?, type = ?, age = ?, owner = ? WHERE id = ?`, [name, type, age, owner, req.params.id]);
         connection.end();
-        res.json({ message: "Report updated successfully" });
+        res.json({message: "Pet updated successfully"});
     },
     async deleteReport(req, res) {
         const connection = await dbConnection.createConnection();
-        await connection.execute(`DELETE FROM ${table_name_pets}pets WHERE id = ?"`, [req.params.id]);
+        await connection.execute(`DELETE FROM ${table_name_pets}Pets WHERE id = ?`, [req.params.id]);
         connection.end();
-        res.json({ message: "Report deleted successfully" });
+        res.json({message: "Pet deleted successfully"});
+    },
+    async getInnerJoin(req, res) {
+        const connection = await dbConnection.createConnection();
+        const [pets] = await connection.execute(`SELECT * FROM ${table_name_pets}Pets INNER JOIN ${table_name_pets}users ON ${table_name_pets}Pets.UserId = ${table_name_pets}users.UserId`);
+        connection.end();
+        res.json(pets);
     }
 }
 

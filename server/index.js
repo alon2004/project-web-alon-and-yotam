@@ -13,7 +13,9 @@ app.use(express.urlencoded({ extended: true }));
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(path.dirname(__dirname), 'public')));
 
+const { usersRouter } = require('./routers/usersRouter');
 const { petsRouter } = require('./routers/petsRouter');
+console .log(__dirname);
 
 // CORS headers
 app.use((req, res, next) => {
@@ -24,6 +26,7 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use('/api/users', usersRouter);
 app.use('/api/pets', petsRouter);
 
 app.listen(port, () => {

@@ -3,17 +3,17 @@ window.onload = () => {
 
   initMap();
 
-  fetch("http://127.0.0.1:8080/api/pets")
+  fetch("http://127.0.0.1:8080/api/pets/innerjoin")
     .then(response => response.json())
     .then(data => initList(data))
 
-  fetch("http://127.0.0.1:8080/api/pets")
+  fetch("http://127.0.0.1:8080/api/pets/innerjoin")
     .then(response => response.json())
     .then(data => InitMarkerOnMap(data))
 
-  fetch("http://127.0.0.1:8080/api/pets")
-    .then(response => response.json())
-    .then(data => CurrentUser(data))
+  // fetch("http://127.0.0.1:8080/api/pets/innerjoin")
+  //   .then(response => response.json())
+  //   .then(data => CurrentUser(data))
 
 
 
@@ -39,7 +39,7 @@ async function initMap() {
   });
 
   //my location
-  const myLocation = new google.maps.Marker({
+  const myLocation = new AdvancedMarkerElement({
     position: position,
     map: map,
     title: "My Location",
@@ -50,14 +50,14 @@ async function initMap() {
 function InitMarkerOnMap(data) {
   for (const report of data) {
     const geocoder = new google.maps.Geocoder();
-    const address = report.address;
+    const address = report.Address;
     let marker = new google.maps.Marker();
     geocoder.geocode({ address: address }, (results, status) => {
       if (status === "OK") {
         const iconMap =
         {
           path: "M-1.547 12l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM0 0q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z",
-          fillColor: checkCategory(report.category),
+          fillColor: checkCategory(report.Catagory),
           fillOpacity: 0.8,
           strokeWeight: 0,
           rotation: 0,
@@ -67,7 +67,7 @@ function InitMarkerOnMap(data) {
         marker = new google.maps.Marker({
           position: results[0].geometry.location,
           map: map,
-          title: report.User_Name,
+          title: report.UserName,
           icon: iconMap,
           Animation: google.maps.Animation.DROP,
         });
@@ -79,7 +79,7 @@ function InitMarkerOnMap(data) {
         // }
         // else {
           infoWindow = new google.maps.InfoWindow({
-            content: `<a href=${report.id}><img src="http://localhost:8080/imges/Owners/${report.userImage}" alt="UserImage" class="roundImg"></a> <h3>${report.category}</h3>`
+            content: `<a href=${report.UserId}><img src="http://localhost:8080/imges/Owners/${report.UserImage}" alt="UserImage" class="roundImg"></a> <h3>${report.Catagory}</h3>`
           });
         // }
         marker.addListener("click", () => {
@@ -134,20 +134,20 @@ function initList(data) {
     aUserImage.href = "#";
     
     // User Image
-    let userImage = `<img src="http://localhost:8080/imges/Owners/${report.userImage}" alt="UserImage">`;
+    let userImage = `<img src="http://localhost:8080/imges/Owners/${report.UserImage}" alt="UserImage">`;
     aUserImage.innerHTML = userImage;
     sectionUser.appendChild(aUserImage);
     
     // User Name
     let divUserName = document.createElement("div");
     divUserName.classList.add("userName");
-    let UserName = `<h3>${report.User_Name}</h3>`;
+    let UserName = `<h3>${report.UserName}</h3>`;
     divUserName.innerHTML = UserName;
     
     // Category
     let divCategory = document.createElement("div");
-    divCategory.classList.add(witchCategory(report.category));
-    let reportCategory = `<p>${report.category}</p>`;
+    divCategory.classList.add(witchCategory(report.Catagory));
+    let reportCategory = `<p>${report.Catagory}</p>`;
     divCategory.innerHTML = reportCategory;
     divUserName.appendChild(divCategory);
     
@@ -156,20 +156,20 @@ function initList(data) {
     // Location
     let divLocation = document.createElement("div");
     divLocation.classList.add("location");
-    let reportLocation = `<h3>${report.city}</h3>`;
+    let reportLocation = `<h3>${report.City}</h3>`;
     divLocation.innerHTML = reportLocation;
     
     // Arrow Icon
     let aArrowIcon = document.createElement("a");
     aArrowIcon.classList.add("arrow");
-    aArrowIcon.href = "#";
+    aArrowIcon.href = `../client/Object.html?reportId=${report.ReportId}`;
     let aArrow = `<img src="http://localhost:8080/imges/arrowicon.png" alt="arrow">`
     aArrowIcon.innerHTML = aArrow;
     
     // Last Update
     let divLastUpdate = document.createElement("div");
     divLastUpdate.classList.add("lastUpdate");
-    let reportLastUpdate = LastUpdat(report.Date);
+    let reportLastUpdate = LastUpdat(report.DateOfReport);
     let lastUpdate = `<h3>${reportLastUpdate}</h3>`;
     divLastUpdate.innerHTML = lastUpdate;
 
