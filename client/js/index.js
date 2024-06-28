@@ -1,8 +1,10 @@
 
 
+
 window.onload = () => {
 
   initMap();
+
 
   fetch("http://127.0.0.1:8080/api/pets/innerjoin")
     .then(response => response.json())
@@ -12,9 +14,10 @@ window.onload = () => {
     .then(response => response.json())
     .then(data => InitMarkerOnMap(data))
 
-  fetch("http://127.0.0.1:8080/api/users")
-    .then(response => response.json())
-    .then(data => CurrentUser(data))
+    fetch("http://127.0.0.1:8080/api/users")
+  .then(response => response.json())
+  .then(data => CurrentUser(data))
+
 
 }
 
@@ -38,6 +41,7 @@ async function initMap() {
     map: map,
     title: "My Location",
   });
+  
 
 }
 
@@ -67,16 +71,9 @@ function InitMarkerOnMap(data) {
           Animation: google.maps.Animation.DROP,
         });
         let infoWindow = new google.maps.InfoWindow;
-        if (`${report.UserId}` === `${data[0].UserId}`) {
-          infoWindow = new google.maps.InfoWindow({
-            content: `<a href="../client/Object.html?reportId=${report.ReportId}"><img src="http://localhost:8080/imges/Owners/${report.UserImage}" alt="UserImage" class="roundImg"></a> <h3>${report.Catagory}</h3> <button class="delete">Delete</button>`
-          });
-        }
-        else {
           infoWindow = new google.maps.InfoWindow({
             content: `<a href="../client/Object.html?reportId=${report.ReportId}"><img src="http://localhost:8080/imges/Owners/${report.UserImage}" alt="UserImage" class="roundImg"></a> <h3>${report.Catagory}</h3>`
           });
-        }
         marker.addListener("click", () => {
           infoWindow.open(map, marker);
         });
@@ -106,9 +103,10 @@ function checkCategory(category) {
 function CurrentUser(data) {
   let user = document.getElementById("userImge");
   let a = document.createElement("a");
+  a.id = data[0].UserId;
   a.href = "#";
   let img = document.createElement("img");
-  img = `<img src="http://localhost:8080/imges/Owners/${data[0].UserImage}" alt="userImage id="${data[0].UserId}">`;
+  img = `<img src="http://localhost:8080/imges/Owners/${data[0].UserImage}" alt="userImage">`;
   a.innerHTML += img;
   user.appendChild(a);
 }
@@ -171,7 +169,8 @@ function initList(data) {
     let lastUpdate = `<h3>${reportLastUpdate}</h3>`;
     divLastUpdate.innerHTML = lastUpdate;
 
-    if (`${report.UserId}` === `${data[0].UserId}`) {
+    if (report.UserId === 1) {
+      console.log(report.UserId+"-"+ data[0].UserId)
       let deleteButton = document.createElement("button");
       deleteButton.classList.add("delete");
       deleteButton.id = report.ReportId;
