@@ -1,4 +1,5 @@
 
+
 window.onload = () => {
 
   initMap();
@@ -11,23 +12,16 @@ window.onload = () => {
     .then(response => response.json())
     .then(data => InitMarkerOnMap(data))
 
-  // fetch("http://127.0.0.1:8080/api/pets/innerjoin")
-  //   .then(response => response.json())
-  //   .then(data => CurrentUser(data))
-
-
-
-  addEventListener("click", (e) => {
-    if (e.target.classList.contains("delete")) {
-      deleteReport();
-    }
-  });
+  fetch("http://127.0.0.1:8080/api/users")
+    .then(response => response.json())
+    .then(data => CurrentUser(data))
 
 }
 
 // מפה
 
 let map;
+let markers = [];
 async function initMap() {
   const position = { lat: 32.4764688287259, lng: 34.97601741898383 };
   const { Map } = await google.maps.importLibrary("maps");
@@ -69,19 +63,20 @@ function InitMarkerOnMap(data) {
           map: map,
           title: report.UserName,
           icon: iconMap,
+          id: report.ReportId,
           Animation: google.maps.Animation.DROP,
         });
         let infoWindow = new google.maps.InfoWindow;
-        // if (`${data.userId}` === `${report.userId}`) {
-        //   infoWindow = new google.maps.InfoWindow({
-        //     content: `<a href=${report.id}><img src="http://localhost:8080/imges/${report.userImage}" alt="UserImage" class="roundImg"></a> <h3>${report.category}</h3> <button class="delete">Delete</button>`
-        //   });
-        // }
-        // else {
+        if (`${report.UserId}` === `${data[0].UserId}`) {
           infoWindow = new google.maps.InfoWindow({
-            content: `<a href=${report.UserId}><img src="http://localhost:8080/imges/Owners/${report.UserImage}" alt="UserImage" class="roundImg"></a> <h3>${report.Catagory}</h3>`
+            content: `<a href="../client/Object.html?reportId=${report.ReportId}"><img src="http://localhost:8080/imges/Owners/${report.UserImage}" alt="UserImage" class="roundImg"></a> <h3>${report.Catagory}</h3> <button class="delete">Delete</button>`
           });
-        // }
+        }
+        else {
+          infoWindow = new google.maps.InfoWindow({
+            content: `<a href="../client/Object.html?reportId=${report.ReportId}"><img src="http://localhost:8080/imges/Owners/${report.UserImage}" alt="UserImage" class="roundImg"></a> <h3>${report.Catagory}</h3>`
+          });
+        }
         marker.addListener("click", () => {
           infoWindow.open(map, marker);
         });
@@ -90,12 +85,14 @@ function InitMarkerOnMap(data) {
       else {
         alert("Geocode was not successful for the following reason: " + status);
       }
+      markers.push(marker);
     });
   }
+
 }
 
 
-  //סוף מפה
+//סוף מפה
 
 function checkCategory(category) {
   if (category === "Lost Pet") {
@@ -106,15 +103,15 @@ function checkCategory(category) {
   }
 }
 
-// function CurrentUser(data) {
-//   let user = document.getElementById("userImge");
-//   let a = document.createElement("a");
-//   a.href = "#";
-//   let img = document.createElement("img");
-//   img = `<img src="http://localhost:8080/imges/Owners/${data.userImage}" alt="userImage id="${data.userId}">`;
-//   a.innerHTML += img;
-//   user.appendChild(a);
-// }
+function CurrentUser(data) {
+  let user = document.getElementById("userImge");
+  let a = document.createElement("a");
+  a.href = "#";
+  let img = document.createElement("img");
+  img = `<img src="http://localhost:8080/imges/Owners/${data[0].UserImage}" alt="userImage id="${data[0].UserId}">`;
+  a.innerHTML += img;
+  user.appendChild(a);
+}
 
 
 function initList(data) {
@@ -123,49 +120,50 @@ function initList(data) {
   for (const report of data) {
     let section = document.createElement("section");
     section.classList.add("report");
-    
+    section.id = report.ReportId;
+
     // User Section
     let sectionUser = document.createElement("section");
     sectionUser.classList.add("user");
-    
+
     // User Image Link
     let aUserImage = document.createElement("a");
     aUserImage.classList.add("userImage");
     aUserImage.href = "#";
-    
+
     // User Image
     let userImage = `<img src="http://localhost:8080/imges/Owners/${report.UserImage}" alt="UserImage">`;
     aUserImage.innerHTML = userImage;
     sectionUser.appendChild(aUserImage);
-    
+
     // User Name
     let divUserName = document.createElement("div");
     divUserName.classList.add("userName");
     let UserName = `<h3>${report.UserName}</h3>`;
     divUserName.innerHTML = UserName;
-    
+
     // Category
     let divCategory = document.createElement("div");
     divCategory.classList.add(witchCategory(report.Catagory));
     let reportCategory = `<p>${report.Catagory}</p>`;
     divCategory.innerHTML = reportCategory;
     divUserName.appendChild(divCategory);
-    
+
     sectionUser.appendChild(divUserName);
-    
+
     // Location
     let divLocation = document.createElement("div");
     divLocation.classList.add("location");
     let reportLocation = `<h3>${report.City}</h3>`;
     divLocation.innerHTML = reportLocation;
-    
+
     // Arrow Icon
     let aArrowIcon = document.createElement("a");
     aArrowIcon.classList.add("arrow");
     aArrowIcon.href = `../client/Object.html?reportId=${report.ReportId}`;
     let aArrow = `<img src="http://localhost:8080/imges/arrowicon.png" alt="arrow">`
     aArrowIcon.innerHTML = aArrow;
-    
+
     // Last Update
     let divLastUpdate = document.createElement("div");
     divLastUpdate.classList.add("lastUpdate");
@@ -173,12 +171,24 @@ function initList(data) {
     let lastUpdate = `<h3>${reportLastUpdate}</h3>`;
     divLastUpdate.innerHTML = lastUpdate;
 
+    if (`${report.UserId}` === `${data[0].UserId}`) {
+      let deleteButton = document.createElement("button");
+      deleteButton.classList.add("delete");
+      deleteButton.id = report.ReportId;
+      deleteButton.addEventListener("click", () => {
+        deleteReport(report.ReportId);
+      });
+      deleteButton.innerHTML = "Delete";
+      divUserName.appendChild(deleteButton);
+    }
+
     section.appendChild(sectionUser);
     section.appendChild(divLastUpdate);
     section.appendChild(divLocation);
     section.appendChild(aArrowIcon);
     ul.appendChild(section);
   }
+  
 }
 
 
@@ -222,8 +232,39 @@ function LastUpdat(date) {
   return "Just now";
 }
 
-function deleteReport() {
-  console.log("deleted report");
+
+
+function deleteReport(reportId) {
+  console.log(reportId);
+  fetch(`http://127.0.0.1:8080/api/Pets/${reportId}`, {
+  method: 'DELETE',
+  headers: {
+    'Content-Type': 'application/json'
+  }
+})
+.then(response => deleteReportItemFromList(response, reportId))
+}
+
+function deleteReportItemFromList(response, reportId) {
+  if (response.ok) {
+    let report = document.getElementById(reportId);
+    report.remove();
+    removeMarker(reportId);
+  }
+  else {
+    alert("Error: " + response.status);
+  }
+}
+
+function removeMarker(reportId) {
+  for (let i = 0; i < markers.length; i++) {
+    if (markers[i].id === reportId) {
+      markers[i].setMap(null);
+      markers.splice(i, 1);
+      break;
+    }
+  }
+  
 }
 
 

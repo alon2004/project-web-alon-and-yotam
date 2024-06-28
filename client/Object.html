@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Alon Fisher - Javascript Ex.3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script type="module" src="./js/index.js"></script>
+    <!-- קשור למפה-->
+    <script>(g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })
+            ({ key: "AIzaSyBEU2lVD7PSnzdr16XeR2KN40hlZUA-thA", v: "weekly" });</script>
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <img src="http://localhost:8080/imges/manu.png" alt="menu button">
+            </label>
+            <a href="#" id="logo_container"><span id="logoImge"></span>
+                <label class="logo">Connecting to rescue more</label></a>
+            <ul>
+                <li><a href="#" class="active"><img src="http://localhost:8080/imges/worldIcon.png">Map</a></li>
+                <li><a href="#"><img src="http://localhost:8080/imges/addIcon.png">Add report</a></li>
+                <li><a href="#"><img src="http://localhost:8080/imges/scanIcon.png">Scan chip</a></li>
+                <li><a href="#"><img src="http://localhost:8080/imges/reportIcon.png">My reports</a></li>
+                <li><a href="#"><img src="http://localhost:8080/imges/mailIcon.png">Massages</a></li>
+            </ul>
+            <section id="userImge">
+            </section>
+        </nav>
+        <hr>
+    </header>
+    <main>
+        <h1>Reports map</h1>
+    </main>
+</body>
+<footer>
+    <section id="mobile_footer">
+        <a href="#"><img src="http://localhost:8080/imges/worldIcon.png" alt="map"></a>
+        <a href="#" id="middle"><img src="http://localhost:8080/imges/addIcon.png" alt="add report"></a>
+        <a href="#" class="notActive"><img src="http://localhost:8080/imges/scanIcon.png" alt="scan chip"></a>
+    </section>
+</footer>
+
+</html>

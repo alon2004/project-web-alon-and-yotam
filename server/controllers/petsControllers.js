@@ -24,13 +24,13 @@ const petsController = {
     async updateReport(req, res) {
         const connection = await dbConnection.createConnection();
         const {name, type, age, owner} = req.body;
-        await connection.execute(`UPDATE ${table_name_pets}Pets SET name = ?, type = ?, age = ?, owner = ? WHERE id = ?`, [name, type, age, owner, req.params.id]);
+        await connection.execute(`UPDATE ${table_name_pets}Pets SET name = ?, type = ?, age = ?, owner = ? WHERE ReportId = ?`, [name, type, age, owner, req.params.id]);
         connection.end();
         res.json({message: "Pet updated successfully"});
     },
     async deleteReport(req, res) {
         const connection = await dbConnection.createConnection();
-        await connection.execute(`DELETE FROM ${table_name_pets}Pets WHERE id = ?`, [req.params.id]);
+        await connection.execute(`DELETE FROM ${table_name_pets}Pets WHERE ReportId = ?`, [req.params.id]);
         connection.end();
         res.json({message: "Pet deleted successfully"});
     },
