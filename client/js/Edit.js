@@ -1,73 +1,3 @@
-
-window.onload = () => {
-    initMap();
-
-}
-let map;
-let marker;
-
-// Initialize the map
-function initMap() {
-    const options = {
-        zoom: 17,
-        center: { lat: 32.28971894713777, lng: 34.850046204500295 } // Initial center at Sdeort HaAgamim 11, Netanya coordinates
-    };
-
-    // Create a new map instance
-    map = new google.maps.Map(document.getElementById('map'), options);
-
-    // Add click event listener to the map
-    map.addListener('click', function (event) {
-        placeMarker(event.latLng); // Call placeMarker function when map is clicked
-        reverseGeocode(event.latLng); // Call reverseGeocode function to get address
-    });
-}
-
-// Function to place a marker at a specific location
-function placeMarker(location) {
-    // Remove existing marker if it exists
-    if (marker) {
-        marker.setMap(null); // Remove the marker from the map
-    }
-
-    // Create a new marker at the clicked location
-    marker = new google.maps.Marker({
-        position: location,
-        map: map,
-        title: 'Your Flag Title' // Optional: Add a title to the marker
-    });
-
-    // Optional: You can add additional functionality here, such as displaying an info window or saving the marker location
-}
-
-// Function to perform reverse geocoding
-function reverseGeocode(location) {
-    // Create a geocoder object
-    const geocoder = new google.maps.Geocoder();
-
-    // Make a geocoding request
-    geocoder.geocode({ location: location }, function (results, status) {
-        if (status === 'OK') {
-            if (results[0]) {
-                const address = results[0].formatted_address;
-                console.log('Reverse Geocoded Address:', address);
-
-                // Optionally, you can send the address to your database or display it on your page
-                // Example: Send address to database via AJAX request
-                sendToDatabase(address);
-            } else {
-                console.error('No results found');
-            }
-        } else {
-            console.error('Geocoder failed due to:', status);
-        }
-    });
-}
-
-
-
-
-
 async function validateForm(event) {
     event.preventDefault(); // Prevent default form submission
 
@@ -84,9 +14,8 @@ async function validateForm(event) {
     const cityElement = document.getElementById('city');
     const addressElement = document.getElementById('last-seen-address');
     const moreInformationElement = document.getElementById('more-information');
-    const photosElement = document.getElementById('photos');
 
-    if (!petNameElement || !petChipElement || !cityElement || !addressElement || !moreInformationElement || !photosElement) {
+    if (!petNameElement || !petChipElement || !cityElement || !addressElement || !moreInformationElement) {
         console.error('One or more form elements are missing in the DOM');
         return false;
     }
@@ -104,7 +33,6 @@ async function validateForm(event) {
     const city = cityElement.value.trim();
     const address = addressElement.value.trim();
     const moreInformation = moreInformationElement.value.trim();
-    const photos = Array.from(photosElement.files).map(file => file.name).join(',');
 
     // Validate Pet Name
     if (!petName) {
@@ -115,12 +43,6 @@ async function validateForm(event) {
     // Validate Pet Chip Number
     if (!petChip) {
         document.getElementById('pet-chip-num-error').textContent = 'Pet Chip Number is required';
-        isValid = false;
-    }
-
-    // Validate Photos (at least 1 photo required)
-    if (photos.length < 1) {
-        document.getElementById('photos-error').textContent = 'At least one photo is required';
         isValid = false;
     }
 
@@ -143,13 +65,13 @@ async function validateForm(event) {
     }
 
     if (isValid) {
+        const submitButton = document.querySelector('button[type="submit"]');
+        submitButton.disabled = true;
 
         const data = {
             pet_name: petName,
-            user_id: 1, // Hardcoded user ID for now
             pet_chip_number: petChip,
             pet_behavior: petBehavior,
-            photos: photos,
             city: city,
             last_seen_address: address,
             more_information: moreInformation,
@@ -157,10 +79,11 @@ async function validateForm(event) {
         };
 
         console.log("Data to be sent:", data); // Log the data being sent
+        const reportid=new URLSearchParams(window.location.search).get('reportId');
 
         try {
-            const response = await fetch('http://127.0.0.1:8080/api/lostpetform/submit', {
-                method: 'POST',
+            const response = await fetch(`http://127.0.0.1:8080/api/pets/${reportid}`, {
+                method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },

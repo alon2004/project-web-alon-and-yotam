@@ -1,33 +1,30 @@
-/* indexed.js
- */
+
+
+
 window.onload = () => {
 
   initMap();
 
-  fetch("http://127.0.0.1:8080/api/pets/innerjoin")
+
+  fetch("http://127.0.0.1:8080/api/pets/innerJoinUsers")
     .then(response => response.json())
     .then(data => initList(data))
 
-  fetch("http://127.0.0.1:8080/api/pets/innerjoin")
+  fetch("http://127.0.0.1:8080/api/pets/innerJoinUsers")
     .then(response => response.json())
     .then(data => InitMarkerOnMap(data))
 
-  // fetch("http://127.0.0.1:8080/api/pets/innerjoin")
-  //   .then(response => response.json())
-  //   .then(data => CurrentUser(data))
+    fetch("http://127.0.0.1:8080/api/pets/innerJoinUsers")
+  .then(response => response.json())
+  .then(data => CurrentUser(data))
 
-
-
-  addEventListener("click", (e) => {
-    if (e.target.classList.contains("delete")) {
-      deleteReport();
-    }
-  });
 
 }
 
-// MAP
+// מפה
+
 let map;
+let markers = [];
 async function initMap() {
   const position = { lat: 32.4764688287259, lng: 34.97601741898383 };
   const { Map } = await google.maps.importLibrary("maps");
@@ -44,20 +41,22 @@ async function initMap() {
     map: map,
     title: "My Location",
   });
+  
 
 }
 
 function InitMarkerOnMap(data) {
   for (const report of data) {
     const geocoder = new google.maps.Geocoder();
-    const address = report.Address;
+    const address = report.last_seen_address+ "," + report.city;
+
     let marker = new google.maps.Marker();
     geocoder.geocode({ address: address }, (results, status) => {
       if (status === "OK") {
         const iconMap =
         {
           path: "M-1.547 12l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM0 0q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z",
-          fillColor: checkCategory(report.Catagory),
+          fillColor: checkCategory("Lost Pet"),
           fillOpacity: 0.8,
           strokeWeight: 0,
           rotation: 0,
@@ -69,19 +68,13 @@ function InitMarkerOnMap(data) {
           map: map,
           title: report.UserName,
           icon: iconMap,
+          id: report.id,
           Animation: google.maps.Animation.DROP,
         });
         let infoWindow = new google.maps.InfoWindow;
-        // if (`${data.userId}` === `${report.userId}`) {
-        //   infoWindow = new google.maps.InfoWindow({
-        //     content: `<a href=${report.id}><img src="http://localhost:8080/imges/${report.userImage}" alt="UserImage" class="roundImg"></a> <h3>${report.category}</h3> <button class="delete">Delete</button>`
-        //   });
-        // }
-        // else {
           infoWindow = new google.maps.InfoWindow({
-            content: `<a href=${report.UserId}><img src="http://localhost:8080/imges/Owners/${report.UserImage}" alt="UserImage" class="roundImg"></a> <h3>${report.Catagory}</h3>`
+            content: `<a href="../client/Object.html?reportId=${report.id}"><img src="http://localhost:8080/imges/Owners/${report.UserImage}" alt="UserImage" class="roundImg"></a> <h3>Lost Pet</h3>`
           });
-        // }
         marker.addListener("click", () => {
           infoWindow.open(map, marker);
         });
@@ -90,12 +83,14 @@ function InitMarkerOnMap(data) {
       else {
         alert("Geocode was not successful for the following reason: " + status);
       }
+      markers.push(marker);
     });
   }
+
 }
 
 
-  //סוף מפה
+//סוף מפה
 
 function checkCategory(category) {
   if (category === "Lost Pet") {
@@ -106,15 +101,16 @@ function checkCategory(category) {
   }
 }
 
-// function CurrentUser(data) {
-//   let user = document.getElementById("userImge");
-//   let a = document.createElement("a");
-//   a.href = "#";
-//   let img = document.createElement("img");
-//   img = `<img src="http://localhost:8080/imges/Owners/${data.userImage}" alt="userImage id="${data.userId}">`;
-//   a.innerHTML += img;
-//   user.appendChild(a);
-// }
+function CurrentUser(data) {
+  let user = document.getElementById("userImge");
+  let a = document.createElement("a");
+  a.id = data[0].UserId;
+  a.href = "#";
+  let img = document.createElement("img");
+  img = `<img src="http://localhost:8080/imges/Owners/${data[0].UserImage}" alt="userImage">`;
+  a.innerHTML += img;
+  user.appendChild(a);
+}
 
 
 function initList(data) {
@@ -123,55 +119,68 @@ function initList(data) {
   for (const report of data) {
     let section = document.createElement("section");
     section.classList.add("report");
-    
+    section.id = report.id;
+
     // User Section
     let sectionUser = document.createElement("section");
     sectionUser.classList.add("user");
-    
+
     // User Image Link
     let aUserImage = document.createElement("a");
     aUserImage.classList.add("userImage");
     aUserImage.href = "#";
-    
+
     // User Image
     let userImage = `<img src="http://localhost:8080/imges/Owners/${report.UserImage}" alt="UserImage">`;
     aUserImage.innerHTML = userImage;
     sectionUser.appendChild(aUserImage);
-    
+
     // User Name
     let divUserName = document.createElement("div");
     divUserName.classList.add("userName");
     let UserName = `<h3>${report.UserName}</h3>`;
     divUserName.innerHTML = UserName;
-    
+
     // Category
     let divCategory = document.createElement("div");
-    divCategory.classList.add(witchCategory(report.Catagory));
-    let reportCategory = `<p>${report.Catagory}</p>`;
+    divCategory.classList.add(witchCategory("Lost Pet"));
+    let reportCategory = `<p>Lost Pet</p>`;
     divCategory.innerHTML = reportCategory;
     divUserName.appendChild(divCategory);
-    
+
     sectionUser.appendChild(divUserName);
-    
+
     // Location
     let divLocation = document.createElement("div");
     divLocation.classList.add("location");
-    let reportLocation = `<h3>${report.City}</h3>`;
+    let reportLocation = `<h3>${report.city}</h3>`;
     divLocation.innerHTML = reportLocation;
-    
+
     // Arrow Icon
     let aArrowIcon = document.createElement("a");
     aArrowIcon.classList.add("arrow");
-    aArrowIcon.href = `../client/Object.html?reportId=${report.ReportId}`;
+    aArrowIcon.href = `../client/Object.html?userId=${report.UserId}&reportId=${report.id}`;
     let aArrow = `<img src="http://localhost:8080/imges/arrowicon.png" alt="arrow">`
     aArrowIcon.innerHTML = aArrow;
-    
+
     // Last Update
     let divLastUpdate = document.createElement("div");
     divLastUpdate.classList.add("lastUpdate");
-    let reportLastUpdate = LastUpdat(report.DateOfReport);
+    let reportLastUpdate = LastUpdat("2024-01-01T00:00:00.000Z");
     let lastUpdate = `<h3>${reportLastUpdate}</h3>`;
     divLastUpdate.innerHTML = lastUpdate;
+
+    if (report.UserId === 1) {
+      console.log(report.UserId+"-"+ data[0].UserId)
+      let deleteButton = document.createElement("button");
+      deleteButton.classList.add("delete");
+      deleteButton.id = report.id;
+      deleteButton.addEventListener("click", () => {
+        deleteReport(report.id);
+      });
+      deleteButton.innerHTML = "Delete";
+      divUserName.appendChild(deleteButton);
+    }
 
     section.appendChild(sectionUser);
     section.appendChild(divLastUpdate);
@@ -179,6 +188,7 @@ function initList(data) {
     section.appendChild(aArrowIcon);
     ul.appendChild(section);
   }
+  
 }
 
 
@@ -222,8 +232,39 @@ function LastUpdat(date) {
   return "Just now";
 }
 
-function deleteReport() {
-  console.log("deleted report");
+
+
+function deleteReport(reportId) {
+  console.log(reportId);
+  fetch(`http://127.0.0.1:8080/api/pets/${reportId}`, {
+  method: 'DELETE',
+  headers: {
+    'Content-Type': 'application/json'
+  }
+})
+.then(response => deleteReportItemFromList(response, reportId))
+}
+
+function deleteReportItemFromList(response, reportId) {
+  if (response.ok) {
+    let report = document.getElementById(reportId);
+    report.remove();
+    removeMarker(reportId);
+  }
+  else {
+    alert("Error: " + response.status);
+  }
+}
+
+function removeMarker(reportId) {
+  for (let i = 0; i < markers.length; i++) {
+    if (markers[i].id === reportId) {
+      markers[i].setMap(null);
+      markers.splice(i, 1);
+      break;
+    }
+  }
+  
 }
 
 
