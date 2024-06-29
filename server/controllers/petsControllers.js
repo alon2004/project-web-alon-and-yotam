@@ -16,10 +16,10 @@ const petsController = {
     },
     async updateReport(req, res) {
         const connection = await dbConnection.createConnection();
-        const {name, type, age, owner} = req.body;
-        await connection.execute(`UPDATE ${table_name_lostPetReport}Pets SET name = ?, type = ?, age = ?, owner = ? WHERE ReportId = ?`, [name, type, age, owner, req.params.id]);
+        const { pet_name, pet_chip_number, pet_behavior, city, last_seen_address, more_information } = req.body;
+        await connection.execute(`UPDATE ${table_name_lostPetReport} SET pet_name = ?, pet_chip_number = ?, pet_behavior = ?, city = ?, last_seen_address = ?, more_information = ? WHERE id = ?`, [pet_name, pet_chip_number, pet_behavior, city, last_seen_address, more_information, req.params.id]);
         connection.end();
-        res.json({message: "Pet updated successfully"});
+        res.json({message: "report updated successfully"});
     },
     async deleteReport(req, res) {
         const connection = await dbConnection.createConnection();
