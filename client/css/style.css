@@ -3,6 +3,9 @@ header {
     border-bottom: 1px solid #dee2e6;
 }
 
+
+
+
 .logo {
     font-size: 1.1rem; 
     font-weight: bold;
@@ -252,4 +255,12 @@ body, .nav-link, .form-label, .form-control, .error {
 .report-type-card img {
     width: 50px; /* Adjust the size of the icons */
     height: 50px;
+}
+
+
+
+@media (min-width: 992px) {
+    footer {
+        display: none;
+    }
 }
