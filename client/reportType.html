@@ -1,4 +1,3 @@
-<!-- indx.html -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,24 +5,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PawLink - New Lost Report</title>
+    <title>PawLink - Report Type</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/formsPage.js" defer></script> 
-
-    <style>
-        .error {
-            color: red;
-            font-size: 14px;
-        }
-    </style>
 </head>
 
 <body>
     <header>
         <nav class="d-flex justify-content-between align-items-center py-3 w-100 px-3">
             <button class="btn btn-light d-lg-none" id="menu-button" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">☰</button> <!-- Added d-lg-none class -->
+                data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">☰</button>
             <div class="logo d-flex align-items-center">
                 <a href="index.html">
                     <img src="images/PawLinkNavLogo.svg" alt="PawLink Logo" class="logo-img img-fluid">
@@ -33,13 +24,13 @@
             <ul class="nav d-none d-lg-flex gap-2 ms-auto">
                 <li class="nav-item d-flex align-items-center">
                     <div class="nav-link-wrapper d-flex align-items-center">
-                        <img src="images/globeIcon.svg" alt="Icon 1" class="nav-icon img-fluid me-1">
+                        <img src="images/LostPetReportIcon.svg" alt="Icon 1" class="nav-icon img-fluid me-1">
                         <a href="#" class="nav-link">MAP</a>
                     </div>
                 </li>
                 <li class="nav-item d-flex align-items-center">
                     <div class="nav-link-wrapper d-flex align-items-center">
-                        <img src="images/addIcon.png" alt="Icon 2" class="nav-icon img-fluid me-1">
+                        <img src="images/LostPetReportIcon.svg" alt="Icon 2" class="nav-icon img-fluid me-1">
                         <a href="#" class="nav-link">ADD REPORT</a>
                     </div>
                 </li>
@@ -62,7 +53,6 @@
                     </div>
                 </li>
             </ul>
-
             <img src="images/PawLinkUserPhoto.svg" alt="User Photo" class="user-img rounded-circle img-fluid">
         </nav>
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
@@ -94,11 +84,12 @@
                     <li><a href="#" class="nav-link">Add report</a></li>
                     <li><a href="#" class="nav-link">Scan chip</a></li>
                     <li><a href="#" class="nav-link">My report</a></li>
-                    <li><a href="#" class="nav-link">Massages</a></li>
+                    <li><a href="#" class="nav-link">Messages</a></li>
                 </ul>
             </div>
         </div>
     </header>
+
     <main class="container mt-4">
         <h1 class="text-center">Report Type</h1>
         <div class="d-flex justify-content-around mt-4">
@@ -107,7 +98,7 @@
                 <h2>Distress pet</h2>
             </div>
             <div class="report-type-card bg-warning text-dark text-center p-3 rounded">
-                <img src="images/lostPetIcon.svg" alt="Lost Pet Icon" class="mb-2">
+                <img src="images/lostPetReportIcon.svg" alt="Lost Pet Icon" class="mb-2">
                 <h2>Lost pet</h2>
             </div>
         </div>
@@ -117,18 +108,13 @@
         </div>
     </main>
 
-
-
-
     <footer class="fixed-bottom d-flex justify-content-around custom-footer-bg border-top d-lg-none">
         <button class="btn"><img src="images/globeIcon.svg" alt="Global navigation icon" class="img-fluid"></button>
         <button class="btn"><img src="images/plusIcon.svg" alt="Add new icon" class="img-fluid"></button>
         <button class="btn"><img src="images/signalIcon.svg" alt="Signal icon" class="img-fluid"></button>
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
-    
 
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
