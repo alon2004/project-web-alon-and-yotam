@@ -1,5 +1,7 @@
+<!-- indx.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
@@ -8,16 +10,24 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/formsPage.js" defer></script> <!-- עדכון -->
-    
+
+    <style>
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
 </head>
+
 <body>
     <header>
         <nav class="d-flex justify-content-between align-items-center py-3 w-100 px-3">
-            <button class="btn btn-light d-lg-none" id="menu-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">☰</button> <!-- Added d-lg-none class -->
+            <button class="btn btn-light d-lg-none" id="menu-button" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">☰</button> <!-- Added d-lg-none class -->
             <div class="logo d-flex align-items-center">
-               <a href="index.html">
-                <img src="images/PawLinkNavLogo.svg" alt="PawLink Logo" class="logo-img img-fluid">
-              </a>
+                <a href="index.html">
+                    <img src="images/PawLinkNavLogo.svg" alt="PawLink Logo" class="logo-img img-fluid">
+                </a>
                 <span class="logo-text">Connecting to rescue more</span>
             </div>
             <ul class="nav d-none d-lg-flex gap-2 ms-auto">
@@ -52,7 +62,7 @@
                     </div>
                 </li>
             </ul>
-            
+
             <img src="images/PawLinkUserPhoto.svg" alt="User Photo" class="user-img rounded-circle img-fluid">
         </nav>
     </header>
@@ -93,17 +103,19 @@
     <main class="container">
         <div id="pets-container" class="d-flex flex-column justify-content-center mb-4">
             <!-- Data from API will be inserted here --> <!-- Added container for API data -->
-        </div>    
+        </div>
         <section class="mt-1">
             <h1 class="text-start">New Lost Report</h1>
-            <form id="lost-report-form" class="mb-1">
+            <form id="lost-report-form" class="mb-1" action="http://127.0.0.1:8080/api/lostpetform/submit" method="POST" enctype="multipart/form-data" onsubmit="return validateForm(event)">
                 <div class="mb-0.7">
                     <label for="pet-name" class="form-label">Pet Name *</label>
-                    <input type="text" class="form-control" id="pet-name" value="Tessa" required>
+                    <input type="text" class="form-control" id="pet-name" name="pet_name" required>
+                    <span id="pet-name-error" class="error"></span>
                 </div>
                 <div class="mb-1">
                     <label for="pet-chip-num" class="form-label">Pet Chip Number *</label>
-                    <input type="text" class="form-control" id="pet-chip-num" value="987-XXX-XXX" required>
+                    <input type="text" class="form-control" id="pet-chip-num" name="pet_chip_number" required>
+                    <span id="pet-chip-num-error" class="error"></span>
                 </div>
                 <fieldset>
                     <legend class="form-label">Pet Behavior *</legend>
@@ -112,21 +124,21 @@
                             <img src="images/barkingIcon.svg" alt="Barking behavior icon" class="icon img-fluid">
                             <label for="barking" class="d-block">Barking</label>
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input mt-2" id="barking" checked>
+                                <input type="checkbox" class="form-check-input mt-2" id="barking" name="pet_behavior" value="barking">
                             </div>
                         </div>
                         <div class="text-center mb-1">
                             <img src="images/bitingIcon.svg" alt="Biting behavior icon" class="icon img-fluid">
                             <label for="biting" class="d-block">Biting</label>
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input mt-2" id="biting">
+                                <input type="checkbox" class="form-check-input mt-2" id="biting" name="pet_behavior" value="biting">
                             </div>
                         </div>
                         <div class="text-center mb-2">
                             <img src="images/afraidIcon.svg" alt="Afraid behavior icon" class="icon img-fluid">
                             <label for="afraid" class="d-block">Afraid</label>
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input mt-2" id="afraid">
+                                <input type="checkbox" class="form-check-input mt-2" id="afraid" name="pet_behavior" value="afraid">
                             </div>
                         </div>
                         <button type="button" class="btn btn-light" id="more-button">More</button>
@@ -134,33 +146,32 @@
                 </fieldset>
                 <div class="mb-1">
                     <label for="photos" class="form-label">Add Photos (at least 1) *</label>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="photos" multiple required>
-                        <label class="custom-file-label" for="photos">
-                            <img src="images/addPhotoIcon.svg" alt="Choose file icon"><small class="form-text text-muted">Tessa1.JPG, Tessa2.JPG, Tessa3.JPG</small>
-                        </label>
-                    </div>
+                    <input type="file" class="form-control" id="photos" name="photos" multiple required>
+                    <span id="photos-error" class="error"></span>
                 </div>
                 <div class="mb-1">
                     <label for="city" class="form-label">City *</label>
-                    <input type="text" class="form-control" id="city" value="Tel Aviv" required>
+                    <input type="text" class="form-control" id="city" name="city" required>
+                    <span id="city-error" class="error"></span>
                 </div>
                 <div class="mb-1">
-                    <label for="address" class="form-label">Last Seen Address *</label>
-                    <input type="text" class="form-control" id="address" value="Brandes 17" required>
+                    <label for="last-seen-address" class="form-label">Last Seen Address *</label>
+                    <input type="text" class="form-control" id="last-seen-address" name="last_seen_address" required>
+                    <span id="last-seen-address-error" class="error"></span>
                 </div>
-                <div class="mb-2">
-                    <label class="form-label">Place a flag (for radius)</label>
-          <!--           <div id="map" class="w-100">
-                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVYTvN9OpYmd5cTevsZlT5jNflopxYmc4&callback=initMap" async defer></script>
-                    </div> -->
+                <div class="mb-1">
+                    <label for="flag-location" class="form-label">Flag Location *</label>
+                    <input type="text" class="form-control" id="flag-location" name="flag_location" required>
+                    <span id="flag-location-error" class="error"></span>
                 </div>
-                <div class="mb-3">
-                    <label for="more-info" class="form-label">More Information</label>
-                    <textarea class="form-control" id="more-info" rows="3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed </textarea>
+                <div class="mb-1">
+                    <label for="more-information" class="form-label">More Information *</label>
+                    <textarea class="form-control" id="more-information" name="more_information" required></textarea>
+                    <span id="more-information-error" class="error"></span>
                 </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
-        </section>
+                    </section>
         <div class="d-flex justify-content-center mb-4">
             <div class="confirmation-container d-flex justify-content-center align-items-center">
                 <img src="images/confirmCheckBox.svg" alt="Confirmation Check" class="confirmation-icon">
@@ -173,6 +184,8 @@
         <button class="btn"><img src="images/signalIcon.svg" alt="Signal icon" class="img-fluid"></button>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
-    <script src="js/scripts.js"></script>
+
+    </script>
 </body>
+
 </html>

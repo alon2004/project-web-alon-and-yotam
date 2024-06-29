@@ -1,572 +1,236 @@
-* {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
+/* Ensure the user image is on the right side */
+header {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.logo {
+    font-size: 1.1rem; 
+    font-weight: bold;
+}
+
+.logo-img {
+    width: 5rem; 
+    height: 5rem; 
+    margin-right: 0.625rem; 
+}
+
+.user-img {
+    width: 2.7rem; /* Increase the size of the user photo */
+    height:2.7em; /* Increase the size of the user photo */
+
 }
 
 body {
-    font-family: Helvetica, sans-serif;
-    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
 }
 
-
-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background-color: white;
+h1 {
+    font-size: 1.5rem;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    height: 80px;
-    width: 100%;
-    z-index: 1;
+#lost-report-form {
+    margin-top: 0.3rem; 
+    background-color: #E8EBED;
+    padding: 1.25rem; 
+    border-radius: 10px;
 }
-
-nav label.logo {
-    font-weight: bold;
-    color: black;
-    font-size: 25px;
-}
-
-nav span#logoImge {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-image: url("http://localhost:8080/imges/logoPawLink.png");
-}
-
-a#logo_container {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    width: 500px;
-    height: 100px;
-}
-
-a#logo_container span#logoImge {
-    background-size: contain;
-    flex-shrink: 0;
-    width: 80px;
-    height: 80px;
-    background-repeat: no-repeat;
-    border-radius: 50%;
-    margin-left: 30px;
-    margin-top: 10px;
-}
-
-nav ul {
-    line-height: 100px;
-    margin-right: 20px;
-}
-
-nav ul li {
-    display: inline-block;
-    margin: 0 5px;
-}
-
-nav ul li a {
-    display: inline-flex;
-    align-items: center;
-    height: 100px;
-    color: black;
-    font-size: 15px;
-    padding: 7px 13px;
-    border-radius: 3px;
-    text-transform: uppercase;
-}
-
-nav ul li a img {
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
-
-}
-
-ul a.active,
-ul a:hover {
-    background: #1b9bff;
-    transition: .5s;
-    color: white;
-}
-
-nav input {
-    display: none;
-}
-
-nav label.checkbtn {
-    line-height: 80px;
-    margin-left: 20px;
-    float: left;
-    cursor: pointer;
-    display: none;
-}
-
-header nav section#userImge a img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-right: 25px;
-    margin-top: 10px;
-}
-
-hr {
-    margin-top: 20px;
-    margin-bottom: 0;
-    border: 0;
-    border-top: 1px solid black;
-}
-
-body h1 {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 20px;
-
-}
-
-body#wrapper {
-    display: flex;
-    flex-wrap: wrap;
-}
-
 
 #map {
-    height: calc(100vh - 150px);
-    margin-right: 20px;
-    margin-left: 20px;
-    border-radius: 5px;
-    border-color: aliceblue;
-}
-
-footer {
-    display: none;
-    position: sticky;
     width: 100%;
-    z-index: 1000;
-    bottom: 0;
-    justify-content: center;
-    background: #E9ECEF;
-    padding: 10px 20px;
+    height: 10rem; 
+    background-color: #f0f0f0;
 }
 
-footer a img {
-    width: 30px;
-    height: 30px;
+footer .btn {
+    width: 3.75rem; 
+    height: 3.75rem; 
 }
 
-footer a:not(:first-child) {
-    margin-left: 150px;
+.icon {
+    display: block;
+    margin: 0 auto;
+    width: 1.5rem; 
+    height: 1.5rem; 
 }
 
-footer a#middle img {
-    width: 40px;
-    height: 40px;
+footer.custom-footer-bg {
+    background-color: #DFE2E5;
 }
 
-footer a.notActive img {
-    opacity: 0.3;
+footer .btn:hover {
+    background-color: #d3d4d5; 
 }
 
-body section#ListReports {
-    margin-top: 50px;
-    margin-right: 20px;
+.container {
+    overflow: hidden; /* Ensures elements stay within the container */
+    padding: 1rem; /* Adds inner gap to avoid slicing */
 }
 
-body section#ListReports section.report {
+main {
+    margin-bottom: 2vh;
+    margin-top: 0.125vh;  
+}
+
+/* New CSS for responsive text */
+.text-start {
+    font-size: clamp(1.25rem, 1rem + 1vw, 1.375rem); /* Responsive font size */
+    font-weight: bold; /* Makes the font bold */
+    font-family: 'Inter', sans-serif; /* Set the font family to Inter */
+    font-style: normal;
+    line-height: normal;
+}
+
+.form-label {
+    color: #000; /* Set text color to black */
+    font-family: 'Inter', sans-serif; 
+    font-size: clamp(0.75rem, 1vw + 0.5rem, 1.25rem); /* Responsive font size */
+    font-style: normal; /* Ensures the font style is normal */
+    font-weight: 700; /* Makes the font bold */
+    line-height: normal; /* Sets a normal line height */
+}
+
+.custom-file {
+    position: relative;
+}
+
+.custom-file-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.custom-file-label {
     display: inline-flex;
-    flex-wrap: wrap;
-    margin-left: 10px;
-    padding: 10px 20px;
-    border: 1px solid #E9ECEF;
-    border-radius: 5px;
-    width: calc(100% - 10px);
-    height: 150px;
-    background: white;
-}
-
-body section#ListReports section.report div.userName {
-    background-image: url('http://localhost:8080/imges/userIcon.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 200px;
-    height: 20px;
-    padding-left: 25px;
-    margin-top: 25px;
-    margin-left: 25px;
-}
-
-.delete {
-    width: 50px;
-    height: 20px;
-    margin-top: 5px;
-    background-color: rgb(223, 83, 83);
-    border-radius: 5px;
+    align-items: center;
     cursor: pointer;
-    border-width: 0px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide overflowing content */
+    text-overflow: ellipsis; /* Add ellipsis to overflowing text */
+    max-width: 100%;
 }
 
-body section#ListReports section.report div.userName div.Ycategory {
-    background-image: url('http://localhost:8080/imges/yellowFlag.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    padding-left: 25px;
-    margin-top: 25px;
+.custom-file-label img {
+    width: 2rem; 
+    height: 2rem; 
+    margin-right: 0.5rem;
 }
 
-body section#ListReports section.report div.userName div.Rcategory {
-    background-image: url('http://localhost:8080/imges/redFlag.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    padding-left: 25px;
-    margin-top: 25px;
+.behavior-label {
+    font-family: 'Inter', sans-serif; /* Inter */
+    font-weight: bold; /* Bold */
+    font-size: 12px; /* 12px */
+    margin-top: 0.25rem; /* Margin above the labels */
 }
 
-body section#ListReports section.report div.location {
-    margin-top: 25px;
-    width: 200px;
+form label.d-block {
+    font-family: 'Inter', sans-serif; /* Inter */
+    font-weight: bold; /* Bold */
+    font-size: 12px; /* 12px */
 }
 
-body section#ListReports section.report {
-    justify-content: space-between;
+.confirmation-container {
+    width: 144px; /* Width of the box */
+    height: 32px; /* Height of the box */
+    background-color: #E8EBED; /* Background color of the box */
+    border-radius: 10px; /* Rounded corners */
+    display: flex; /* Flex display */
+    justify-content: center; /* Horizontal center alignment */
+    align-items: center; /* Vertical center alignment */
+    margin: 0.5rem; /* Margin around the element */
+    margin-bottom: 1.2rem;
+    position: relative; /* Relative positioning */
 }
 
-body section#ListReports section.report a.arrow img {
-    width: 50px;
-    height: 50px;
-    margin-top: 25px;
-    margin-right: 25px;
+.confirmation-icon {
+    width: 80%; /* Width of the icon */
+    height: 80%; /* Height of the icon */
 }
 
-body section#ListReports section.report div.lastUpdate {
-    margin-top: 25px;
-    margin-right: 25px;
-
+.nav-icon {
+    width: 2rem;
+    height: 2rem;
+    margin: 0 0.5rem;
 }
 
-body section#ListReports section.report a img {
-    object-fit: cover;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    margin-top: 25px;
-    margin-right: 25px;
+.nav {
+    margin: -0.5rem;
 }
 
-body section#ListReports section.report section.user {
-    display: inline-flex;
-    flex-wrap: wrap;
-
+/* HOVER AND SELECTED EFFECTS TO THE DESKTOP NAVBAR */
+.nav-link {
+    color: #000; /* Default color */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition */
 }
 
-body section#ListReports section.report section.user a {
-    width: 50px;
-
-}
-
-.roundImg {
-    object-fit: cover;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-}
-
-
-/* קשור למפה לחלונות מידע אחרי שלוחצים על האייקון */
-.gm-style-iw-d {
-    width: 125px;
-    height: 125px;
-    justify-content: center;
-    text-align: center;
-}
-
-main section#wrapper section#Under_MAP {
-    display: inline-block;
-    background-color: #adb9c7;
-    opacity: 0.8;
-    border-radius: 5px;
-    margin-left: 20px;
-    margin-right: 20px;
-    width: calc(100% - 40px);
-
+.nav-link-wrapper {
+    display: flex;
+    align-items: center;
+    transition: color 1.9 ease, background-color 1.9s ease; /* Smooth transition */
+    border-radius: 5px; /* Optional: add some rounding to the background */
+    padding: 0.4rem 0; /* Padding only on the Y-axis (top and bottom) */
 
 }
 
-main section#wrapper section#Under_MAP button#SOS {
-    margin-left: 25px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border-width: 0px;
-    background-color: rgb(237, 105, 105);
-    float: left;
-    margin-top: 15px;
-    cursor: pointer;
-
-
+.nav-link-wrapper:hover, .nav-link-wrapper:focus, .nav-link-wrapper:active {
+    color: #fff; /* Hover/Active/Focus text color */
+    background-color: #007bff; /* Hover/Active/Focus background color */
+    text-decoration: none; /* Remove underline from links */
 }
 
-main section#wrapper section#Under_MAP button#button_Auth {
-    margin-left: 25px;
-    width: 100px;
-    height: 50px;
-    border-radius: 5px;
-    border-width: 0px;
-    background-color: #E9ECEF;
-    opacity: 0.8;
-    float: left;
-    margin-top: 15px;
-    cursor: pointer;
+.nav-link-wrapper:focus-within {
+    color: #fff; /* Focus within text color */
+    background-color: #007bff; /* Focus within background color */
+    text-decoration: none; /* Remove underline from links */
+    border-radius: 5px; /* Optional: add some rounding to the background */
 }
-
-main section#wrapper section#Under_MAP div#info_map {
-    justify-content: center;
-    border-radius: 5px;
-    background-color: #adb9c7;
-    opacity: 0.8;
-    margin-right: 25px;
-    float: right;
-}
-
-main section#wrapper section#Under_MAP div#info_map p#Disstres {
-    background-image: url("http://localhost:8080/imges/mapIconRed.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 30px;
-    margin-top: 5px;
-    margin-right: 5px;
-    padding-left: 25px;
-}
-
-main section#wrapper section#Under_MAP div#info_map p#Lost {
-    background-image: url("http://localhost:8080/imges/mapIconYellow.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 30px;
-    margin-top: 5px;
-    margin-right: 5px;
-    padding-left: 25px;
-}
+/*---------------------------------------------------------------------------- */
 
 
-
-
-@media (max-width: 1028px) {
-
-    a#logo_container {
-        display: inline-flex;
-        align-items: center;
-        text-decoration: none;
-        width: 300px;
-        height: 100px;
+/*MEDIA QUERRY TO MAKE THE DEKTOP NAVBAR RESPONSIVE */
+@media (min-width: 992px) { /* Apply only for desktop dimensions */
+    .d-flex.justify-content-between.align-items-center.py-3.w-100 > :last-child {
+        margin-left: 2.5rem; /* Adjust the value as needed */
     }
-
-    nav label.logo {
-        font-size: 15px;
-    }
-
-    nav ul li a {
-        font-size: 10px;
-        padding: 7px 5px;
-    }
-
-    header nav section#userImge a img {
-        margin-top: 25px;
-        width: 60px;
-        height: 60px;
-    }
-
-
-
 }
 
-@media (max-width: 768px) {
 
-    nav label.logo {
-        font-size: 20px;
-    }
-
-    a#logo_container {
-        width: 500px;
-    }
-
-    nav label.checkbtn {
-        display: block;
-        line-height: 100px;
-    }
-
-    nav ul {
-        position: fixed;
-        width: 100%;
-        height: 100vh;
-        background: #E9ECEF;
-        top: 100px;
-        left: -100%;
-        text-align: center;
-        transition: all .5s;
-        z-index: 1;
-
-    }
-
-    nav ul li {
-        display: block;
-        margin: 50px 0;
-        line-height: 10px;
-
-    }
-
-    nav ul li {
-        display: block;
-        width: 100%;
-        height: 1px;
-        opacity: 0.6;
-        background: var(--blackline, #000);
-        margin-top: 0px;
-        align-content: center;
-    }
-
-    nav ul li a {
-        display: inline-flex;
-        text-align: start;
-        width: 500px;
-        height: auto;
-        font-size: 15px;
-        margin-top: 8px;
-        padding: 7px 100px;
-    }
-
-    nav ul li a img {
-        width: 30px;
-        height: 30px;
-        margin-right: 30px;
-    }
-
-    nav ul li a.active,
-    ul a:hover {
-        background: none;
-        color: #0082e6;
-    }
-
-    #check:checked~ul {
-        left: -100px;
-    }
-    header nav section#userImge a img {
-        margin-top: 20px;
-    }
-
-    footer {
+/* CSS for the side bar navbar. */
+@media (max-width: 991px) { /* Apply only for mobile */
+    nav {
         display: flex;
-        width: 100%;
-
+        justify-content: space-between;
+        align-items: center;
     }
 
-    body section#ListReports section.report div.userName {
-        font-size: 15px;
-        width: 150px;
-        height: 20px;
+    .logo-img {
+        margin-right: 0;
+    }
+    .offcanvas-body ul li {
+        padding: 0.75rem 1rem; /* Adjust padding for better touch targets */
+        border-bottom: 1px solid #dee2e6;
     }
 
-    body section#ListReports section.report div.lastUpdate {
-        font-size: 15px;
+    .offcanvas-body ul li:first-child {
+        margin-top: 1rem; /* Adjust margin for better spacing */
     }
 
-    body section#ListReports section.report div.location {
-        font-size: 15px;
-        width: 110px;
+    .offcanvas-body ul li a {
+        color: #000;
+        text-decoration: none;
+        font-size: 1.25rem; /* Adjust font size for readability */
+        display: flex;
+        align-items: center;
     }
-
-
 }
+/* ----------------------------------------------------------- */
 
-@media (max-width: 620px) {
-    nav label.logo {
-        font-size: 13px;
-    }
-
-    nav ul li a {
-        font-size: 15px;
-    }
-
-    nav section#userImge {
-        width: 50px;
-        height: 50px;
-        margin-right: 5px;
-        margin-top: 5px;
-    }
-
-    footer a:not(:first-child) {
-        margin-left: 70px;
-    }
-
-    body section#ListReports section.report div.userName {
-        font-size: 12px;
-        width: 120px;
-        height: 20px;
-    }
-
-    body section#ListReports section.report div.lastUpdate {
-        font-size: 12px;
-    }
-
-    body section#ListReports section.report div.location {
-        font-size: 12px;
-        width: 110px;
-        display: none;
-    }
-
-    body section#ListReports section.report a.arrow img {
-        width: 15px;
-        height: 25px;
-        object-fit: cover
-    }
-
-    body section#ListReports section.report section.user a img {
-        width: 60px;
-        height: 60px;
-    }
-
-    main section#wrapper section#Under_MAP button#SOS {
-        width: 50px;
-        height: 50px;
-    }
-
-    main section#wrapper section#Under_MAP button#button_Auth {
-        width: 70px;
-        height: 50px;
-    }
-
-}
-
-@media (max-width: 420px) {
-    body section#ListReports section.report div.location {
-        display: none;
-    }
-
-    body section#ListReports section.report section.user {
-        margin-left: 0px;
-    }
-
-    body section#ListReports section.report div.lastUpdate {
-        display: none;
-    }
-    main section#wrapper section#Under_MAP button#SOS {
-        width: 40px;
-        height: 40px;
-    }
-
-    main section#wrapper section#Under_MAP button#button_Auth {
-        font-size: 14px;
-        width: 70px;
-        height: 40px;
-        margin-left: 10px;
-    }
-    main section#wrapper section#Under_MAP div#info_map {
-        margin-right: 10px;
-    }
-
-}

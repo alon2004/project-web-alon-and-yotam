@@ -1,4 +1,5 @@
-
+/* indexed.js
+ */
 window.onload = () => {
 
   initMap();
@@ -25,8 +26,7 @@ window.onload = () => {
 
 }
 
-// מפה
-
+// MAP
 let map;
 async function initMap() {
   const position = { lat: 32.4764688287259, lng: 34.97601741898383 };

@@ -1,3 +1,10 @@
+/* The userControllers.js file is responsible for implementing the controller functions that handle the logic for various user-related operations in the application. 
+These functions interact with the database to perform CRUD (Create, Read, Update, Delete) operations on user data. 
+Each function corresponds to a specific HTTP route defined in the usersRouter.js file.
+ */
+
+/* usersControllers */
+
 const {dbConnection} = require("../db_connection")
 
 const table_name_users = "tbl_106_";
