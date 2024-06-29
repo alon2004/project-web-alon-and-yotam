@@ -9,8 +9,8 @@ const table_name_form = "tbl_106_lostPetReport";
 const formController = {
     async createLostPetReport(req, res) {
         const connection = await dbConnection.createConnection();
-        const { pet_name, pet_chip_number, pet_behavior, photos, city, last_seen_address, flag_location, more_information } = req.body;
-        await connection.execute(`INSERT INTO ${table_name_form} (pet_name, pet_chip_number, pet_behavior, photos, city, last_seen_address, flag_location, more_information) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`, [pet_name, pet_chip_number, pet_behavior, photos, city, last_seen_address, flag_location, more_information]);
+        const { pet_name,user_id, pet_chip_number, pet_behavior, photos, city, last_seen_address, flag_location, more_information } = req.body;
+        await connection.execute(`INSERT INTO ${table_name_form} (pet_name, pet_chip_number, pet_behavior, photos, city, last_seen_address, more_information) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`, [pet_name,user_id, pet_chip_number, pet_behavior, photos, city, last_seen_address, more_information]);
         connection.end();
         res.json({ message: "Pet created successfully" });
     },
@@ -21,28 +21,28 @@ const formController = {
 
         try {
             const connection = await dbConnection.createConnection();
-            const { pet_name, pet_chip_number, pet_behavior, photos, city, last_seen_address, flag_location, more_information } = req.body;
+            const { pet_name,user_id, pet_chip_number, pet_behavior, photos, city, last_seen_address, more_information } = req.body;
 
             // Log the received data for debugging
             console.log("Received data:", {
                 pet_name,
+                user_id,
                 pet_chip_number,
                 pet_behavior,
                 photos,
                 city,
                 last_seen_address,
-                flag_location,
                 more_information
             });
 
-            if (!pet_name || !pet_chip_number || !pet_behavior || !photos || !city || !last_seen_address || !flag_location || !more_information) {
+            if (!pet_name||!user_id || !pet_chip_number || !pet_behavior || !photos || !city || !last_seen_address || !more_information) {
                 console.log("Validation failed"); // Log validation failure
                 return res.status(400).json({ message: "All fields are required" });/* 400 becuse its - client side error caused by wrongly inserted input by the user ! */
             }
 
             const [result] = await connection.execute(
-                `INSERT INTO ${table_name_form} (pet_name, pet_chip_number, pet_behavior, photos, city, last_seen_address, flag_location, more_information) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
-                [pet_name, pet_chip_number, pet_behavior, photos, city, last_seen_address, flag_location, more_information]
+                `INSERT INTO ${table_name_form} (pet_name,user_id, pet_chip_number, pet_behavior, photos, city, last_seen_address, more_information) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+                [pet_name,user_id, pet_chip_number, pet_behavior, photos, city, last_seen_address, more_information]
             );
             connection.end();
             console.log("Insert result:", result); // Log the insert result
