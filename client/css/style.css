@@ -233,4 +233,9 @@ form label.d-block {
     }
 }
 /* ----------------------------------------------------------- */
+@media (min-width: 992px) { /* Apply only for desktop dimensions */
+    footer {
+        display: none;
+    }
+}
 
