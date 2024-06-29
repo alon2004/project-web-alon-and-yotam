@@ -252,7 +252,7 @@ main section#wrapper section#Under_MAP div#info_map p#Lost {
 
     body section#ListReports section.report div.userName {
         font-size: 15px;
-        width: 150px;
+        width: 170px;
         height: 20px;
     }
 
@@ -290,8 +290,6 @@ main section#wrapper section#Under_MAP div#info_map p#Lost {
 
     body section#ListReports section.report div.userName {
         font-size: 12px;
-        width: 120px;
-        height: 20px;
     }
 
 
@@ -367,7 +365,17 @@ body main section#topWrapper{
     border-radius: 5px;
     opacity: 0.8;
 }
+h3{
+    font-weight: bold;
+}
+h1{
+    font-weight: bold;
+}
 
+p{
+    font-size: 20px;
+
+}
 body main section#topWrapper div#PetName{
     display: inline-block;
     width: 200px;
@@ -475,6 +483,7 @@ body main section#Buttons{
     width: 100%;
     justify-content: center;
     margin-bottom: 50px;
+    
 }
 
 body main div#ScanAttempt{
@@ -519,7 +528,7 @@ body main button.Bbuttons img{
         font-size: 20px;
     }
     body main section#topWrapper div#PetName p{
-        font-size: 12px;
+        font-size: 16px;
     }
     body main section#topWrapper div#LastSeen{
         width: 300px;
@@ -530,17 +539,23 @@ body main button.Bbuttons img{
         font-size: 20px;
     }
     body main section#topWrapper div#LastSeen p{
-        font-size: 12px;
+        font-size: 16px;
     }
     body main section#topWrapper div#PetBhaviorsIMG img{
         width: 80px;
         height: 80px;
         margin-left: 0px;
     }
+    body main section#topWrapper{
+        height: 800px;
+    }
 
 }
 
 @media (max-width: 420px){
+    body main section#topWrapper{
+        height: 700px;
+    }
     body main section#topWrapper div#PetBhavior h3{
         font-size: 20px;
     }

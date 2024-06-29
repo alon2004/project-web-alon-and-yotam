@@ -1,3 +1,7 @@
+window.onload = () => {
+    addListeners();
+}
+
 async function validateForm(event) {
     event.preventDefault(); // Prevent default form submission
 
@@ -103,3 +107,19 @@ async function validateForm(event) {
 
     return false; // Prevent form from submitting the traditional way
 }
+
+
+function addListeners() {
+    let addReport = document.getElementById("addReport");
+    addReport.addEventListener("click", () => {
+      window.location.href = "../client/forms.html";
+    });
+    let mapButton = document.getElementById("homeMap");
+    mapButton.addEventListener("click", () => {
+      window.location.href = "../client/index.html"
+    });
+    let scanButton = document.getElementById("scanPet");
+    scanButton.addEventListener("click", () => {
+      window.location.href = "#";
+    });
+  }

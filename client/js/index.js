@@ -14,11 +14,25 @@ window.onload = () => {
     .then(response => response.json())
     .then(data => InitMarkerOnMap(data))
 
-    fetch("http://127.0.0.1:8080/api/pets/innerJoinUsers")
-  .then(response => response.json())
-  .then(data => CurrentUser(data))
+  fetch("http://127.0.0.1:8080/api/pets/innerJoinUsers")
+    .then(response => response.json())
+    .then(data => CurrentUser(data))
+    addListeners();
+}
 
-
+function addListeners() {
+  let addReport = document.getElementById("addReport");
+  addReport.addEventListener("click", () => {
+    window.location.href = "../client/forms.html";
+  });
+  let mapButton = document.getElementById("homeMap");
+  mapButton.addEventListener("click", () => {
+    window.location.href = "../client/index.html"
+  });
+  let scanButton = document.getElementById("scanPet");
+  scanButton.addEventListener("click", () => {
+    window.location.href = "#";
+  });
 }
 
 // מפה
@@ -41,14 +55,14 @@ async function initMap() {
     map: map,
     title: "My Location",
   });
-  
+
 
 }
 
 function InitMarkerOnMap(data) {
   for (const report of data) {
     const geocoder = new google.maps.Geocoder();
-    const address = report.last_seen_address+ "," + report.city;
+    const address = report.last_seen_address + "," + report.city;
 
     let marker = new google.maps.Marker();
     geocoder.geocode({ address: address }, (results, status) => {
@@ -72,16 +86,13 @@ function InitMarkerOnMap(data) {
           Animation: google.maps.Animation.DROP,
         });
         let infoWindow = new google.maps.InfoWindow;
-          infoWindow = new google.maps.InfoWindow({
-            content: `<a href="../client/Object.html?reportId=${report.id}"><img src="http://localhost:8080/imges/Owners/${report.UserImage}" alt="UserImage" class="roundImg"></a> <h3>Lost Pet</h3>`
-          });
+        infoWindow = new google.maps.InfoWindow({
+          content: `<a href="../client/Object.html?reportId=${report.id}"><img src="http://localhost:8080/imges/Owners/${report.UserImage}" alt="UserImage" class="roundImg"></a> <h3>Lost Pet</h3>`
+        });
         marker.addListener("click", () => {
           infoWindow.open(map, marker);
         });
 
-      }
-      else {
-        alert("Geocode was not successful for the following reason: " + status);
       }
       markers.push(marker);
     });
@@ -171,7 +182,7 @@ function initList(data) {
     divLastUpdate.innerHTML = lastUpdate;
 
     if (report.UserId === 1) {
-      console.log(report.UserId+"-"+ data[0].UserId)
+      console.log(report.UserId + "-" + data[0].UserId)
       let deleteButton = document.createElement("button");
       deleteButton.classList.add("delete");
       deleteButton.id = report.id;
@@ -188,7 +199,7 @@ function initList(data) {
     section.appendChild(aArrowIcon);
     ul.appendChild(section);
   }
-  
+
 }
 
 
@@ -237,12 +248,12 @@ function LastUpdat(date) {
 function deleteReport(reportId) {
   console.log(reportId);
   fetch(`http://127.0.0.1:8080/api/pets/${reportId}`, {
-  method: 'DELETE',
-  headers: {
-    'Content-Type': 'application/json'
-  }
-})
-.then(response => deleteReportItemFromList(response, reportId))
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then(response => deleteReportItemFromList(response, reportId))
 }
 
 function deleteReportItemFromList(response, reportId) {
@@ -264,7 +275,7 @@ function removeMarker(reportId) {
       break;
     }
   }
-  
+
 }
 
 

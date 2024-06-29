@@ -6,8 +6,23 @@ window.onload = () => {
         .then((response) => response.json())
         .then((data) => initReportPage(data));
 
+        addListeners();
 
+}
 
+function addListeners() {
+    let addReport = document.getElementById("addReport");
+    addReport.addEventListener("click", () => {
+      window.location.href = "../client/forms.html";
+    });
+    let mapButton = document.getElementById("homeMap");
+    mapButton.addEventListener("click", () => {
+      window.location.href = "../client/index.html"
+    });
+    let scanButton = document.getElementById("scanPet");
+    scanButton.addEventListener("click", () => {
+      window.location.href = "#";
+    });
 }
 
 // מפה
@@ -100,9 +115,6 @@ function PutMarkerOnMap(address) {
             map.setCenter(results[0].geometry.location);
             map.setZoom(17);
             markers.push(marker);
-        }
-        else {
-            alert("Geocode was not successful for the following reason: " + status);
         }
     });
 }
