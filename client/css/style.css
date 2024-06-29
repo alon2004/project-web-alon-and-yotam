@@ -239,3 +239,17 @@ form label.d-block {
     }
 }
 
+
+
+body, .nav-link, .form-label, .form-control, .error {
+    font-family: 'Inter', sans-serif;
+}
+
+.report-type-card {
+    width: 45%; /* Adjust the width as necessary */
+}
+
+.report-type-card img {
+    width: 50px; /* Adjust the size of the icons */
+    height: 50px;
+}
