@@ -1,12 +1,7 @@
 
-
-
-
-
-
 window.onload = () => {
 
-    fetch("http://localhost:8080/api/pets")
+    fetch("http://127.0.0.1:8080/api/lostpetform/innerJoinUsers")
         .then((response) => response.json())
         .then((data) => initReportPage(data));
 

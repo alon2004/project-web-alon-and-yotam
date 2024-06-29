@@ -24,7 +24,9 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
+
 formRouter.get('/', formController.createLostPetReport);
+
 
 // New POST route for form submission with file upload
 formRouter.post('/submit', upload.array('photos', 10), formController.submitLostPetReport);
