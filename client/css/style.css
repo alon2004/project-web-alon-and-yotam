@@ -6,7 +6,6 @@
 }
 a{
     text-decoration: none !important;
-
 }
 
 body {
@@ -18,123 +17,10 @@ main{
     position: relative;
 }
 
-
-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background-color: white;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    height: 80px;
-    width: 100%;
-    z-index: 1;
-}
-
-nav label.logo {
-    font-weight: bold;
-    color: black;
-    font-size: 25px;
-}
-
-nav span#logoImge {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-image: url("http://localhost:8080/imges/logoPawLink.png");
-}
-
-a#logo_container {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    width: 500px;
-    height: 100px;
-}
-
-a#logo_container span#logoImge {
-    background-size: contain;
-    flex-shrink: 0;
-    width: 80px;
-    height: 80px;
-    background-repeat: no-repeat;
-    border-radius: 50%;
-    margin-left: 30px;
-    margin-top: 10px;
-}
-
-nav ul {
-    line-height: 100px;
-    margin-right: 20px;
-}
-
-nav ul li {
-    display: inline-block;
-    margin: 0 5px;
-}
-
-nav ul li a {
-    display: inline-flex;
-    align-items: center;
-    height: 100px;
-    color: black;
-    font-size: 15px;
-    padding: 7px 13px;
-    border-radius: 3px;
-    text-transform: uppercase;
-}
-
-nav ul li a img {
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
-
-}
-
-ul a.active,
-ul a:hover {
-    background: #1b9bff;
-    transition: .5s;
-    color: white;
-}
-
-nav input {
-    display: none;
-}
-
-nav label.checkbtn {
-    line-height: 80px;
-    margin-left: 20px;
-    float: left;
-    cursor: pointer;
-    display: none;
-}
-
-header nav section#userImge a img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-right: 25px;
-    margin-top: 10px;
-}
-
-hr {
-    margin-top: 20px;
-    margin-bottom: 0;
-    border: 0;
-    border-top: 1px solid black;
-}
-
 body h1 {
     margin-top: 20px;
     margin-bottom: 20px;
     margin-left: 20px;
-
 }
 
 body#wrapper {
@@ -151,38 +37,11 @@ body#wrapper {
     border-color: aliceblue;
 }
 
-footer {
-    display: none;
-    position: sticky;
-    width: 100%;
-    z-index: 1000;
-    bottom: 0;
-    justify-content: center;
-    background: #E9ECEF;
-    padding: 10px 20px;
-}
-
-footer a img {
-    width: 30px;
-    height: 30px;
-}
-
-footer a:not(:first-child) {
-    margin-left: 150px;
-}
-
-footer a#middle img {
-    width: 40px;
-    height: 40px;
-}
-
-footer a.notActive img {
-    opacity: 0.3;
-}
 
 body section#ListReports {
     margin-top: 50px;
     margin-right: 20px;
+    margin-bottom: 100px;
 }
 
 body section#ListReports section.report {
@@ -193,7 +52,7 @@ body section#ListReports section.report {
     border: 1px solid #E9ECEF;
     border-radius: 5px;
     width: calc(100% - 10px);
-    height: 150px;
+    height: 200px;
     background: white;
 }
 
@@ -360,9 +219,6 @@ main section#wrapper section#Under_MAP div#info_map p#Lost {
     padding-left: 25px;
 }
 
-
-
-
 @media (max-width: 1028px) {
 
     a#logo_container {
@@ -387,90 +243,10 @@ main section#wrapper section#Under_MAP div#info_map p#Lost {
         width: 60px;
         height: 60px;
     }
-
-
-
 }
 
 @media (max-width: 768px) {
 
-    nav label.logo {
-        font-size: 20px;
-    }
-
-    a#logo_container {
-        width: 500px;
-    }
-
-    nav label.checkbtn {
-        display: block;
-        line-height: 100px;
-    }
-
-    nav ul {
-        position: fixed;
-        width: 100%;
-        height: 100vh;
-        background: #E9ECEF;
-        top: 100px;
-        left: -100%;
-        text-align: center;
-        transition: all .5s;
-        z-index: 1;
-
-    }
-
-    nav ul li {
-        display: block;
-        margin: 50px 0;
-        line-height: 10px;
-
-    }
-
-    nav ul li {
-        display: block;
-        width: 100%;
-        height: 1px;
-        opacity: 0.6;
-        background: var(--blackline, #000);
-        margin-top: 0px;
-        align-content: center;
-    }
-
-    nav ul li a {
-        display: inline-flex;
-        text-align: start;
-        width: 500px;
-        height: auto;
-        font-size: 15px;
-        margin-top: 8px;
-        padding: 7px 100px;
-    }
-
-    nav ul li a img {
-        width: 30px;
-        height: 30px;
-        margin-right: 30px;
-    }
-
-    nav ul li a.active,
-    ul a:hover {
-        background: none;
-        color: #0082e6;
-    }
-
-    #check:checked~ul {
-        left: -100px;
-    }
-    header nav section#userImge a img {
-        margin-top: 20px;
-    }
-
-    footer {
-        display: flex;
-        width: 100%;
-
-    }
 
     body section#ListReports section.report div.userName {
         font-size: 15px;
@@ -516,19 +292,14 @@ main section#wrapper section#Under_MAP div#info_map p#Lost {
         height: 20px;
     }
 
-    body section#ListReports section.report div.lastUpdate {
-        font-size: 12px;
-    }
 
     body section#ListReports section.report div.location {
-        font-size: 12px;
-        width: 110px;
         display: none;
     }
 
     body section#ListReports section.report a.arrow img {
-        width: 15px;
-        height: 25px;
+        width: 25px;
+        height: 45px;
         object-fit: cover
     }
 
@@ -545,6 +316,9 @@ main section#wrapper section#Under_MAP div#info_map p#Lost {
     main section#wrapper section#Under_MAP button#button_Auth {
         width: 70px;
         height: 50px;
+    }
+    body section#ListReports section.report div.lastUpdate {
+        display: none;
     }
 
 }
@@ -575,9 +349,7 @@ main section#wrapper section#Under_MAP div#info_map p#Lost {
     main section#wrapper section#Under_MAP div#info_map {
         margin-right: 10px;
     }
-
 }
-
 
 /* object page*/
 
@@ -689,6 +461,12 @@ body main section#topWrapper section#ImgCarusell div#carouselExample{
     border-radius: 5px;
     border-color: aliceblue;
 }
+body main section#Buttons{
+    display: inline-block;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 50px;
+}
 
 body main div#ScanAttempt{
     display: flex;
@@ -750,3 +528,233 @@ body main button.Bbuttons img{
     }
 
 }
+
+/* yotam side */
+
+/* Ensure the user image is on the right side */
+header {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.logo {
+    font-size: 1.1rem; 
+    font-weight: bold;
+}
+
+.logo-img {
+    width: 5rem; 
+    height: 5rem; 
+    margin-right: 0.625rem; 
+}
+
+.user-img {
+    width: 2.7rem; /* Increase the size of the user photo */
+    height:2.7em; /* Increase the size of the user photo */
+
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+#lost-report-form {
+    margin-top: 0.3rem; 
+    background-color: #E8EBED;
+    padding: 1.25rem; 
+    border-radius: 10px;
+}
+
+footer .btn {
+    width: 3.75rem; 
+    height: 3.75rem; 
+}
+
+.icon {
+    display: block;
+    margin: 0 auto;
+    width: 1.5rem; 
+    height: 1.5rem; 
+}
+
+footer.custom-footer-bg {
+    background-color: #DFE2E5;
+}
+
+footer .btn:hover {
+    background-color: #d3d4d5; 
+}
+
+.container {
+    overflow: hidden; /* Ensures elements stay within the container */
+    padding: 1rem; /* Adds inner gap to avoid slicing */
+}
+
+
+
+/* New CSS for responsive text */
+.text-start {
+    font-size: clamp(1.25rem, 1rem + 1vw, 1.375rem); /* Responsive font size */
+    font-weight: bold; /* Makes the font bold */
+    font-family: 'Inter', sans-serif; /* Set the font family to Inter */
+    font-style: normal;
+    line-height: normal;
+}
+
+.form-label {
+    color: #000; /* Set text color to black */
+    font-family: 'Inter', sans-serif; 
+    font-size: clamp(0.75rem, 1vw + 0.5rem, 1.25rem); /* Responsive font size */
+    font-style: normal; /* Ensures the font style is normal */
+    font-weight: 700; /* Makes the font bold */
+    line-height: normal; /* Sets a normal line height */
+}
+
+.custom-file {
+    position: relative;
+}
+
+.custom-file-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.custom-file-label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide overflowing content */
+    text-overflow: ellipsis; /* Add ellipsis to overflowing text */
+    max-width: 100%;
+}
+
+.custom-file-label img {
+    width: 2rem; 
+    height: 2rem; 
+    margin-right: 0.5rem;
+}
+
+.behavior-label {
+    font-family: 'Inter', sans-serif; /* Inter */
+    font-weight: bold; /* Bold */
+    font-size: 12px; /* 12px */
+    margin-top: 0.25rem; /* Margin above the labels */
+}
+
+form label.d-block {
+    font-family: 'Inter', sans-serif; /* Inter */
+    font-weight: bold; /* Bold */
+    font-size: 12px; /* 12px */
+}
+
+.confirmation-container {
+    width: 144px; /* Width of the box */
+    height: 32px; /* Height of the box */
+    background-color: #E8EBED; /* Background color of the box */
+    border-radius: 10px; /* Rounded corners */
+    display: flex; /* Flex display */
+    justify-content: center; /* Horizontal center alignment */
+    align-items: center; /* Vertical center alignment */
+    margin: 0.5rem; /* Margin around the element */
+    margin-bottom: 1.2rem;
+    position: relative; /* Relative positioning */
+}
+
+.confirmation-icon {
+    width: 80%; /* Width of the icon */
+    height: 80%; /* Height of the icon */
+}
+
+.nav-icon {
+    width: 2rem;
+    height: 2rem;
+    margin: 0 0.5rem;
+}
+
+.nav {
+    margin: -0.5rem;
+}
+
+/* HOVER AND SELECTED EFFECTS TO THE DESKTOP NAVBAR */
+.nav-link {
+    color: #000; /* Default color */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+}
+
+.nav-link-wrapper {
+    display: flex;
+    align-items: center;
+    transition: color 1.9 ease, background-color 1.9s ease; /* Smooth transition */
+    border-radius: 5px; /* Optional: add some rounding to the background */
+    padding: 0.4rem 0; /* Padding only on the Y-axis (top and bottom) */
+
+}
+
+.nav-link-wrapper:hover, .nav-link-wrapper:focus, .nav-link-wrapper:active {
+    color: #fff; /* Hover/Active/Focus text color */
+    background-color: #007bff; /* Hover/Active/Focus background color */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.nav-link-wrapper:focus-within {
+    color: #fff; /* Focus within text color */
+    background-color: #007bff; /* Focus within background color */
+    text-decoration: none; /* Remove underline from links */
+    border-radius: 5px; /* Optional: add some rounding to the background */
+}
+/*---------------------------------------------------------------------------- */
+
+
+/*MEDIA QUERRY TO MAKE THE DEKTOP NAVBAR RESPONSIVE */
+@media (min-width: 992px) { /* Apply only for desktop dimensions */
+    .d-flex.justify-content-between.align-items-center.py-3.w-100 > :last-child {
+        margin-left: 2.5rem; /* Adjust the value as needed */
+    }
+}
+
+
+/* CSS for the side bar navbar. */
+@media (max-width: 991px) { /* Apply only for mobile */
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo-img {
+        margin-right: 0;
+    }
+    .offcanvas-body ul li {
+        padding: 0.75rem 1rem; /* Adjust padding for better touch targets */
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .offcanvas-body ul li:first-child {
+        margin-top: 1rem; /* Adjust margin for better spacing */
+    }
+
+    .offcanvas-body ul li a {
+        color: #000;
+        text-decoration: none;
+        font-size: 1.25rem; /* Adjust font size for readability */
+        display: flex;
+        align-items: center;
+    }
+}
+/* ----------------------------------------------------------- */
+

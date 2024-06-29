@@ -32,10 +32,10 @@ initMap();
   function initReportPage(data) {
     const params = new URLSearchParams(window.location.search);
     const myParam = params.get('reportId');
-    const report = data.find((report) => report.ReportId === myParam);
+    const report = data.find((report) => report.ReportId == myParam);
     if (report) {
-        document.getElementById("PetName").getElementsByTagName("p").innerText = report.PetName;
-        document.getElementById("LastSeen").getElementsByTagName("p").innerText = report.LastSeen;
+        document.getElementById("PetNameP").innerText="report.PetName";
+        document.getElementById("LastSeenP").innerText="report.last_seen_address";
         let BarkingIcon=document.getElementById("Barking");
         let BitingIcon=document.getElementById("Biting");
         let AfraidIcon=document.getElementById("Afraid");
