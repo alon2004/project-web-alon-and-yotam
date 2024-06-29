@@ -158,7 +158,7 @@ function initList(data) {
     // Arrow Icon
     let aArrowIcon = document.createElement("a");
     aArrowIcon.classList.add("arrow");
-    aArrowIcon.href = `../client/Object.html?reportId=${report.ReportId}`;
+    aArrowIcon.href = `../client/Object.html?userId=${report.UserId}&reportId=${report.ReportId}`;
     let aArrow = `<img src="http://localhost:8080/imges/arrowicon.png" alt="arrow">`
     aArrowIcon.innerHTML = aArrow;
 

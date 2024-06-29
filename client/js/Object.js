@@ -2,6 +2,8 @@
 
 
 
+
+
 window.onload = () => {
 
     fetch("http://localhost:8080/api/pets")
@@ -31,7 +33,8 @@ initMap();
 
   function initReportPage(data) {
     const params = new URLSearchParams(window.location.search);
-    const myParam = params.get('reportId');
+    const myParam = params.get("reportId");
+    console.log(myParam);
     const report = data.find((report) => report.ReportId == myParam);
     if (report) {
         document.getElementById("PetNameP").innerText="report.PetName";
@@ -40,17 +43,26 @@ initMap();
         let BitingIcon=document.getElementById("Biting");
         let AfraidIcon=document.getElementById("Afraid");
         if(report.Barking==1){
-            BarkingIcon.style.backgroundImage=url("http://localhost:8080/imges/v.jpg");
+            BarkingIcon.style.backgroundImage="url('http://localhost:8080/imges/vIcon.png')";
+        }
+        else{
+            BarkingIcon.style.backgroundImage="url('http://localhost:8080/imges/xIcon.png')";
         }
         if(report.Biting==1){
-            BitingIcon.style.backgroundImage=url("http://localhost:8080/imges/v.jpg");
+            BitingIcon.style.backgroundImage="url('http://localhost:8080/imges/vIcon.png')";
+        }
+        else{
+            BitingIcon.style.backgroundImage="url('http://localhost:8080/imges/xIcon.png')";
         }
         if(report.Afraid==1){
-            AfraidIcon.style.backgroundImage=url("http://localhost:8080/imges/v.jpg");
+            AfraidIcon.style.backgroundImage="url('http://localhost:8080/imges/vIcon.png')";
+        }
+        else{
+            AfraidIcon.style.backgroundImage="url('http://localhost:8080/imges/xIcon.png')";
         }
         let ClassImges=document.getElementsByClassName("carousel-item")
         for (let i = 0; i < ClassImges.length; i++) {
-            ClassImges[i].getElementsByTagName("img") = report.PetImages[i];
+           console.log(ClassImges[i].getElementsByTagName("img"));
         }
         PutMarkerOnMap(report.last_seen_address);
       
