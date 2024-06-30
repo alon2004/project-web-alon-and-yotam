@@ -7,7 +7,6 @@ window.onload = () => {
         .then((data) => initReportPage(data));
 
         addListeners();
-
 }
 
 function addListeners() {
@@ -39,6 +38,7 @@ async function initMap() {
     mapId: 'fa16877c291d0875',
   });
   
+  
 
 }
 
@@ -49,8 +49,14 @@ function initReportPage(data) {
     const report = data.find((report) => report.id == myParam);
     if (report) {
         if (userId == report.user_id) {
-            document.getElementById("Edit").style.display = "block";
-            document.getElementById("deleteObject").style.display = "block";
+            let editSection=document.getElementById("Edit");
+            if (editSection) {
+                editSection.style.display = "block";
+            }
+             let deleteSection=document.getElementById("deleteObject");
+            if (deleteSection) {
+                deleteSection.style.display = "block";
+            }
             document.getElementById("EditButton").addEventListener("click", () => {
             window.location.href = `../client/Edit.html?reportId=${report.id}`;
             });
@@ -66,9 +72,9 @@ function initReportPage(data) {
         }
         document.getElementById("PetNameP").innerText = report.pet_name;
         document.getElementById("LastSeenP").innerText = report.last_seen_address + ", " + report.city;
-        let BarkingIcon = document.getElementById("Barking");
-        let BitingIcon = document.getElementById("Biting");
-        let AfraidIcon = document.getElementById("Afraid");
+        let BarkingIcon = document.getElementById("petBarking");
+        let BitingIcon = document.getElementById("petBiting");
+        let AfraidIcon = document.getElementById("petAfraid");
         let petBehavior = report.pet_behavior;
         let barking = petBehavior.includes("barking");
         let biting = petBehavior.includes("biting");
