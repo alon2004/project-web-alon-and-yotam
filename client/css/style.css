@@ -632,15 +632,15 @@ form label.d-block {
 }
 
 .button-container {
-    position: absolute;
-    right: 10px;
-    top: 100px;
+    margin-top: 20px;
 }
 
 .button-container .btn {
-    background-color: #E8EBED;
+    background-color: #F8F9FA;
     border: none;
     color: #000;
+    width: 30%;
+    text-wrap:nowrap;
 }
 
 .scan-attempt-btn {
@@ -651,7 +651,7 @@ form label.d-block {
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    background-color: black; 
+    background-color: black;
     background-size: 50%;
 }
 
@@ -662,5 +662,104 @@ form label.d-block {
 
 .black-carousel-control .carousel-control-prev-icon,
 .black-carousel-control .carousel-control-next-icon {
-    background-color: black; 
+    background-color: black;
+}
+
+.icon {
+    width: 1.5rem; /* Equivalent to 24px */
+    height: 1.5rem; /* Equivalent to 24px */
+}
+
+.message-btn, .share-btn {
+    width: 3rem; /* Equivalent to 60px */
+    height: 3rem; /* Equivalent to 60px */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none; /* Remove the border */
+    background-color:#E8EBED ; /* Make the background transparent */
+    padding: 0; /* Remove padding */
+}
+
+.message-btn img, .share-btn img {
+    width: 70%; /* Ensure the icon fills the button */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.container {
+    max-width: 31.25rem; /* Equivalent to 500px */
+    margin: auto;
+}
+
+.message-btn:hover, .share-btn:hover {
+    background-color: #007bff; /* Hover background color */
+}
+
+
+.card-body {
+    background-color: #E8EBED;
+    border-radius: 10px;
+    overflow-x: hidden; /* Ensure content does not overflow */
+}
+
+.button-container {
+    margin-top: 20px;
+    width: 100%; /* Make sure buttons take full width */
+}
+
+.button-container .btn {
+    width: 100%; /* Ensure buttons take full width */
+}
+
+.behavior-icon {
+    flex-shrink: 0; /* Prevent icons from shrinking */
+}
+
+.d-flex .flex-wrap {
+    flex-wrap: wrap; /* Ensure wrapping of content on small screens */
+}
+
+@media (max-width: 768px) {
+    .behavior-icon {
+        width: 30px; /* Adjust width for smaller screens */
+        height: 30px; /* Adjust height for smaller screens */
+    }
+    .button-container {
+        margin-top: 10px;
+    }
+    .button-container .btn {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+}
+
+.dryDetails .d-flex {
+    flex-wrap: wrap;
+}
+
+.button-container {
+    width: auto;
+}
+
+.behavior-icons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.behavior-icons img {
+    max-width: 30px;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .behavior-icons img {
+        max-width: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .behavior-icons img {
+        max-width: 15px;
+    }
 }
