@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawLink - Report Type</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="d-flex justify-content-between align-items-center py-3 w-100 px-3">
+            <button class="btn btn-light d-lg-none" id="menu-button" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">☰</button>
+            <div class="logo d-flex align-items-center">
+                <a href="index.html">
+                    <img src="images/PawLinkNavLogo.svg" alt="PawLink Logo" class="logo-img img-fluid">
+                </a>
+                <span class="logo-text">Connecting to rescue more</span>
+            </div>
+            <ul class="nav d-none d-lg-flex gap-2 ms-auto">
+                <!-- Add your navigation items here -->
+            </ul>
+            <img src="images/PawLinkUserPhoto.svg" alt="User Photo" class="user-img rounded-circle img-fluid">
+        </nav>
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasMenuLabel">Menu</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <!-- Add your offcanvas menu items here -->
+            </div>
+        </div>
+    </header>
+
+    <main class="container mt-4">
+        <h1 class="text-center">Report Type</h1>
+        <div class="row mt-4">
+            <div class="col-6 d-flex justify-content-center mb-2">
+                <a href="distress-pet.html" class="report-type-card bg-danger text-black text-center p-3 rounded w-100">
+                    <img src="images/reportTypeDisttressedPetIcaon.png" alt="Distress Pet Icon" class="mb-2">
+                    <h2>Distress pet</h2>
+                </a>
+            </div>
+            <div class="col-6 d-flex justify-content-center mb-2">
+                <a href="lost-pet.html" class="report-type-card bg-warning text-black text-center p-3 rounded w-100">
+                    <img src="images/reportTypeLostPetIcon.svg" alt="Lost Pet Icon" class="mb-2">
+                    <h2>Lost pet</h2>
+                </a>
+            </div>
+        </div>
+        <div class="mt-4">
+            <p class="bg-light p-2 rounded"><strong>Lost pet</strong> refers to a situation where a domestic animal, like a cat or a dog, has gone missing.</p>
+            <p class="bg-light p-2 rounded"><strong>Distressed pet</strong> refers to an animal that is experiencing discomfort, anxiety, or suffering.</p>
+        </div>
+    </main>
+
+    <footer class="fixed-bottom d-flex justify-content-around custom-footer-bg border-top d-lg-none">
+        <button class="btn"><img src="images/globeIcon.svg" alt="Global navigation icon" class="img-fluid"></button>
+        <button class="btn"><img src="images/plusIcon.svg" alt="Add new icon" class="img-fluid"></button>
+        <button class="btn"><img src="images/signalIcon.svg" alt="Signal icon" class="img-fluid"></button>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

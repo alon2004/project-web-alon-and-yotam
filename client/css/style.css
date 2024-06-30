@@ -806,3 +806,24 @@ form label.d-block {
 }
 /* ----------------------------------------------------------- */
 
+/* reportType.html css */
+.report-type-card {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.report-type-card:hover {
+    transform: scale(1.05);
+}
+
+.report-type-card img {
+    width: 50px;
+    height: 50px;
+}
+
+.report-type-card h2 {
+    font-size: 1.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
