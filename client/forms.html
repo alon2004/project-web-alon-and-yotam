@@ -62,17 +62,20 @@
                 </li>
             </ul>
 
-            <a href="#" id="UserProfile"><img src="http://127.0.0.1:8080/imges/Owners/saraHadasa.jpg" alt="User Photo" class="user-img rounded-circle img-fluid"></a>
+            <a href="#" id="UserProfile"><img src="http://127.0.0.1:8080/imges/Owners/saraHadasa.jpg" alt="User Photo"
+                    class="user-img rounded-circle img-fluid"></a>
         </nav>
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasMenuLabel">Menu</h5>
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
                 <div class="d-flex flex-column align-items-start">
                     <div class="d-flex align-items-center mb-2">
-                        <img src="images/BellSoundNotification.svg" alt="Mute reports icon" class="nav-icon img-fluid me-2">
+                        <img src="images/BellSoundNotification.svg" alt="Mute reports icon"
+                            class="nav-icon img-fluid me-2">
                         <span>Mute reports</span>
                         <div class="form-check form-switch ms-auto">
                             <input class="form-check-input" type="checkbox" id="muteReportsToggle">
@@ -88,7 +91,7 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <ul class="list-unstyled">
                     <li><a href="../client/index.html" class="nav-link">Map</a></li>
                     <li><a href="../client/reportType.html" class="nav-link">Add report</a></li>
@@ -182,9 +185,9 @@
                     <span id="more-information-error" class="error"></span>
                 </div>
             </form>
-            <div class="d-flex justify-content-center mb-5 mt-3 ">
-                <button onclick="return validateForm(event)" style="border: none; border-radius: 25px;">
-                    <div class="confirmation-container d-flex justify-content-center align-items-center">
+            <div class="d-flex justify-content-center confirmation-section">
+                <button onclick="return validateForm(event)" class="confirmation-button">
+                    <div class="confirmation-container">
                         <img src="images/confirmCheckBox.svg" alt="Confirmation Check" class="confirmation-icon">
                     </div>
                 </button>
@@ -193,7 +196,8 @@
 
     </main>
     <footer class="fixed-bottom d-flex justify-content-around custom-footer-bg border-top d-lg-none">
-        <button class="btn" id="homeMap"><img src="images/globeIcon.svg" alt="Global navigation icon" class="img-fluid"></button>
+        <button class="btn" id="homeMap"><img src="images/globeIcon.svg" alt="Global navigation icon"
+                class="img-fluid"></button>
         <button class="btn" id="addReport"><img src="images/plusIcon.svg" alt="Add new icon" class="img-fluid"></button>
         <button class="btn" id="scanPet"><img src="images/signalIcon.svg" alt="Signal icon" class="img-fluid"></button>
     </footer>

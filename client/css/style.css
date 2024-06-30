@@ -802,6 +802,41 @@ body main section#deleteObject button#deleteButton{
     }
 }
 
+
+.confirmation-icon {
+    width: 2rem; /* Width of the icon */
+    height: 2rem; /* Height of the icon */
+}
+
+.confirmation-button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirmation-section {
+    margin-bottom: 4rem; /* Default gap from bottom footer */
+}
+
+
+@media (max-width: 576px) {
+    .confirmation-section {
+        margin-bottom: 4rem; /* Increased gap for mobile */
+    }
+}
+
+
+/* THIS CSS BELONGS TO THE CONFIRMATION SECTION OF OBJECT.HTML*/
+
+@media (max-width: 768px) {
+    .confirmation-section {
+        margin-bottom: 4rem; /* Adjust as needed for more gap */
+    }
+}
+
 .confirmation-container {
     width: 9rem; /* Width of the box */
     height: 2rem; /* Height of the box */
