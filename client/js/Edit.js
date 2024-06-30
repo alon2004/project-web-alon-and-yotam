@@ -1,5 +1,8 @@
 window.onload = () => {
     addListeners();
+    fetch("http://127.0.0.1:8080/api/pets/innerJoinUsers")
+        .then(response => response.json())
+        .then(data => initEditPageWithReport(data));
 }
 
 async function validateForm(event) {
@@ -69,8 +72,6 @@ async function validateForm(event) {
     }
 
     if (isValid) {
-        const submitButton = document.querySelector('button[type="submit"]');
-        submitButton.disabled = true;
 
         const data = {
             pet_name: petName,
@@ -83,7 +84,7 @@ async function validateForm(event) {
         };
 
         console.log("Data to be sent:", data); // Log the data being sent
-        const reportid=new URLSearchParams(window.location.search).get('reportId');
+        const reportid = new URLSearchParams(window.location.search).get('reportId');
 
         try {
             const response = await fetch(`http://127.0.0.1:8080/api/pets/${reportid}`, {
@@ -112,14 +113,46 @@ async function validateForm(event) {
 function addListeners() {
     let addReport = document.getElementById("addReport");
     addReport.addEventListener("click", () => {
-      window.location.href = "../client/forms.html";
+        window.location.href = "../client/reportType.html";
     });
     let mapButton = document.getElementById("homeMap");
     mapButton.addEventListener("click", () => {
-      window.location.href = "../client/index.html"
+        window.location.href = "../client/index.html"
     });
     let scanButton = document.getElementById("scanPet");
     scanButton.addEventListener("click", () => {
-      window.location.href = "#";
+        window.location.href = "#";
     });
-  }
+}
+
+function initEditPageWithReport(data) {
+    const params = new URLSearchParams(window.location.search);
+    const myParam = params.get("reportId");
+    const userId = params.get("userId");
+    const report = data.find((report) => report.id == myParam);
+    if (report) {
+        let inputPetName = document.getElementById("pet-name");
+        let inputPetChip = document.getElementById("pet-chip-num");
+        let inputCity = document.getElementById("city");
+        let inputAddress = document.getElementById("last-seen-address");
+        let inputMoreInformation = document.getElementById("more-information");
+        let InputBarking = document.getElementById("barking");
+        let InputBiting = document.getElementById("biting");
+        let InputAfraid = document.getElementById("afraid");
+        inputPetName.value = report.pet_name;
+        inputPetChip.value = report.pet_chip_number;
+        inputCity.value = report.city;
+        inputAddress.value = report.last_seen_address;
+        inputMoreInformation.value = report.more_information;
+        if (report.pet_behavior.includes("barking")) {
+            InputBarking.checked = true;
+        }
+        if (report.pet_behavior.includes("biting")) {
+            InputBiting.checked = true;
+        }
+        if (report.pet_behavior.includes("afraid")) {
+            InputAfraid.checked = true;
+        }
+    }
+
+}

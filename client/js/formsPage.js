@@ -185,7 +185,7 @@ async function validateForm(event) {
 function addListeners() {
     let addReport = document.getElementById("addReport");
     addReport.addEventListener("click", () => {
-      window.location.href = "../client/forms.html";
+      window.location.href = "../client/reportType.html";
     });
     let mapButton = document.getElementById("homeMap");
     mapButton.addEventListener("click", () => {

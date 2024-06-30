@@ -221,31 +221,7 @@ main section#wrapper section#Under_MAP div#info_map p#Lost {
 
 
 
-@media (max-width: 1028px) {
 
-    a#logo_container {
-        display: inline-flex;
-        align-items: center;
-        text-decoration: none;
-        width: 300px;
-        height: 100px;
-    }
-
-    nav label.logo {
-        font-size: 15px;
-    }
-
-    nav ul li a {
-        font-size: 10px;
-        padding: 7px 5px;
-    }
-
-    header nav section#userImge a img {
-        margin-top: 25px;
-        width: 60px;
-        height: 60px;
-    }
-}
 
 @media (max-width: 768px) {
 
@@ -269,29 +245,20 @@ main section#wrapper section#Under_MAP div#info_map p#Lost {
 }
 
 @media (max-width: 620px) {
-    nav label.logo {
-        font-size: 13px;
-    }
 
-    nav ul li a {
-        font-size: 15px;
-    }
-
-    nav section#userImge {
-        width: 50px;
-        height: 50px;
-        margin-right: 5px;
-        margin-top: 5px;
-    }
-
-    footer a:not(:first-child) {
-        margin-left: 70px;
-    }
-
-    body section#ListReports section.report div.userName {
+    body main section#ListReports section.report{
         font-size: 12px;
     }
-
+    body section#ListReports section.report section.user{
+        width: 100%;
+        margin-left: 0px;
+    }
+    body section#ListReports section.report section.user div.userName h3{
+        font-size: 18px;
+    }
+    body section#ListReports section.report section.user div.userName p{
+        font-size: 16px;
+    }
 
     body section#ListReports section.report div.location {
         display: none;
@@ -320,7 +287,6 @@ main section#wrapper section#Under_MAP div#info_map p#Lost {
     body section#ListReports section.report div.lastUpdate {
         display: none;
     }
-
 }
 
 @media (max-width: 420px) {
@@ -348,6 +314,9 @@ main section#wrapper section#Under_MAP div#info_map p#Lost {
     }
     main section#wrapper section#Under_MAP div#info_map {
         margin-right: 10px;
+    }
+    main section#wrapper section#Under_MAP div#info_map p{
+        font-size: 15px;
     }
 }
 
@@ -596,8 +565,9 @@ header {
 }
 
 .user-img {
-    width: 2.7rem; /* Increase the size of the user photo */
-    height:2.7em; /* Increase the size of the user photo */
+    width: 4rem; /* Increase the size of the user photo */
+    height:4em; /* Increase the size of the user photo */
+    object-fit: cover; /* Ensure the image covers the entire area */
 
 }
 
@@ -826,4 +796,8 @@ form label.d-block {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+#submitButton{
+    margin-bottom: 70px;
 }

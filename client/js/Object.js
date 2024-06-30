@@ -13,7 +13,7 @@ window.onload = () => {
 function addListeners() {
     let addReport = document.getElementById("addReport");
     addReport.addEventListener("click", () => {
-      window.location.href = "../client/forms.html";
+      window.location.href = "../client/reportType.html";
     });
     let mapButton = document.getElementById("homeMap");
     mapButton.addEventListener("click", () => {
@@ -60,23 +60,24 @@ function initReportPage(data) {
         let BarkingIcon = document.getElementById("Barking");
         let BitingIcon = document.getElementById("Biting");
         let AfraidIcon = document.getElementById("Afraid");
-        let barking = report.pet_behavior.split(",")[0];
-        let biting = report.pet_behavior.split(",")[1];
-        let afraid = report.pet_behavior.split(",")[2];
+        let petBehavior = report.pet_behavior;
+        let barking = petBehavior.includes("barking");
+        let biting = petBehavior.includes("biting");
+        let afraid = petBehavior.includes("afraid");
 
-        if (barking == "barking") {
+        if (barking == true) {
             BarkingIcon.style.backgroundImage = "url('http://localhost:8080/imges/vIcon.png')";
         }
         else {
             BarkingIcon.style.backgroundImage = "url('http://localhost:8080/imges/xIcon.png')";
         }
-        if (biting == "biting") {
+        if (biting == true) {
             BitingIcon.style.backgroundImage = "url('http://localhost:8080/imges/vIcon.png')";
         }
         else {
             BitingIcon.style.backgroundImage = "url('http://localhost:8080/imges/xIcon.png')";
         }
-        if (afraid == "afraid") {
+        if (afraid == true) {
             AfraidIcon.style.backgroundImage = "url('http://localhost:8080/imges/vIcon.png')";
         }
         else {
