@@ -790,13 +790,25 @@ body main section#deleteObject button#deleteButton{
     .behavior-icons img {
         max-width: 15px;
     }
+}
 
-    .BehaviorIMG{
-        width: 50px;
-        height: 50px;
-        background-size: 20px;
-        background-repeat: no-repeat;
-        padding-left: 25px;
-    
-    }
+
+/* carusella ObjectPage css */
+/* Add to your style.css file */
+.carousel-inner .carousel-item img {
+    max-height: 150px;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+}
+
+.carousel-inner .carousel-item.active img {
+    transform: scale(1.2);
+}
+
+.carousel-image {
+    cursor: pointer;
+}
+
+.carousel-image:hover {
+    transform: scale(1.2);
 }

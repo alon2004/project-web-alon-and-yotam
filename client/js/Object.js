@@ -142,7 +142,6 @@ function PutMarkerOnMap(address) {
 
 
 /* added carusella function */
-// Add this to your Object.js file
 document.querySelectorAll('.carousel-image').forEach(image => {
     image.addEventListener('click', function() {
         const modalImage = document.getElementById('modalImage');
@@ -151,3 +150,4 @@ document.querySelectorAll('.carousel-image').forEach(image => {
         imageModal.show();
     });
 });
+
