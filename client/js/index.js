@@ -4,7 +4,9 @@
 window.onload = () => {
 
   initMap();
-
+  fetch("http://127.0.0.1:8080/api/users")
+    .then(response => response.json())
+    .then(data => ReplaceUrToUserID(data))
 
   fetch("http://127.0.0.1:8080/api/pets/innerJoinUsers")
     .then(response => response.json())
@@ -13,11 +15,26 @@ window.onload = () => {
   fetch("http://127.0.0.1:8080/api/pets/innerJoinUsers")
     .then(response => response.json())
     .then(data => InitMarkerOnMap(data))
+  addListeners();
+}
 
-  fetch("http://127.0.0.1:8080/api/pets/innerJoinUsers")
-    .then(response => response.json())
-    .then(data => CurrentUser(data))
-    addListeners();
+function ReplaceUrToUserID(data) {
+  const params = new URLSearchParams(window.location.search);
+  const userId = params.get("userId");
+
+  // Define a static user ID
+  const staticUserId = data[0].UserId; // Replace with your desired static user ID
+
+  // Check if userId is not present in the URL
+  if (!userId) {
+    // Add the static userId to the URL
+    params.set("userId", staticUserId);
+    const newUrl = `${window.location.pathname}?${params.toString()}`;
+
+    // Update the browser's URL without reloading the page
+    window.history.replaceState({}, '', newUrl);
+  }
+
 }
 
 function addListeners() {
@@ -112,21 +129,13 @@ function checkCategory(category) {
   }
 }
 
-function CurrentUser(data) {
-  let user = document.getElementById("userImge");
-  let a = document.createElement("a");
-  a.id = data[0].UserId;
-  a.href = "#";
-  let img = document.createElement("img");
-  img = `<img src="http://localhost:8080/imges/Owners/${data[0].UserImage}" alt="userImage">`;
-  a.innerHTML += img;
-  user.appendChild(a);
-}
+
 
 
 function initList(data) {
   let ul = document.getElementById("ListReports");
   ul.innerHTML = ''; // Clear existing content
+  let userId=new URLSearchParams(window.location.search).get("userId");
   for (const report of data) {
     let section = document.createElement("section");
     section.classList.add("report");
@@ -170,7 +179,7 @@ function initList(data) {
     // Arrow Icon
     let aArrowIcon = document.createElement("a");
     aArrowIcon.classList.add("arrow");
-    aArrowIcon.href = `../client/Object.html?userId=${report.UserId}&reportId=${report.id}`;
+    aArrowIcon.href = `../client/Object.html?userId=${userId}&reportId=${report.id}`;
     let aArrow = `<img src="http://localhost:8080/imges/arrowicon.png" alt="arrow">`
     aArrowIcon.innerHTML = aArrow;
 
@@ -277,5 +286,6 @@ function removeMarker(reportId) {
   }
 
 }
+
 
 
