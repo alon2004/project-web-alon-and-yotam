@@ -250,14 +250,23 @@ main section#wrapper section#Under_MAP div#info_map p#Lost {
         font-size: 12px;
     }
     body section#ListReports section.report section.user{
-        width: 100%;
-        margin-left: 0px;
+        width: 235px;
+    }
+    body section#ListReports section.report section.user div.userName{
+        margin-left: 35px;
+    }
+    body section#ListReports section.report section.user a.userImage{
+        width: 20px;
+    }
+    body section#ListReports section.report section.user a.userImage img{
+        width: 50px;
+        height: 50px;
     }
     body section#ListReports section.report section.user div.userName h3{
-        font-size: 18px;
+        font-size: 15px;
     }
     body section#ListReports section.report section.user div.userName p{
-        font-size: 16px;
+        font-size: 13px;
     }
 
     body section#ListReports section.report div.location {
@@ -265,9 +274,13 @@ main section#wrapper section#Under_MAP div#info_map p#Lost {
     }
 
     body section#ListReports section.report a.arrow img {
+
         width: 25px;
-        height: 45px;
+        height: 40px;
         object-fit: cover
+    }
+    body section#ListReports section.report a.arrow{
+        width: 5px;
     }
 
     body section#ListReports section.report section.user a img {
