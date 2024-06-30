@@ -347,9 +347,6 @@ body main section#deleteObject{
 
 /* object page*/
 
-body main section#Edit{
-    display: none;
-}
 body main section#topWrapper{
     position: relative;
     margin: 20px;
@@ -565,6 +562,8 @@ body main button.Bbuttons img{
 /* yotam side */
 
 /* Ensure the user image is on the right side */
+
+
 header {
     border-bottom: 1px solid #dee2e6;
 }
@@ -805,6 +804,8 @@ form label.d-block {
 /* ----------------------------------------------------------- */
 
 /* reportType.html css */
+
+
 .report-type-card {
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -835,6 +836,21 @@ form label.d-block {
 
 
 /* Yotam-Object.html css */
+body main section#Edit{
+    display: none;
+}
+body main section#Edit button#EditButton{
+    width: 70px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 12px;
+}
+body main section#deleteObject button#deleteButton{
+    width: 70px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 12px;
+}
 
  .carousel-inner .carousel-item img {
     max-height: 150px;
@@ -973,6 +989,13 @@ form label.d-block {
     .behavior-icons img {
         max-width: 20px;
     }
+}
+
+@media (max-width: 576px) {
+    .behavior-icons img {
+        max-width: 15px;
+    }
+
     .BehaviorIMG{
         width: 50px;
         height: 50px;
@@ -980,11 +1003,5 @@ form label.d-block {
         background-repeat: no-repeat;
         padding-left: 25px;
     
-    }
-}
-
-@media (max-width: 576px) {
-    .behavior-icons img {
-        max-width: 15px;
     }
 }
