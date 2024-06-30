@@ -873,21 +873,7 @@ form label.d-block {
     color: #000;
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    background-color: black;
-    background-size: 50%;
-}
 
-.carousel-control-prev,
-.carousel-control-next {
-    width: 5%;
-}
-
-.black-carousel-control .carousel-control-prev-icon,
-.black-carousel-control .carousel-control-next-icon {
-    background-color: black;
-}
 
 .icon {
     width: 1.5rem; 
