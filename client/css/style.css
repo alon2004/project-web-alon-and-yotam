@@ -705,23 +705,35 @@ form label.d-block {
     font-size: 12px; /* 12px */
 }
 
+.confirmation-section {
+    margin-bottom: 7rem; /* Increase gap from bottom footer */
+}
+
+
 .confirmation-container {
-    width: 144px; /* Width of the box */
-    height: 32px; /* Height of the box */
-    background-color: #E8EBED; /* Background color of the box */
-    border-radius: 10px; /* Rounded corners */
+    width: 9rem; /* Width of the box */
+    height: 2rem; /* Height of the box */
+    border-radius: 0.625rem; /* Rounded corners */
     display: flex; /* Flex display */
     justify-content: center; /* Horizontal center alignment */
     align-items: center; /* Vertical center alignment */
     margin: 0.5rem; /* Margin around the element */
-    margin-bottom: 1.2rem;
+    margin-bottom: 0.5rem;
     position: relative; /* Relative positioning */
+    background-color: transparent; /* Ensure the background is transparent */
 }
+
+
+
+
+
 
 .confirmation-icon {
     width: 80%; /* Width of the icon */
     height: 80%; /* Height of the icon */
 }
+
+
 
 .nav-icon {
     width: 2rem;
@@ -984,5 +996,3 @@ form label.d-block {
         max-width: 15px;
     }
 }
-
- 
