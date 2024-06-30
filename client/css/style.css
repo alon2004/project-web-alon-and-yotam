@@ -222,7 +222,7 @@ main section#wrapper section#Under_MAP div#info_map p#Lost {
 .btn.btn-secondary.Bbuttons.delete {
     background-color: rgb(223, 83, 83);
 }
-body main section#delete{
+body main section#deleteObject{
     display: none;
 }
 

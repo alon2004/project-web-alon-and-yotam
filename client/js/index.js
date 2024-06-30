@@ -136,6 +136,10 @@ function initList(data) {
   let ul = document.getElementById("ListReports");
   ul.innerHTML = ''; // Clear existing content
   let userId=new URLSearchParams(window.location.search).get("userId");
+  if (!userId) {
+    userId = 1;
+  }
+  console.log(userId);
   for (const report of data) {
     let section = document.createElement("section");
     section.classList.add("report");
