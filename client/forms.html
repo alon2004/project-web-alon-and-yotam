@@ -107,12 +107,12 @@
             <h1 class="text-start">New Lost Report</h1>
             <form id="lost-report-form" class="mb-1" action="http://127.0.0.1:8080/api/lostpetform/submit" method="POST"
                 enctype="multipart/form-data">
-                <div class="mb-0.7">
+                <div class="mb-2">
                     <label for="pet-name" class="form-label">Pet Name *</label>
                     <input type="text" class="form-control" id="pet-name" name="pet_name" required>
                     <span id="pet-name-error" class="error"></span>
                 </div>
-                <div class="mb-1">
+                <div class="mb-2">
                     <label for="pet-chip-num" class="form-label">Pet Chip Number *</label>
                     <input type="text" class="form-control" id="pet-chip-num" name="pet_chip_number" required>
                     <span id="pet-chip-num-error" class="error"></span>
@@ -136,7 +136,7 @@
                                     value="biting">
                             </div>
                         </div>
-                        <div class="text-center mb-2">
+                        <div class="text-center mb-3">
                             <img src="images/afraidIcon.svg" alt="Afraid behavior icon" class="icon img-fluid">
                             <label for="afraid" class="d-block">Afraid</label>
                             <div class="form-check">
@@ -147,17 +147,17 @@
                         <button type="button" class="btn btn-light" id="more-button">More</button>
                     </div>
                 </fieldset>
-                <div class="mb-1">
+                <div class="mb-2">
                     <label for="photos" class="form-label">Add Photos (at least 1) *</label>
                     <input type="file" class="form-control" id="photos" name="photos" multiple required>
                     <span id="photos-error" class="error"></span>
                 </div>
-                <div class="mb-1">
+                <div class="mb-2">
                     <label for="city" class="form-label">City *</label>
                     <input type="text" class="form-control" id="city" name="city" required>
                     <span id="city-error" class="error"></span>
                 </div>
-                <div class="mb-1">
+                <div class="mb-3">
                     <label for="last-seen-address" class="form-label">Last Seen Address *</label>
                     <input type="text" class="form-control" id="last-seen-address" name="last_seen_address" required>
                     <span id="last-seen-address-error" class="error"></span>
