@@ -106,8 +106,9 @@ async function validateForm(event) {
     const address = addressElement.value.trim();
     const moreInformation = moreInformationElement.value.trim();
     const photos = Array.from(photosElement.files).map(file => file.name).join(',');
-    const catagory = "lost";
-    const date= new Date().toLocaleDateString();
+    const catagory = "Lost";
+    const todaydate = new Date();
+
 
     // Validate Pet Name
     if (!petName) {
@@ -157,7 +158,7 @@ async function validateForm(event) {
             last_seen_address: address,
             more_information: moreInformation,
             catagory: catagory,
-            date: date,
+            date: todaydate ,
             unique_id: Date.now() // Add a unique identifier
         };
 

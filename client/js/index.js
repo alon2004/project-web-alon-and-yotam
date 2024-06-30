@@ -139,7 +139,6 @@ function initList(data) {
   if (!userId) {
     userId = 1;
   }
-  console.log(userId);
   for (const report of data) {
     let section = document.createElement("section");
     section.classList.add("report");
@@ -167,7 +166,7 @@ function initList(data) {
 
     // Category
     let divCategory = document.createElement("div");
-    divCategory.classList.add(witchCategory("Lost Pet"));
+    divCategory.classList.add(witchCategory(report.category));
     let reportCategory = `<p>Lost Pet</p>`;
     divCategory.innerHTML = reportCategory;
     divUserName.appendChild(divCategory);
@@ -190,12 +189,11 @@ function initList(data) {
     // Last Update
     let divLastUpdate = document.createElement("div");
     divLastUpdate.classList.add("lastUpdate");
-    let reportLastUpdate = LastUpdat("2024-01-01T00:00:00.000Z");
+    let reportLastUpdate = LastUpdat(report.date);
     let lastUpdate = `<h3>${reportLastUpdate}</h3>`;
     divLastUpdate.innerHTML = lastUpdate;
 
     if (report.UserId === 1) {
-      console.log(report.UserId + "-" + data[0].UserId)
       let deleteButton = document.createElement("button");
       deleteButton.classList.add("delete");
       deleteButton.id = report.id;
@@ -217,10 +215,10 @@ function initList(data) {
 
 
 function witchCategory(category) {
-  if (category === "Lost Pet") {
+  if (category === "Lost") {
     return "Ycategory";
   }
-  if (category === "Distress Pet") {
+  if (category === "Distress") {
     return "Rcategory";
   }
 }
@@ -259,7 +257,7 @@ function LastUpdat(date) {
 
 
 function deleteReport(reportId) {
-  console.log(reportId);
+
   fetch(`http://127.0.0.1:8080/api/pets/${reportId}`, {
     method: 'DELETE',
     headers: {
