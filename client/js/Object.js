@@ -46,16 +46,23 @@ function initReportPage(data) {
     const params = new URLSearchParams(window.location.search);
     const myParam = params.get("reportId");
     const userId = params.get("userId");
-    console.log(myParam);
     const report = data.find((report) => report.id == myParam);
     if (report) {
         if (userId == report.user_id) {
             document.getElementById("Edit").style.display = "block";
-            donument.getElementById("delete").style.display = "block";
+            document.getElementById("deleteObject").style.display = "block";
             document.getElementById("EditButton").addEventListener("click", () => {
-                window.location.href = `../client/Edit.html?reportId=${report.id}`;
+            window.location.href = `../client/Edit.html?reportId=${report.id}`;
             });
-
+            document.getElementById("deleteButton").addEventListener("click", () => {
+                fetch(`http://127.0.0.1:8080/api/pets/${report.id}`, {
+                    method: 'DELETE',
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        window.location.href = "../client/index.html";
+                    });
+                });
         }
         document.getElementById("PetNameP").innerText = report.pet_name;
         document.getElementById("LastSeenP").innerText = report.last_seen_address + ", " + report.city;
