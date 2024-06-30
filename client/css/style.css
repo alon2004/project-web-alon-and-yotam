@@ -345,237 +345,9 @@ body main section#deleteObject{
     }
 }
 
-/* object page*/
 
-body main section#Edit{
-    display: none;
-}
-body main section#topWrapper{
-    position: relative;
-    margin: 20px;
-    width: calc(100% - 40px);
-    height: 900px;
-    background-color: #E8EBED;
-    border-radius: 5px;
-    opacity: 0.8;
-}
-h3{
-    font-weight: bold;
-}
-h1{
-    font-weight: bold;
-}
-
-p{
-    font-size: 20px;
-
-}
-body main section#topWrapper div#PetName{
-    display: inline-block;
-    width: 200px;
-    height: 100px;
-    margin-top: 20px;
-    margin-left: 20px;
-}
-
-body main section#topWrapper div#LastSeen{
-    display: inline-block;
-    width: 400px;
-    height: 100px;
-    margin-top: 20px;
-    margin-left: 80px;
-}
-
-body main section#topWrapper div#PetBhavior{
-    display: flex;
-    width: 300px;
-    height: 50px;
-    margin-top: 50px;
-    margin-left: 20px;
-}
-
-body main section#topWrapper div#PetBhavior button#MoreBhavior{
-    display: inline-block;
-    width: 100px;
-    height: 60px;
-    text-align: center;
-    margin-left: 30px;
-    background-color: #F8F9FA;
-    color: black;
-}
-
-body main section#topWrapper div#PetBhaviorsIMG{
-    display: inline-block;
-    width: 100%;
-    margin-top: 20px;
-    margin-left: 20px;
-}
-body main section#topWrapper div#PetBhaviorsIMG img{
-    width: 100px;
-    height: 100px;
-    margin-left: 10px;
-    background-size: 20px;
-    background-repeat: no-repeat;
-    padding-left: 25px;
-    margin-top: 25px;
-}
-
-body main section#topWrapper div#buttonsMore{
-    display: inline-block;
-    height: 100px;
-    margin-top: 50px;
-    margin-left: 20px;
-}
-
-body main section#topWrapper div#buttonsMore button{
-    display: inline-block;
-    width: 200px;
-    height: 50px;
-    margin-top: 10px;
-    font-size: 20px;
-    background-color: #F8F9FA;
-    color: black;
-}
-
-
-body main section#topWrapper section#ImgCarusell {
-    display: grid;
-    place-items: center;
-}
-
-body main section#topWrapper section#ImgCarusell div#carouselExample{
-    width: 400px;
-}
-.carousel-control-next{
-    background-color: black;
-    opacity: 1;
-    width: 50px;
-    height: 50px;
-    top: 40%;
-}
-.carousel-control-prev{
-    background-color: black;
-    opacity: 1;
-    width: 50px;
-    height: 50px;
-    top: 40%;
-}
-.carousel-inner{
-    border-radius: 10px;
-}
-
-#map-object{
-    height: calc(70vh - 150px);
-    margin-top: 50px;
-    margin-right: 20px;
-    margin-left: 20px;
-    border-radius: 5px;
-    border-color: aliceblue;
-}
-body main section#Buttons{
-    display: inline-block;
-    width: 100%;
-    justify-content: center;
-    margin-bottom: 50px;
-    
-}
-
-body main div#ScanAttempt{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-
-body main div#ButtomButtons{
-    display: flex;
-    flex: wrap;
-    justify-content: center;
-}
-body main button.Bbuttons{
-    margin-top: 10px;
-    width:200px;
-    height: 70px;
-    margin-left: 20px;
-    background-color: #EAECEF;
-    border-width: 0px;
-    color: #000;
-    font-size: 20px;
-    margin-bottom: 20px;
-    margin-right: 20px;
-}
-
-body main button.Bbuttons img{
-    width: 50px;
-    height: 50px;
-    flex-shrink: 0;
-}
-@media (max-width: 700px){
-    body main section#topWrapper section#ImgCarusell div#carouselExample{
-        width: 300px;
-    }
-    body main section#topWrapper div#PetName{
-        width: 100px;
-        height: 50px;
-    }
-    body main section#topWrapper div#PetName h3{
-        font-size: 20px;
-    }
-    body main section#topWrapper div#PetName p{
-        font-size: 16px;
-    }
-    body main section#topWrapper div#LastSeen{
-        width: 300px;
-        height: 50px;
-        margin-left: 15px;
-    }
-    body main section#topWrapper div#LastSeen h3{
-        font-size: 20px;
-    }
-    body main section#topWrapper div#LastSeen p{
-        font-size: 16px;
-    }
-    body main section#topWrapper div#PetBhaviorsIMG img{
-        width: 80px;
-        height: 80px;
-        margin-left: 0px;
-    }
-    body main section#topWrapper{
-        height: 800px;
-    }
-
-}
-
-@media (max-width: 420px){
-    body main section#topWrapper{
-        height: 700px;
-    }
-    body main section#topWrapper div#PetBhavior h3{
-        font-size: 20px;
-    }
-    body main section#topWrapper div#PetBhavior button{
-        margin-left: 30px;
-    }
-    body main section#topWrapper section#ImgCarusell div#carouselExample{
-        width: 180px;
-    }
-
-    .carousel-control-next{
-        width: 30px;
-        height: 30px;
-    }
-    .carousel-control-prev{
-        width: 30px;
-        height: 30px;
-    }
-
-}
 
 /* yotam side */
-
-/* Ensure the user image is on the right side */
-
-
 header {
     border-bottom: 1px solid #dee2e6;
 }
@@ -849,24 +621,6 @@ form label.d-block {
 
 /* Yotam-Object.html css */
 
- .carousel-inner .carousel-item img {
-    max-height: 150px;
-    object-fit: contain;
-}
-
-.carousel-inner .carousel-item.active img {
-    transform: scale(1.2);
-}
-
-.carousel-image {
-    max-height: 100px;
-    object-fit: contain;
-    cursor: pointer;
-}
-
-.carousel-image:hover {
-    transform: scale(1.2);
-}
 
 .button-container {
     margin-top: 20px;
@@ -1014,3 +768,16 @@ form label.d-block {
 .carousel-image:hover {
     transform: scale(1.2);
 }
+
+
+.carousel-image {
+    border-radius: 10px; /* or any value you prefer */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    
+    filter: invert(0) brightness(0); /* This will make the arrow icons black */
+
+}
+
