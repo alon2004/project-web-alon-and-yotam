@@ -826,3 +826,163 @@ form label.d-block {
 #submitButton{
     margin-bottom: 70px;
 }
+
+
+
+
+
+/* Yotam-Object.html css */
+
+/* .carousel-inner .carousel-item img {
+    max-height: 150px;
+    object-fit: contain;
+}
+
+.carousel-inner .carousel-item.active img {
+    transform: scale(1.2);
+}
+
+.carousel-image {
+    max-height: 100px;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.carousel-image:hover {
+    transform: scale(1.2);
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+.button-container .btn {
+    background-color: #F8F9FA;
+    border: none;
+    color: #000;
+    width: 30%;
+    text-wrap:nowrap;
+}
+
+.scan-attempt-btn {
+    background-color: #E8EBED;
+    border: none;
+    color: #000;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: black;
+    background-size: 50%;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+}
+
+.black-carousel-control .carousel-control-prev-icon,
+.black-carousel-control .carousel-control-next-icon {
+    background-color: black;
+}
+
+.icon {
+    width: 1.5rem; 
+    height: 1.5rem; 
+}
+
+.message-btn, .share-btn {
+    width: 3rem; 
+    height: 3rem; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none; 
+    background-color:#E8EBED ; 
+    padding: 0; 
+}
+
+.message-btn img, .share-btn img {
+    width: 70%; 
+    height: auto; 
+}
+
+.container {
+    max-width: 31.25rem; 
+    margin: auto;
+}
+
+.message-btn:hover, .share-btn:hover {
+    background-color: #007bff; 
+}
+
+
+.card-body {
+    background-color: #E8EBED;
+    border-radius: 10px;
+    overflow-x: hidden; 
+}
+
+.button-container {
+    margin-top: 20px;
+    width: 100%; 
+}
+
+.button-container .btn {
+    width: 100%; 
+}
+
+.behavior-icon {
+    flex-shrink: 0; 
+}
+
+.d-flex .flex-wrap {
+    flex-wrap: wrap; 
+}
+
+@media (max-width: 768px) {
+    .behavior-icon {
+        width: 30px; 
+        height: 30px; 
+    }
+    .button-container {
+        margin-top: 10px;
+    }
+    .button-container .btn {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+}
+
+.dryDetails .d-flex {
+    flex-wrap: wrap;
+}
+
+.button-container {
+    width: auto;
+}
+
+.behavior-icons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.behavior-icons img {
+    max-width: 30px;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .behavior-icons img {
+        max-width: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .behavior-icons img {
+        max-width: 15px;
+    }
+}
+
+ */
