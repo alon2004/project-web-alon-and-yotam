@@ -99,6 +99,7 @@ async function validateForm(event) {
             }
             const result = await response.json();
             console.log('Success:', result);
+            window.location.href = "../client/index.html";
         } catch (error) {
             console.error('Error:', error);
         } finally {
