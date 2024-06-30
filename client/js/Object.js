@@ -51,9 +51,11 @@ function initReportPage(data) {
     if (report) {
         if (userId == report.user_id) {
             document.getElementById("Edit").style.display = "block";
+            donument.getElementById("delete").style.display = "block";
             document.getElementById("EditButton").addEventListener("click", () => {
                 window.location.href = `../client/Edit.html?reportId=${report.id}`;
             });
+
         }
         document.getElementById("PetNameP").innerText = report.pet_name;
         document.getElementById("LastSeenP").innerText = report.last_seen_address + ", " + report.city;
