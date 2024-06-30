@@ -882,21 +882,7 @@ form label.d-block {
     color: #000;
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    background-color: black;
-    background-size: 50%;
-}
 
-.carousel-control-prev,
-.carousel-control-next {
-    width: 5%;
-}
-
-.black-carousel-control .carousel-control-prev-icon,
-.black-carousel-control .carousel-control-next-icon {
-    background-color: black;
-}
 
 .icon {
     width: 1.5rem; 
@@ -995,4 +981,25 @@ form label.d-block {
     .behavior-icons img {
         max-width: 15px;
     }
+}
+
+
+/* carusella ObjectPage css */
+/* Add to your style.css file */
+.carousel-inner .carousel-item img {
+    max-height: 150px;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+}
+
+.carousel-inner .carousel-item.active img {
+    transform: scale(1.2);
+}
+
+.carousel-image {
+    cursor: pointer;
+}
+
+.carousel-image:hover {
+    transform: scale(1.2);
 }
