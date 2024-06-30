@@ -240,6 +240,7 @@ main section#wrapper section#Under_MAP div#info_map p#Lost {
         font-size: 15px;
         width: 110px;
     }
+    
 
 
 }
@@ -279,9 +280,6 @@ main section#wrapper section#Under_MAP div#info_map p#Lost {
         height: 40px;
         object-fit: cover
     }
-    body section#ListReports section.report a.arrow{
-        width: 5px;
-    }
 
     body section#ListReports section.report section.user a img {
         width: 60px;
@@ -299,6 +297,9 @@ main section#wrapper section#Under_MAP div#info_map p#Lost {
     }
     body section#ListReports section.report div.lastUpdate {
         display: none;
+    }
+    body section#ListReports section.report{
+        height: 150px;
     }
 }
 
@@ -330,6 +331,10 @@ main section#wrapper section#Under_MAP div#info_map p#Lost {
     }
     main section#wrapper section#Under_MAP div#info_map p{
         font-size: 15px;
+    }
+    body section#ListReports section.report a.arrow{
+        width: 5px;
+        margin-right: 5px;
     }
 }
 
