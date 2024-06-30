@@ -472,23 +472,11 @@ form label.d-block {
     font-size: 12px; /* 12px */
 }
 
-.confirmation-section {
-    margin-bottom: 7rem; /* Increase gap from bottom footer */
-}
 
 
-.confirmation-container {
-    width: 9rem; /* Width of the box */
-    height: 2rem; /* Height of the box */
-    border-radius: 0.625rem; /* Rounded corners */
-    display: flex; /* Flex display */
-    justify-content: center; /* Horizontal center alignment */
-    align-items: center; /* Vertical center alignment */
-    margin: 0.5rem; /* Margin around the element */
-    margin-bottom: 0.5rem;
-    position: relative; /* Relative positioning */
-    background-color: transparent; /* Ensure the background is transparent */
-}
+
+
+
 
 
 
@@ -804,3 +792,50 @@ body main section#deleteObject button#deleteButton{
 
 }
 
+
+
+/* THIS CSS BELONGS TO THE CONFIRMATION SECTION OF OBJECT.HTML*/
+
+@media (max-width: 768px) {
+    .confirmation-section {
+        margin-bottom: 4rem; /* Adjust as needed for more gap */
+    }
+}
+
+.confirmation-container {
+    width: 9rem; /* Width of the box */
+    height: 2rem; /* Height of the box */
+    background-color: #E8EBED; /* Gray background color */
+    border-radius: 0.2rem; /* Rounded corners */
+    display: flex; /* Flex display */
+    justify-content: center; /* Horizontal center alignment */
+    align-items: center; /* Vertical center alignment */
+    margin: 1rem; /* Margin around the element */
+    margin-bottom: 2rem; /* Increased gap from bottom footer */
+    position: relative; /* Relative positioning */
+}
+
+.confirmation-icon {
+    width: 2rem; /* Width of the icon */
+    height: 2rem; /* Height of the icon */
+}
+
+.confirmation-button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirmation-section {
+    margin-bottom: 4rem; /* Default gap from bottom footer */
+}
+
+
+@media (max-width: 576px) {
+    .confirmation-section {
+        margin-bottom: 4rem; /* Increased gap for mobile */
+    }
+}
