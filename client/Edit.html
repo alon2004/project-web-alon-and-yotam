@@ -106,7 +106,7 @@
         </div>
         <section class="mt-1">
             <h1 class="text-start">Edit Report</h1>
-            <form id="lost-report-form" class="mb-1" action="http://127.0.0.1:8080/api/pets/:id" method="PUT" enctype="multipart/form-data" onsubmit="return validateForm(event)">
+            <form id="lost-report-form" class="mb-1" action="http://127.0.0.1:8080/api/pets/:id" method="PUT">
                 <div class="mb-0.7">
                     <label for="pet-name" class="form-label">Pet Name</label>
                     <input type="text" class="form-control" id="pet-name" name="pet_name" required>
@@ -159,14 +159,14 @@
                     <textarea class="form-control" id="more-information" name="more_information" required></textarea>
                     <span id="more-information-error" class="error"></span>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
-                    </section>
-        <div class="d-flex justify-content-center mb-4">
-            <div class="confirmation-container d-flex justify-content-center align-items-center">
-                <img src="images/confirmCheckBox.svg" alt="Confirmation Check" class="confirmation-icon">
+                    <div class="d-flex justify-content-center mb-4 mt-4 ">
+                <button onclick="return validateForm(event)" style="border: none; border-radius: 25px;">
+                    <div class="confirmation-container d-flex justify-content-center align-items-center">
+                        <img src="images/confirmCheckBox.svg" alt="Confirmation Check" class="confirmation-icon">
+                    </div>
+                </button>
             </div>
-        </div>
     </main>
     <footer class="fixed-bottom d-flex justify-content-around custom-footer-bg border-top">
         <button class="btn" id="homeMap"><img src="images/globeIcon.svg" alt="Global navigation icon" class="img-fluid"></button>
