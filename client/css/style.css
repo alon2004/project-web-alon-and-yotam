@@ -406,11 +406,6 @@ footer .btn:hover {
     background-color: #d3d4d5; 
 }
 
-.container {
-    overflow: hidden; /* Ensures elements stay within the container */
-    padding: 1rem; /* Adds inner gap to avoid slicing */
-}
-
 
 
 /* New CSS for responsive text */
@@ -700,6 +695,12 @@ body main section#deleteObject button#deleteButton{
     border-radius: 10px;
     overflow-x: hidden; 
 }
+
+.card {
+    border: none; 
+    box-shadow: none;
+}
+
 
 .button-container {
     margin-top: 20px;
