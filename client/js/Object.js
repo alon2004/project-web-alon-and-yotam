@@ -74,6 +74,7 @@ function initReportPage(data) {
         document.getElementById("LastSeenP").innerText = report.last_seen_address + ", " + report.city;
         let BarkingIcon = document.getElementById("petBarking");
         let BitingIcon = document.getElementById("petBiting");
+        console.log(BitingIcon);
         let AfraidIcon = document.getElementById("petAfraid");
         let petBehavior = report.pet_behavior;
         let barking = petBehavior.includes("barking");

@@ -410,15 +410,6 @@ body main section#topWrapper div#PetBhaviorsIMG{
     margin-top: 20px;
     margin-left: 20px;
 }
-body main section#topWrapper div#PetBhaviorsIMG img{
-    width: 100px;
-    height: 100px;
-    margin-left: 10px;
-    background-size: 20px;
-    background-repeat: no-repeat;
-    padding-left: 25px;
-    margin-top: 25px;
-}
 
 body main section#topWrapper div#buttonsMore{
     display: inline-block;
@@ -984,10 +975,25 @@ form label.d-block {
     max-width: 30px;
     height: auto;
 }
+.BehaviorIMG{
+    width: 70px;
+    height: 70px;
+    background-size: 20px;
+    background-repeat: no-repeat;
+    padding-left: 25px;
+}
 
 @media (max-width: 768px) {
     .behavior-icons img {
         max-width: 20px;
+    }
+    .BehaviorIMG{
+        width: 50px;
+        height: 50px;
+        background-size: 20px;
+        background-repeat: no-repeat;
+        padding-left: 25px;
+    
     }
 }
 
