@@ -666,63 +666,63 @@ form label.d-block {
 }
 
 .icon {
-    width: 1.5rem; /* Equivalent to 24px */
-    height: 1.5rem; /* Equivalent to 24px */
+    width: 1.5rem; 
+    height: 1.5rem; 
 }
 
 .message-btn, .share-btn {
-    width: 3rem; /* Equivalent to 60px */
-    height: 3rem; /* Equivalent to 60px */
+    width: 3rem; 
+    height: 3rem; 
     display: flex;
     justify-content: center;
     align-items: center;
-    border: none; /* Remove the border */
-    background-color:#E8EBED ; /* Make the background transparent */
-    padding: 0; /* Remove padding */
+    border: none; 
+    background-color:#E8EBED ; 
+    padding: 0; 
 }
 
 .message-btn img, .share-btn img {
-    width: 70%; /* Ensure the icon fills the button */
-    height: auto; /* Maintain aspect ratio */
+    width: 70%; 
+    height: auto; 
 }
 
 .container {
-    max-width: 31.25rem; /* Equivalent to 500px */
+    max-width: 31.25rem; 
     margin: auto;
 }
 
 .message-btn:hover, .share-btn:hover {
-    background-color: #007bff; /* Hover background color */
+    background-color: #007bff; 
 }
 
 
 .card-body {
     background-color: #E8EBED;
     border-radius: 10px;
-    overflow-x: hidden; /* Ensure content does not overflow */
+    overflow-x: hidden; 
 }
 
 .button-container {
     margin-top: 20px;
-    width: 100%; /* Make sure buttons take full width */
+    width: 100%; 
 }
 
 .button-container .btn {
-    width: 100%; /* Ensure buttons take full width */
+    width: 100%; 
 }
 
 .behavior-icon {
-    flex-shrink: 0; /* Prevent icons from shrinking */
+    flex-shrink: 0; 
 }
 
 .d-flex .flex-wrap {
-    flex-wrap: wrap; /* Ensure wrapping of content on small screens */
+    flex-wrap: wrap; 
 }
 
 @media (max-width: 768px) {
     .behavior-icon {
-        width: 30px; /* Adjust width for smaller screens */
-        height: 30px; /* Adjust height for smaller screens */
+        width: 30px; 
+        height: 30px; 
     }
     .button-container {
         margin-top: 10px;
@@ -763,3 +763,6 @@ form label.d-block {
         max-width: 15px;
     }
 }
+
+
+

@@ -11,66 +11,13 @@
     <!-- קשור למפה-->
     <script>(g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })
             ({ key: "AIzaSyBEU2lVD7PSnzdr16XeR2KN40hlZUA-thA", v: "weekly" });</script>
-    <style>
-        .carousel-inner .carousel-item img {
-            max-height: 150px;
-            object-fit: contain;
-        }
-
-        .carousel-inner .carousel-item.active img {
-            transform: scale(1.2);
-        }
-
-        .carousel-image {
-            max-height: 100px;
-            object-fit: contain;
-            cursor: pointer;
-        }
-
-        .carousel-image:hover {
-            transform: scale(1.2);
-        }
-
-        .button-container {
-            margin-top: 20px;
-        }
-
-        .button-container .btn {
-            background-color: #E8EBED;
-            border: none;
-            color: #000;
-            width: 100%;
-        }
-
-        .scan-attempt-btn {
-            background-color: #E8EBED;
-            border: none;
-            color: #000;
-        }
-
-        .carousel-control-prev-icon,
-        .carousel-control-next-icon {
-            background-color: black;
-            background-size: 50%;
-        }
-
-        .carousel-control-prev,
-        .carousel-control-next {
-            width: 5%;
-        }
-
-        .black-carousel-control .carousel-control-prev-icon,
-        .black-carousel-control .carousel-control-next-icon {
-            background-color: black;
-        }
-    </style>
 </head>
 
 <body>
     <header>
         <nav class="d-flex justify-content-between align-items-center py-3 w-100 px-3">
             <button class="btn btn-light d-lg-none" id="menu-button" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">☰</button> <!-- Added d-lg-none class -->
+                data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">☰</button> 
             <div class="logo d-flex align-items-center">
                 <a href="index.html">
                     <img src="images/PawLinkNavLogo.svg" alt="PawLink Logo" class="logo-img img-fluid">
