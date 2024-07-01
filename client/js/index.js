@@ -77,6 +77,7 @@ async function initMap() {
 }
 
 function InitMarkerOnMap(data) {
+  const userId=new URLSearchParams(window.location.search).get("userId");
   for (const report of data) {
     const geocoder = new google.maps.Geocoder();
     const address = report.last_seen_address + "," + report.city;
@@ -104,7 +105,7 @@ function InitMarkerOnMap(data) {
         });
         let infoWindow = new google.maps.InfoWindow;
         infoWindow = new google.maps.InfoWindow({
-          content: `<a href="../client/Object.html?reportId=${report.id}"><img src="https://project-web-alon-and-yotam.onrender.com/imges/Owners/${report.UserImage}" alt="UserImage" class="roundImg"></a> <h3>Lost Pet</h3>`
+          content: `<a href="../client/Object.html?userId=${userId}&reportId=${report.id}"><img src="https://project-web-alon-and-yotam.onrender.com/imges/Owners/${report.UserImage}" alt="UserImage" class="roundImg"></a> <h3>Lost Pet</h3>`
         });
         marker.addListener("click", () => {
           infoWindow.open(map, marker);
