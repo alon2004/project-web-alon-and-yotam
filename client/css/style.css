@@ -61,8 +61,9 @@ body section#ListReports section.report div.userName {
     background-size: contain;
     background-repeat: no-repeat;
     width: 200px;
-    height: 20px;
-    padding-left: 25px;
+    height: 23px;
+    padding-left: 30px;
+    padding-bottom: 30px;
     margin-top: 25px;
     margin-left: 25px;
 }
@@ -261,6 +262,8 @@ body main section#deleteObject{
         width: 235px;
     }
     body section#ListReports section.report section.user div.userName{
+        background-size: 20px;
+        padding-left: 20px;
         margin-left: 35px;
     }
     body section#ListReports section.report section.user a.userImage{
@@ -313,6 +316,7 @@ body main section#deleteObject{
 }
 
 @media (max-width: 420px) {
+
     body section#ListReports section.report div.location {
         display: none;
     }
