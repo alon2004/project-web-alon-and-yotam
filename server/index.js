@@ -13,7 +13,7 @@ app.use(express.json()); /* Middleware to parse incoming requests with JSON payl
 app.use(express.urlencoded({ extended: true }));/* Middleware to parse incoming requests with URL-encoded payloads. When extended is true, it uses the qs library for parsing. */
 
 // Serve static files from the 'public' directory
-app.use(express.static(path.join(path.dirname(__dirname), 'public'))); /* Middleware to serve static files from the 'public' directory. path.join(path.dirname(__dirname), 'public') ensures the correct path to the 'public' directory. */
+app.use(express.static(path.join(__dirname), 'public'))); /* Middleware to serve static files from the 'public' directory. path.join(path.dirname(__dirname), 'public') ensures the correct path to the 'public' directory. */
 
 const { usersRouter } = require('./routers/usersRouter'); /* Imports the usersRouter module. */
 const { petsRouter } = require('./routers/petsRouter');  /* Imports the petsRouter module. */
