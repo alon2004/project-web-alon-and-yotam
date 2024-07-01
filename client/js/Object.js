@@ -181,3 +181,9 @@ document.querySelectorAll('.carousel-image').forEach(image => {
     });
 });
 
+
+
+/* THIS CSS BELONGS TO THE SHARE VIA WHATSUPP BUTTON */
+document.querySelector('.share-btn').addEventListener('click', function() {
+    window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(window.location.href), '_blank');
+});
