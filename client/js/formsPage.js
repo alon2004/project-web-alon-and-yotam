@@ -165,7 +165,7 @@ async function validateForm(event) {
         console.log("Data to be sent:", data); // Log the data being sent
 
         try {
-            const response = await fetch('http://127.0.0.1:8080/api/lostpetform/submit', {
+            const response = await fetch('https://project-web-alon-and-yotam.onrender.com/api/lostpetform/submit', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -184,7 +184,6 @@ async function validateForm(event) {
             submitButton.disabled = false;
         }
     }
-
     return false; // Prevent form from submitting the traditional way
 }
 

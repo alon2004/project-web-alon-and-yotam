@@ -1,6 +1,6 @@
 window.onload = () => {
     addListeners();
-    fetch("http://127.0.0.1:8080/api/pets/innerJoinUsers")
+    fetch("https://project-web-alon-and-yotam.onrender.com/api/pets/innerJoinUsers")
         .then(response => response.json())
         .then(data => initEditPageWithReport(data));
 }
@@ -89,7 +89,7 @@ async function validateForm(event) {
         const reportid = new URLSearchParams(window.location.search).get('reportId');
 
         try {
-            const response = await fetch(`http://127.0.0.1:8080/api/pets/${reportid}`, {
+            const response = await fetch(`https://project-web-alon-and-yotam.onrender.com/api/pets/${reportid}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'

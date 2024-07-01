@@ -4,15 +4,15 @@
 window.onload = () => {
 
   initMap();
-  fetch("http://127.0.0.1:8080/api/users")
+  fetch("https://project-web-alon-and-yotam.onrender.com/api/users")
     .then(response => response.json())
     .then(data => ReplaceUrToUserID(data))
 
-  fetch("http://127.0.0.1:8080/api/pets/innerJoinUsers")
+  fetch("https://project-web-alon-and-yotam.onrender.com/api/pets/innerJoinUsers")
     .then(response => response.json())
     .then(data => initList(data))
 
-  fetch("http://127.0.0.1:8080/api/pets/innerJoinUsers")
+  fetch("https://project-web-alon-and-yotam.onrender.com/api/pets/innerJoinUsers")
     .then(response => response.json())
     .then(data => InitMarkerOnMap(data))
   addListeners();
@@ -104,7 +104,7 @@ function InitMarkerOnMap(data) {
         });
         let infoWindow = new google.maps.InfoWindow;
         infoWindow = new google.maps.InfoWindow({
-          content: `<a href="../client/Object.html?reportId=${report.id}"><img src="http://localhost:8080/imges/Owners/${report.UserImage}" alt="UserImage" class="roundImg"></a> <h3>Lost Pet</h3>`
+          content: `<a href="../client/Object.html?reportId=${report.id}"><img src="https://project-web-alon-and-yotam.onrender.com/imges/Owners/${report.UserImage}" alt="UserImage" class="roundImg"></a> <h3>Lost Pet</h3>`
         });
         marker.addListener("click", () => {
           infoWindow.open(map, marker);
@@ -154,7 +154,7 @@ function initList(data) {
     aUserImage.href = "#";
 
     // User Image
-    let userImage = `<img src="http://localhost:8080/imges/Owners/${report.UserImage}" alt="UserImage">`;
+    let userImage = `<img src="https://project-web-alon-and-yotam.onrender.com/imges/Owners/${report.UserImage}" alt="UserImage">`;
     aUserImage.innerHTML = userImage;
     sectionUser.appendChild(aUserImage);
 
@@ -183,7 +183,7 @@ function initList(data) {
     let aArrowIcon = document.createElement("a");
     aArrowIcon.classList.add("arrow");
     aArrowIcon.href = `../client/Object.html?userId=${userId}&reportId=${report.id}`;
-    let aArrow = `<img src="http://localhost:8080/imges/arrowicon.png" alt="arrow">`
+    let aArrow = `<img src="https://project-web-alon-and-yotam.onrender.com/imges/arrowicon.png" alt="arrow">`
     aArrowIcon.innerHTML = aArrow;
 
     // Last Update
@@ -258,7 +258,7 @@ function LastUpdat(date) {
 
 function deleteReport(reportId) {
 
-  fetch(`http://127.0.0.1:8080/api/pets/${reportId}`, {
+  fetch(`https://project-web-alon-and-yotam.onrender.com/api/pets/${reportId}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json'
