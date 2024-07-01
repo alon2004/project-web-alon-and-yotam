@@ -866,63 +866,7 @@ body main section#deleteObject button#deleteButton{
     }
 }
 
-/* THIS CSS BELONGS TO THE OBJECT.HTML SHARE ICON AND MESSAGE ICON (TOOL TIP AND WHATSUPP LINK) */
-/* Tool Tip for desktop nav links */
-/* 
-.nav-link-wrapper {
-    position: relative;
-}
-
-.nav-link-wrapper:hover::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    top: calc(100% + 10px);
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #333;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    white-space: nowrap;
-    z-index: 10;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.nav-link-wrapper[data-tooltip]:hover::after {
-    opacity: 1;
-}
- */
-
-/* Tool Tip for side menu nav links */
-/* .offcanvas-body .nav-link {
-    position: relative;
-}
-
-.offcanvas-body .nav-link[data-tooltip]:hover::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    top: calc(100% + 10px);
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #333;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    white-space: nowrap;
-    z-index: 10;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.offcanvas-body .nav-link[data-tooltip]:hover::after {
-    opacity: 1;
-}
- */
-
-/* Tool Tip for nav links and footer buttons */
-/* Tool Tip for nav links and footer buttons */
-/* Tool Tip for nav links, side menu links, and footer buttons */
+/* CSS FOR DATA- TOOL TIP FOR BOTH NAVBAR DESKTOP && SIDE MENU && FOOTER */
 [data-tooltip] {
     position: relative;
 }
