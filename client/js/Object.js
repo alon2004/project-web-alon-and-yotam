@@ -98,6 +98,8 @@ function initReportPage(data) {
         else {
             AfraidIcon.style.backgroundImage = "url('https://project-web-alon-and-yotam.onrender.com/imges/xIcon.png')";
         }
+        initMoreInfoBody(report);
+
         let ClassImges = document.getElementsByClassName("carousel-image")
         let imagePet = report.photos
         let imageArray = getImageArray(imagePet);
@@ -154,6 +156,18 @@ function PutMarkerOnMap(address) {
 
 
 
+function initMoreInfoBody(report){
+document.getElementById('moreInfoButton').addEventListener('click', function () {
+    const moreInfoMoadal = document.getElementById('MoreinfoModal');
+    const moreInfo = new bootstrap.Modal(moreInfoMoadal);
+    moreInfo.show();
+    const modalBody = document.getElementsByClassName('modal-body')[0];
+    modalBody.innerHTML = report.more_information;
+    document.getElementById('closeMoreInfo').addEventListener('click', function () {
+        moreInfo.hide();
+    });
+});
+}
 
 
 

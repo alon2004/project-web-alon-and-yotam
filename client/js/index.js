@@ -155,6 +155,7 @@ function initList(data) {
 
     // User Image
     let userImage = `<img src="https://project-web-alon-and-yotam.onrender.com/imges/Owners/${report.UserImage}" alt="UserImage">`;
+    console.log(userImage);
     aUserImage.innerHTML = userImage;
     sectionUser.appendChild(aUserImage);
 
