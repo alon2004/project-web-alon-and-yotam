@@ -15,6 +15,7 @@ app.use(express.urlencoded({ extended: true }));/* Middleware to parse incoming 
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname), 'public')); /* Middleware to serve static files from the 'public' directory. path.join(path.dirname(__dirname), 'public') ensures the correct path to the 'public' directory. */
 
+
 const { usersRouter } = require('./routers/usersRouter'); /* Imports the usersRouter module. */
 const { petsRouter } = require('./routers/petsRouter');  /* Imports the petsRouter module. */
 const { formRouter } = require('./routers/formRouter'); /* Imports the formRouter module. */
