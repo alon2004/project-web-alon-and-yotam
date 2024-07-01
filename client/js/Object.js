@@ -2,7 +2,7 @@
 window.onload = () => {
 
     initMap();
-    fetch("http://127.0.0.1:8080/api/pets/innerJoinUsers")
+    fetch("https://project-web-alon-and-yotam.onrender.com/api/pets/innerJoinUsers")
         .then((response) => response.json())
         .then((data) => initReportPage(data));
 
@@ -61,7 +61,7 @@ function initReportPage(data) {
                 window.location.href = `../client/Edit.html?reportId=${report.id}`;
             });
             document.getElementById("deleteButton").addEventListener("click", () => {
-                fetch(`http://127.0.0.1:8080/api/pets/${report.id}`, {
+                fetch(`https://project-web-alon-and-yotam.onrender.com/api/pets/${report.id}`, {
                     method: 'DELETE',
                 })
                     .then(response => response.json())
@@ -81,22 +81,22 @@ function initReportPage(data) {
         let afraid = petBehavior.includes("afraid");
 
         if (barking == true) {
-            BarkingIcon.style.backgroundImage = "url('http://localhost:8080/imges/vIcon.png')";
+            BarkingIcon.style.backgroundImage = "url('https://project-web-alon-and-yotam.onrender.com/imges/vIcon.png')";
         }
         else {
-            BarkingIcon.style.backgroundImage = "url('http://localhost:8080/imges/xIcon.png')";
+            BarkingIcon.style.backgroundImage = "url('https://project-web-alon-and-yotam.onrender.com/imges/xIcon.png')";
         }
         if (biting == true) {
-            BitingIcon.style.backgroundImage = "url('http://localhost:8080/imges/vIcon.png')";
+            BitingIcon.style.backgroundImage = "url('https://project-web-alon-and-yotam.onrender.com/imges/vIcon.png')";
         }
         else {
-            BitingIcon.style.backgroundImage = "url('http://localhost:8080/imges/xIcon.png')";
+            BitingIcon.style.backgroundImage = "url('https://project-web-alon-and-yotam.onrender.com/imges/xIcon.png')";
         }
         if (afraid == true) {
-            AfraidIcon.style.backgroundImage = "url('http://localhost:8080/imges/vIcon.png')";
+            AfraidIcon.style.backgroundImage = "url('https://project-web-alon-and-yotam.onrender.com/imges/vIcon.png')";
         }
         else {
-            AfraidIcon.style.backgroundImage = "url('http://localhost:8080/imges/xIcon.png')";
+            AfraidIcon.style.backgroundImage = "url('https://project-web-alon-and-yotam.onrender.com/imges/xIcon.png')";
         }
         let ClassImges = document.getElementsByClassName("carousel-image")
         let imagePet = report.photos
@@ -107,7 +107,7 @@ function initReportPage(data) {
             }
         }
         for (let i = 0; i < ClassImges.length; i++) {
-            ClassImges[i].src = `http://localhost:8080/imges/PetsImges/${imageArray[i]}`;
+            ClassImges[i].src = `https://project-web-alon-and-yotam.onrender.com/imges/PetsImges/${imageArray[i]}`;
             ClassImges[i].alt = imageArray[i];
         }
         PutMarkerOnMap(report.last_seen_address + ", " + report.city);
