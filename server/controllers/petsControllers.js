@@ -16,8 +16,8 @@ const petsController = {
     },
     async updateReport(req, res) {
         const connection = await dbConnection.createConnection();
-        const { pet_name, pet_chip_number, pet_behavior, city, last_seen_address, more_information } = req.body;
-        await connection.execute(`UPDATE ${table_name_lostPetReport} SET pet_name = ?, pet_chip_number = ?, pet_behavior = ?, city = ?, last_seen_address = ?, more_information = ? WHERE id = ?`, [pet_name, pet_chip_number, pet_behavior, city, last_seen_address, more_information, req.params.id]);
+        const { pet_name, pet_chip_number, pet_behavior, city, last_seen_address, more_information,date } = req.body;
+        await connection.execute(`UPDATE ${table_name_lostPetReport} SET pet_name = ?, pet_chip_number = ?, pet_behavior = ?, city = ?, last_seen_address = ?, more_information = ?, date=? WHERE id = ?`, [pet_name, pet_chip_number, pet_behavior, city, last_seen_address, more_information,date, req.params.id]);
         connection.end();
         res.json({message: "report updated successfully"});
     },

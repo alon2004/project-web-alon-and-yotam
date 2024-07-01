@@ -40,6 +40,7 @@ async function validateForm(event) {
     const city = cityElement.value.trim();
     const address = addressElement.value.trim();
     const moreInformation = moreInformationElement.value.trim();
+    const nowDate = new Date();
 
     // Validate Pet Name
     if (!petName) {
@@ -80,6 +81,7 @@ async function validateForm(event) {
             city: city,
             last_seen_address: address,
             more_information: moreInformation,
+            date: nowDate,
             unique_id: Date.now() // Add a unique identifier
         };
 
@@ -154,6 +156,7 @@ function initEditPageWithReport(data) {
         if (report.pet_behavior.includes("afraid")) {
             InputAfraid.checked = true;
         }
+        
     }
 
 }
