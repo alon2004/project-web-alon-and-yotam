@@ -865,3 +865,25 @@ body main section#deleteObject button#deleteButton{
         margin-bottom: 4rem; /* Increased gap for mobile */
     }
 }
+
+/* THIS CSS BELONGS TO THE OBJECT.HTML SHARE ICON AND MESSAGE ICON (TOOL TIP AND WHATSUPP LINK) */
+/* Tool Tip for message-btn */
+
+/* Tool Tip for message-btn */
+.message-btn {
+    position: relative;
+}
+
+.message-btn:hover::after {
+    content: 'Not implemented a message page yet';
+    position: absolute;
+    top: calc(100% + 4px); /* מרווח של 10 פיקסלים מתחת לכפתור */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    z-index: 10;
+}
