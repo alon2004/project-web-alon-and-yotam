@@ -132,7 +132,22 @@
                             </div>
                         </div>
                         <div class="button-container d-flex flex-column align-items-end">
-                            <button class="btn btn-outline-primary mb-2">More info</button>
+                            <button id="moreInfoButton" class="btn btn-outline-primary mb-2">More info</button>
+                            <div class="modal fade" id="MoreinfoModal" tabindex="-1" role="dialog" aria-labelledby="MoreinfoModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="MoreinfoModalLabel">More Info</h5>
+                                    </div>
+                                    <div class="modal-body">
+                                      ...
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button id="closeMoreInfo" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             <button class="btn btn-outline-primary">More behavior</button>
                         </div>
                     </section>
